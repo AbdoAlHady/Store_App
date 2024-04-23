@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:store_app/core/app/env_variables.dart';
 import 'package:store_app/firebase_options.dart';
+import 'package:store_app/store_app.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -11,29 +12,10 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  
+
   // Lock screen to portrait
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitDown, DeviceOrientation.portraitUp]).then((_) {
     runApp(const StoreApp());
   });
-}
-
-class StoreApp extends StatelessWidget {
-  const StoreApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: EnvVariables.instance.depugMode,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: Scaffold(
-          appBar: AppBar(
-        title: const Text('Store App'),
-      )),
-    );
-  }
 }
