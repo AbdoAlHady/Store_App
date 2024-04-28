@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_app/core/app/connectivity_controller.dart';
 import 'package:store_app/core/app/env_variables.dart';
+import 'package:store_app/core/styles/font_manager.dart';
+import 'package:store_app/core/styles/font_wight_helper.dart';
 import 'package:store_app/core/widgets/no_network_screen/no_network_screen.dart';
 
 class StoreApp extends StatelessWidget {
@@ -31,9 +33,30 @@ class StoreApp extends StatelessWidget {
                 );
               },
               home: Scaffold(
-                  appBar: AppBar(
-                title: const Text('Store App'),
-              )),
+                appBar: AppBar(
+                  title: const Text('Store App'),
+                ),
+                body: const Center(
+                  child: Column(
+                    children: [
+                      // old
+                      Text('Old fonts', style: TextStyle(fontSize: 20)),
+                      Text('عبد الهادى', style: TextStyle(fontSize: 20)),
+                      // new
+                      Text('Old fonts',
+                          style: TextStyle(
+                              fontFamily: FontFamilyHelper.poppinsEnglish,
+                              fontWeight: FontWightHelper.bold,
+                              fontSize: 20)),
+                      Text('عبد الهادى',
+                          style: TextStyle(
+                              fontFamily: FontFamilyHelper.cairoArabic,
+                              fontWeight: FontWightHelper.bold,
+                              fontSize: 20))
+                    ],
+                  ),
+                ),
+              ),
             ),
           );
         } else {
