@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_app/core/app/connectivity_controller.dart';
 import 'package:store_app/core/app/env_variables.dart';
+import 'package:store_app/core/styles/font_manager.dart';
+import 'package:store_app/core/styles/font_wight_helper.dart';
 import 'package:store_app/core/widgets/no_network_screen/no_network_screen.dart';
 
 class StoreApp extends StatelessWidget {
@@ -12,24 +15,49 @@ class StoreApp extends StatelessWidget {
       valueListenable: ConnectivityController.instance.isConnected,
       builder: (context, value, child) {
         if (value) {
-          return MaterialApp(
-            debugShowCheckedModeBanner: EnvVariables.instance.depugMode,
-            theme: ThemeData(
-              colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-              useMaterial3: true,
-            ),
-            builder: (context, child) {
-              return Scaffold(
-                body: Builder(builder: (context) {
-                  ConnectivityController.instance.init();
-                  return child!;
-                }),
-              );
-            },
-            home: Scaffold(
+          return ScreenUtilInit(
+            designSize: const Size(375, 812),
+            minTextAdapt: true,
+            child: MaterialApp(
+              debugShowCheckedModeBanner: EnvVariables.instance.depugMode,
+              theme: ThemeData(
+                colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+                useMaterial3: true,
+              ),
+              builder: (context, child) {
+                return Scaffold(
+                  body: Builder(builder: (context) {
+                    ConnectivityController.instance.init();
+                    return child!;
+                  }),
+                );
+              },
+              home: Scaffold(
                 appBar: AppBar(
-              title: const Text('Store App'),
-            )),
+                  title: const Text('Store App'),
+                ),
+                body: const Center(
+                  child: Column(
+                    children: [
+                      // old
+                      Text('Old fonts', style: TextStyle(fontSize: 20)),
+                      Text('عبد الهادى', style: TextStyle(fontSize: 20)),
+                      // new
+                      Text('Old fonts',
+                          style: TextStyle(
+                              fontFamily: FontFamilyHelper.poppinsEnglish,
+                              fontWeight: FontWightHelper.bold,
+                              fontSize: 20)),
+                      Text('عبد الهادى',
+                          style: TextStyle(
+                              fontFamily: FontFamilyHelper.cairoArabic,
+                              fontWeight: FontWightHelper.bold,
+                              fontSize: 20))
+                    ],
+                  ),
+                ),
+              ),
+            ),
           );
         } else {
           return MaterialApp(
