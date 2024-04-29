@@ -1,10 +1,17 @@
 class FontFamilyHelper {
   const FontFamilyHelper._();
 
-  static const String cairoArabic='Cairo';
-  static const String poppinsEnglish='Poppins';
+  static const String cairoArabic = 'Cairo';
+  static const String poppinsEnglish = 'Poppins';
 
-
-  //TODO: switch Arabic and English font based on the language
-  
-} 
+  static String getLocalizedFontFamily() {
+  //TODO: sharedPref
+    // ignore: prefer_const_declarations
+    final currentLanguage = 'ar';
+    if(currentLanguage == 'ar') {
+      return cairoArabic;
+    } else {
+      return poppinsEnglish;
+    }
+  }
+}
