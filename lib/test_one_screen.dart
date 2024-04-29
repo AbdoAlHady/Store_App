@@ -22,7 +22,7 @@ class TestOneScreen extends StatelessWidget {
               },
               child: const Text('Go To Two Screen'),
             ),
-            Image.asset(context.image.image ?? '')
+            // Image.asset(context.image.image ?? ''),
           ],
         ),
       ),
