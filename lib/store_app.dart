@@ -4,6 +4,7 @@ import 'package:store_app/core/app/connectivity_controller.dart';
 import 'package:store_app/core/app/env_variables.dart';
 import 'package:store_app/core/routes/app_router.dart';
 import 'package:store_app/core/routes/routes.dart';
+import 'package:store_app/core/theme/app_theme.dart';
 import 'package:store_app/core/widgets/no_network_screen/no_network_screen.dart';
 
 class StoreApp extends StatelessWidget {
@@ -20,10 +21,7 @@ class StoreApp extends StatelessWidget {
             minTextAdapt: true,
             child: MaterialApp(
               debugShowCheckedModeBanner: EnvVariables.instance.depugMode,
-              theme: ThemeData(
-                colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-                useMaterial3: true,
-              ),
+              theme: AppTheme.darkTheme,
               builder: (context, child) {
                 return Scaffold(
                   body: Builder(builder: (context) {

@@ -12,11 +12,17 @@ class TestOneScreen extends StatelessWidget {
         title: const Text('Test One Screen'),
       ),
       body: Center(
-        child: ElevatedButton(
-            onPressed: () {
-              context.pushNamed(Routes.testTwoScreen);
-            },
-            child: const Text('Go To Two Screen')),
+        child: Column(
+          children: [
+            ElevatedButton(
+              onPressed: () {
+                context.pushNamed(Routes.testTwoScreen);
+              },
+              child: const Text('Go To Two Screen'),
+            ),
+            Image.asset(context.image.image??'')
+          ],
+        ),
       ),
     );
   }
