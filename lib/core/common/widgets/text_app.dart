@@ -7,12 +7,12 @@ class TextApp extends StatelessWidget {
       required this.style,
       this.textAlign,
       this.overflow,
-      this.maxLines = 1});
+      this.maxLines });
   final String text;
   final TextStyle style;
   final TextAlign? textAlign;
   final TextOverflow? overflow;
-  final int maxLines;
+  final int? maxLines;
 
   @override
   Widget build(BuildContext context) {
