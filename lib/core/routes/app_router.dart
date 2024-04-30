@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:store_app/core/routes/base_routes.dart';
 import 'package:store_app/core/routes/routes.dart';
-import 'package:store_app/test_one_screen.dart';
-import 'package:store_app/test_two_screen.dart';
+import 'package:store_app/features/auth/presentaions/screens/login_screen.dart';
 
 class AppRouter {
   Route? onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
-      case Routes.testOneScreen:
-        return BaseRoute(page: const TestOneScreen());
-      case Routes.testTwoScreen:
-        return BaseRoute(page: const TextTwoScreen());
+      case Routes.loginScreen:
+        return BaseRoute(page: const LoginScreen());
       default:
         return BaseRoute(
             page: Scaffold(
