@@ -5,6 +5,7 @@ import 'package:store_app/core/common/widgets/text_app.dart';
 import 'package:store_app/core/extensions/context_extension.dart';
 import 'package:store_app/core/helper/spacing.dart';
 import 'package:store_app/core/language/lang_keys.dart';
+import 'package:store_app/core/routes/routes.dart';
 import 'package:store_app/core/styles/fonts/font_wight_helper.dart';
 import '../widgets/auth_title_and_descrition.dart';
 import '../widgets/dark_and_language_button.dart';
@@ -44,12 +45,17 @@ class LoginBody extends StatelessWidget {
 
             CustomFadeInDown(
               duration: 400,
-              child: TextApp(
-                text: context.translator(LangKeys.createAccount),
-                style: context.textStyle.copyWith(
-                    fontSize: 16.sp,
-                    fontWeight: FontWeightHelper.bold,
-                    color: context.color.bluePinkLight),
+              child: TextButton(
+                onPressed: () {
+                  context.pushReplacementNamed(Routes.signupScreen);
+                },
+                child: TextApp(
+                  text: context.translator(LangKeys.createAccount),
+                  style: context.textStyle.copyWith(
+                      fontSize: 16.sp,
+                      fontWeight: FontWeightHelper.bold,
+                      color: context.color.bluePinkLight),
+                ),
               ),
             ),
           ],
