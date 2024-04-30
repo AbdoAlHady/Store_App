@@ -16,7 +16,7 @@ class AppTextFormFiled extends StatelessWidget {
       this.suffixIcon,
       this.prefixIcon,
       this.keyboardType,
-      required this.overrideValidator,
+       this.overrideValidator,
       this.hintStyle,
       this.maxLength,
       this.minLines = 1});
@@ -31,7 +31,7 @@ class AppTextFormFiled extends StatelessWidget {
   final Widget? suffixIcon;
   final Widget? prefixIcon;
   final TextInputType? keyboardType;
-  final bool overrideValidator;
+  final bool? overrideValidator;
   final TextStyle? hintStyle;
   final int? maxLength;
   final int? minLines;
