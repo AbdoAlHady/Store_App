@@ -7,7 +7,7 @@ import 'package:store_app/core/theme/color_extension.dart';
 import 'package:store_app/core/theme/assets_extension.dart';
 
 class AppTheme {
-  static ThemeData lightheme = ThemeData(
+  static ThemeData lighTheme = ThemeData(
     scaffoldBackgroundColor: ColorsLight.mainColor,
     brightness: Brightness.light,
     useMaterial3: true,
