@@ -28,7 +28,7 @@ class StoreApp extends StatelessWidget {
             create: (context) => getIt<AppCubit>()
               ..changeAppThemeMode(
                   sharedMode:
-                      CacheHelper().getData(key: SharedPrefKeys.themeMode)),
+                      CacheHelper().getData(key: SharedPrefKeys.themeMode))..getSavedLanguage(),
             child: ScreenUtilInit(
               designSize: const Size(375, 812),
               minTextAdapt: true,
@@ -39,7 +39,7 @@ class StoreApp extends StatelessWidget {
                   return MaterialApp(
                     debugShowCheckedModeBanner: EnvVariables.instance.depugMode,
                     theme:cubit.isDark? AppTheme.darkTheme:AppTheme.lighTheme,
-                    locale: const Locale('en'),
+                    locale: Locale(cubit.langCode),
                     localeResolutionCallback:
                         AppLocalizationsSetup.localeResolutionCallback,
                     supportedLocales: AppLocalizationsSetup.supportedLocales,

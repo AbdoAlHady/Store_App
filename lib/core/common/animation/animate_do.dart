@@ -1,5 +1,7 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
+import 'package:store_app/core/helper/cahec_helper.dart';
+import 'package:store_app/core/helper/shared_prefrences_keys.dart';
 
 class CustomFadeInDown extends StatelessWidget {
   const CustomFadeInDown({
@@ -56,23 +58,17 @@ class CustomFadeInLeft extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //TODO: sharePreferences
-    return FadeInLeft(
-      delay: const Duration(milliseconds: 300),
-      duration: Duration(milliseconds: duration),
-      child: child,
-    );
-    // return SharedPref().getString(PrefKeys.language) == 'ar'
-    //     ? FadeInLeft(
-    //         delay: const Duration(milliseconds: 300),
-    //         duration: Duration(milliseconds: duration),
-    //         child: child,
-    //       )
-    //     : FadeInRight(
-    //         delay: const Duration(milliseconds: 300),
-    //         duration: Duration(milliseconds: duration),
-    //         child: child,
-    //       );
+    return CacheHelper().getData(key: SharedPrefKeys.appLanguage) =='ar'
+        ? FadeInLeft(
+            delay: const Duration(milliseconds: 300),
+            duration: Duration(milliseconds: duration),
+            child: child,
+          )
+        : FadeInRight(
+            delay: const Duration(milliseconds: 300),
+            duration: Duration(milliseconds: duration),
+            child: child,
+          );
   }
 }
 
@@ -89,22 +85,16 @@ class CustomFadeInRight extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //TODO: sharePreferences
-    return FadeInRight(
-      delay: const Duration(milliseconds: 300),
-      duration: Duration(milliseconds: duration),
-      child: child,
-    );
-    // return SharedPref().getString(PrefKeys.language) == 'ar'
-    //     ? FadeInRight(
-    //         delay: const Duration(milliseconds: 300),
-    //         duration: Duration(milliseconds: duration),
-    //         child: child,
-    //       )
-    //     : FadeInLeft(
-    //         delay: const Duration(milliseconds: 300),
-    //         duration: Duration(milliseconds: duration),
-    //         child: child,
-    //       );
+    return CacheHelper().getData(key: SharedPrefKeys.appLanguage) == 'ar'
+        ? FadeInRight(
+            delay: const Duration(milliseconds: 300),
+            duration: Duration(milliseconds: duration),
+            child: child,
+          )
+        : FadeInLeft(
+            delay: const Duration(milliseconds: 300),
+            duration: Duration(milliseconds: duration),
+            child: child,
+          );
   }
 }

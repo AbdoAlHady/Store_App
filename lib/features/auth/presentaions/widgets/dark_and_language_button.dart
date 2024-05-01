@@ -5,6 +5,7 @@ import 'package:store_app/core/common/animation/animate_do.dart';
 import 'package:store_app/core/common/widgets/custom_gradient_button.dart';
 import 'package:store_app/core/common/widgets/text_app.dart';
 import 'package:store_app/core/extensions/context_extension.dart';
+import 'package:store_app/core/language/app_localizations.dart';
 import 'package:store_app/core/language/lang_keys.dart';
 import 'package:store_app/core/styles/fonts/font_wight_helper.dart';
 
@@ -21,7 +22,7 @@ class DarkAndLanguageButton extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         // Dark Mode Button,
-        BlocBuilder<AppCubit,AppState>(
+        BlocBuilder<AppCubit, AppState>(
           builder: (context, state) {
             return CustomFadeInRight(
               duration: 400,
@@ -51,7 +52,13 @@ class DarkAndLanguageButton extends StatelessWidget {
                 fontWeight: FontWeightHelper.bold,
               ),
             ),
-            onPressed: () {},
+            onPressed: () {
+              if (AppLocalizations.of(context)!.isEnLocale) {
+                cubit.toArabic();
+              } else {
+                cubit.toEnglish();
+              }
+            },
           ),
         ),
       ],
