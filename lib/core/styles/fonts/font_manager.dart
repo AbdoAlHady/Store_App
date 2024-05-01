@@ -1,3 +1,6 @@
+import 'package:store_app/core/helper/cahec_helper.dart';
+import 'package:store_app/core/helper/shared_prefrences_keys.dart';
+
 class FontFamilyHelper {
   const FontFamilyHelper._();
 
@@ -5,9 +8,7 @@ class FontFamilyHelper {
   static const String poppinsEnglish = 'Poppins';
 
   static String getLocalizedFontFamily() {
-  //TODO: sharedPref
-    // ignore: prefer_const_declarations
-    final currentLanguage = 'ar';
+    final currentLanguage =  CacheHelper().getData(key: SharedPrefKeys.appLanguage);
     if(currentLanguage == 'ar') {
       return cairoArabic;
     } else {

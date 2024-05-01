@@ -23,6 +23,7 @@ class SignUpButton extends StatelessWidget {
           text: context.translator(LangKeys.signUp),
           style: context.textStyle.copyWith(
             fontSize: 20.sp,
+            color: Colors.white,
             fontWeight: FontWeightHelper.bold,
           ),
         ),

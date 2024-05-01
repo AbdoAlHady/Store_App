@@ -21,7 +21,7 @@ class LoginButton extends StatelessWidget {
           child: TextApp(
             text: context.translator(LangKeys.login),
             style: context.textStyle
-                .copyWith(fontSize: 20.sp, fontWeight: FontWeightHelper.bold),
+                .copyWith(fontSize: 20.sp, fontWeight: FontWeightHelper.bold,color: Colors.white),
           )),
     );
   }

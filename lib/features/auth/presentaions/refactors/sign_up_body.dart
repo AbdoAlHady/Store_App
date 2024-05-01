@@ -26,7 +26,7 @@ class SignUpBody extends StatelessWidget {
           children: [
             // Dark and Language Button,
             const DarkAndLanguageButton(),
-            verticalSpace(30),
+            verticalSpace(20),
 
             // Title and Description,
 
@@ -34,15 +34,15 @@ class SignUpBody extends StatelessWidget {
               title: context.translator(LangKeys.signUp),
               description: context.translator(LangKeys.signUpWelcome),
             ),
-            verticalSpace(25),
+            verticalSpace(20),
 
             // User Avatar Image,
             const UserAvatar(),
-            verticalSpace(25),
+            verticalSpace(20),
 
             // SignUp Form,
             const SignUpForm(),
-            verticalSpace(25),
+            verticalSpace(20),
 
             // Sign Up Button
             const SignUpButton(),
