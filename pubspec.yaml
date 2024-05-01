@@ -23,7 +23,17 @@ dependencies:
   flutter_native_splash: ^2.4.0
   flutter_localizations:
     sdk: flutter
+  # Animation
   animate_do: ^3.3.4
+  # Bloc
+  flutter_bloc: ^8.1.5
+  # DataBase
+  shared_preferences: ^2.2.3
+  # Frezzed Code Generator
+  freezed: ^2.5.2
+  freezed_annotation: ^2.4.1
+  # Code Generation  
+  build_runner: ^2.4.9
  
 
 dev_dependencies:
