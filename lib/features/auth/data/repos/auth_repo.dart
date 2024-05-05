@@ -5,6 +5,8 @@ import 'package:store_app/features/auth/data/datasource/auth_data_source.dart';
 import 'package:store_app/features/auth/data/models/login_request_body.dart';
 import 'package:store_app/features/auth/data/models/login_response.dart';
 
+import '../models/user_role.dart';
+
 class AuthRepo {
   final AuthDataSource _authDataSource;
 
@@ -20,5 +22,11 @@ class AuthRepo {
       debugPrint(' Error in login: $e');
       return const ApiResult.failure(AppString.errorMessage);
     }
+  }
+
+  // User Role
+  Future<UserRole> getUserRole(String token) async {
+    final response = _authDataSource.getUserRole(token: token);
+    return response;
   }
 }
