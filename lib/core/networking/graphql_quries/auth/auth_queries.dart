@@ -9,21 +9,19 @@ class AuthQueries {
   }
 
   Map<String, dynamic> loginMapQuery(LoginRequestBody body) {
-    return {
-      'query':r''' 
-       mutation Login($email:String!, password: String!) {
-	        login(email: $email, password: $password) {
-		      access_token
-		      refresh_token
-	      }
-      }
-
-      ''',
-      'variables':{
+     return {
+      'query': r'''
+          mutation Login($email: String!, $password: String!) {
+            login(email: $email, password: $password) {
+              access_token
+              refresh_token
+            }
+          }
+        ''',
+      'variables': {
         'email': body.email,
-        'password': body.password
-      }
-
+        'password': body.password,
+      },
     };
   }
 }

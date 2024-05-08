@@ -28,17 +28,19 @@ class StoreApp extends StatelessWidget {
             create: (context) => getIt<AppCubit>()
               ..changeAppThemeMode(
                   sharedMode:
-                      CacheHelper().getData(key: SharedPrefKeys.themeMode))..getSavedLanguage(),
+                      CacheHelper().getData(key: SharedPrefKeys.themeMode))
+              ..getSavedLanguage(),
             child: ScreenUtilInit(
               designSize: const Size(375, 812),
               minTextAdapt: true,
               builder: (context, child) => BlocBuilder<AppCubit, AppState>(
                 buildWhen: (previous, current) => previous != current,
                 builder: (context, state) {
-                  final cubit=context.read<AppCubit>();
+                  final cubit = context.read<AppCubit>();
                   return MaterialApp(
                     debugShowCheckedModeBanner: EnvVariables.instance.depugMode,
-                    theme:cubit.isDark? AppTheme.darkTheme:AppTheme.lighTheme,
+                    theme:
+                        cubit.isDark ? AppTheme.darkTheme : AppTheme.lighTheme,
                     locale: Locale(cubit.langCode),
                     localeResolutionCallback:
                         AppLocalizationsSetup.localeResolutionCallback,
@@ -59,7 +61,14 @@ class StoreApp extends StatelessWidget {
                       );
                     },
                     onGenerateRoute: AppRouter().onGenerateRoute,
-                    initialRoute: Routes.loginScreen,
+                    initialRoute: CacheHelper()
+                                .getData(key: SharedPrefKeys.accessToken) !=
+                            null
+                        ? CacheHelper().getData(key: SharedPrefKeys.userRole) ==
+                                'admin'
+                            ? Routes.homeAdmin
+                            : Routes.homeCustomer
+                        : Routes.loginScreen,
                   );
                 },
               ),

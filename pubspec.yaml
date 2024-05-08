@@ -49,6 +49,7 @@ dependencies:
   # is an dio client generator using source_gen 
   retrofit: ^4.1.0
   retrofit_generator: ^8.1.0
+  fluttertoast: ^8.2.5
  
 
 dev_dependencies:
