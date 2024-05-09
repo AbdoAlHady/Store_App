@@ -34,7 +34,7 @@ class _LoginFormState extends State<LoginForm> {
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: _bloc.loginFormKey,
+      key: _bloc.formKey,
       child: Column(
         children: [
           // Email Field,
