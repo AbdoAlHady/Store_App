@@ -1,10 +1,14 @@
+import 'package:flutter/widgets.dart';
 import 'package:get_it/get_it.dart';
+import 'package:store_app/core/app/upload_image/repos/upload_image_repos.dart';
 import 'package:store_app/core/networking/dio_factory.dart';
 
 import '../../features/auth/data/datasource/auth_data_source.dart';
 import '../../features/auth/data/repos/auth_repo.dart';
 import '../../features/auth/presentaions/bloc/auth_bloc.dart';
 import '../app/app_cubit/app_cubit.dart';
+import '../app/upload_image/date_source/upload_image_date_source.dart';
+import '../app/upload_image/upload_image_cubit/cubit/upload_image_cubit.dart';
 import '../networking/api_service.dart';
 
 GetIt getIt = GetIt.instance;
@@ -15,11 +19,21 @@ Future<void> setupDependancyInjection() async {
 }
 
 Future<void> _initCore() async {
+  final navigateKey=GlobalKey<NavigatorState>();
   // App Cubit
   getIt.registerFactory(() => AppCubit());
-
   // Api Service
   getIt.registerFactory(() => ApiService(DioFactroy.getDio()));
+  // Navigator Key 
+  getIt.registerSingleton<GlobalKey<NavigatorState>>(navigateKey);
+
+  // Upload Image Date Source
+   getIt.registerLazySingleton(() => UploadImageDataSource(getIt<ApiService>()));
+  // Upload Image Repo
+  getIt.registerLazySingleton(() => UploadImageRepo(getIt<UploadImageDataSource>()));
+  // Upload Image Cubit
+  getIt.registerFactory(() => UploadImageCubit(getIt<UploadImageRepo>())); 
+
 
 }
 

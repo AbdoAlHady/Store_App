@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:store_app/core/app/upload_image/upload_image_cubit/cubit/upload_image_cubit.dart';
 import 'package:store_app/core/di/dependancy_injection.dart';
 import 'package:store_app/core/routes/base_routes.dart';
 import 'package:store_app/core/routes/routes.dart';
@@ -20,7 +21,15 @@ class AppRouter {
           child: const LoginScreen(),
         ));
       case Routes.signupScreen:
-        return BaseRoute(page: const SignUpScreen());
+        return BaseRoute(
+            page: MultiBlocProvider(
+         providers: [
+            BlocProvider(
+              create: (context) => getIt<UploadImageCubit>(),
+            ),
+         ],
+          child: const SignUpScreen(),
+        ));
       case Routes.homeAdmin:
         return BaseRoute(page: const HomeAdmin());
       case Routes.homeCustomer:
