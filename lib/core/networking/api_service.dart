@@ -1,9 +1,9 @@
-
 import 'package:dio/dio.dart';
 import 'package:retrofit/http.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:store_app/core/networking/api_constans.dart';
 import 'package:store_app/features/auth/data/models/login_response.dart';
+import 'package:store_app/features/auth/data/models/sign_up_response.dart';
 
 import '../../features/auth/data/models/user_role.dart';
 import '../app/upload_image/models/upload_image_response.dart';
@@ -22,4 +22,7 @@ abstract class ApiService {
 
   @POST('/api/v1/files/upload')
   Future<UploadImageResponse> uploadImage(@Body() FormData file);
+
+  @POST(ApiConstants.graphql)
+  Future<SignUpResponse> signUp(@Body() Map<String, dynamic> mutation);
 }
