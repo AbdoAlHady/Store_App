@@ -89,7 +89,7 @@ class _ApiService implements ApiService {
     )
             .compose(
               _dio.options,
-              '/v1/files/upload',
+              '/api/v1/files/upload',
               queryParameters: queryParameters,
               data: _data,
             )
