@@ -27,6 +27,9 @@ class AppRouter {
             BlocProvider(
               create: (context) => getIt<UploadImageCubit>(),
             ),
+            BlocProvider(
+              create: (context) => getIt<AuthBloc>(),
+            ),
          ],
           child: const SignUpScreen(),
         ));

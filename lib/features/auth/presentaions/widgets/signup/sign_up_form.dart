@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_app/core/extensions/context_extension.dart';
+import 'package:store_app/features/auth/presentaions/bloc/auth_bloc.dart';
 
 import '../../../../../core/common/animation/animate_do.dart';
 import '../../../../../core/common/widgets/custom_text_form_field.dart';
@@ -17,17 +19,24 @@ class SignUpForm extends StatefulWidget {
 
 class _SignUpFormState extends State<SignUpForm> {
   bool isObscure = true;
+  late AuthBloc _authBloc;
+  @override
+  void initState() {
+    _authBloc = context.read<AuthBloc>();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Form(
+      key: _authBloc.formKey,
       child: Column(
         children: [
           // Full Name Field,
           CustomFadeInRight(
             duration: 200,
             child: AppTextFormFiled(
-              controller: TextEditingController(),
+              controller: _authBloc.nameController,
               hintText: context.translator(LangKeys.fullName),
               keyboardType: TextInputType.emailAddress,
               validator: (value) {
@@ -43,11 +52,11 @@ class _SignUpFormState extends State<SignUpForm> {
           CustomFadeInRight(
             duration: 200,
             child: AppTextFormFiled(
-              controller: TextEditingController(),
+              controller: _authBloc.emailController,
               hintText: context.translator(LangKeys.email),
               keyboardType: TextInputType.emailAddress,
               validator: (value) {
-                if (AppRegex.isEmailVaild(value!) || value.isEmpty) {
+                if (!AppRegex.isEmailVaild(value!) || value.isEmpty) {
                   return context.translator(LangKeys.validEmail);
                 }
                 return null;
@@ -60,7 +69,7 @@ class _SignUpFormState extends State<SignUpForm> {
           CustomFadeInRight(
             duration: 200,
             child: AppTextFormFiled(
-              controller: TextEditingController(),
+              controller:_authBloc.passwordController,
               hintText: context.translator(LangKeys.password),
               keyboardType: TextInputType.visiblePassword,
               obsecureText: isObscure,

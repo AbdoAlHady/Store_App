@@ -12,6 +12,7 @@
     "create_account": "Create account",
     "sign_up_welcome": "Welcome, Please add your information",
     "sign_up": "Sign Up",
+    "signUp_successfully":"You have been registered successfully",
     "you_have_account": "You have an account?",
     "full_name": "Full Name",
     "valid_name":"Please enter your full name",
