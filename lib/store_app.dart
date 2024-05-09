@@ -41,6 +41,7 @@ class StoreApp extends StatelessWidget {
                     debugShowCheckedModeBanner: EnvVariables.instance.depugMode,
                     theme:
                         cubit.isDark ? AppTheme.darkTheme : AppTheme.lighTheme,
+                    navigatorKey: getIt<GlobalKey<NavigatorState>>(),
                     locale: Locale(cubit.langCode),
                     localeResolutionCallback:
                         AppLocalizationsSetup.localeResolutionCallback,

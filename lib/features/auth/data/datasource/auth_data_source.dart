@@ -4,6 +4,8 @@ import 'package:store_app/core/networking/api_service.dart';
 import 'package:store_app/core/networking/graphql_quries/auth/auth_queries.dart';
 import 'package:store_app/features/auth/data/models/login_request_body.dart';
 import 'package:store_app/features/auth/data/models/login_response.dart';
+import 'package:store_app/features/auth/data/models/sign_up_request_body.dart';
+import 'package:store_app/features/auth/data/models/sign_up_response.dart';
 
 import '../models/user_role.dart';
 
@@ -25,6 +27,14 @@ class AuthDataSource {
     dio.options.headers['Authorization'] = 'Bearer $token';
     final response = await client.getUserRole();
     debugPrint('[USER ROLE]: ${response.role}');
+    return response;
+  }
+
+  // Sign Up
+  Future<SignUpResponse> signUp(SignUpRequestBody body) async {
+    final response =
+        await _apiService.signUp(AuthQueries().signUpMapQuery(body));
+
     return response;
   }
 }

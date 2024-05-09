@@ -33,3 +33,5 @@ void main() async {
     runApp(const StoreApp());
   });
 }
+
+// flutter pub get && flutter pub run build_runner build --delete-conflicting-outputs
