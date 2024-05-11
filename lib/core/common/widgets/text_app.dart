@@ -7,12 +7,13 @@ class TextApp extends StatelessWidget {
       required this.style,
       this.textAlign,
       this.overflow,
-      this.maxLines });
+      this.maxLines, this.softWrap });
   final String text;
   final TextStyle style;
   final TextAlign? textAlign;
   final TextOverflow? overflow;
   final int? maxLines;
+  final bool? softWrap;
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +22,7 @@ class TextApp extends StatelessWidget {
       style: style,
       textAlign: textAlign,
       overflow: overflow,
+      softWrap:softWrap ,
       maxLines: maxLines,
     );
   }
