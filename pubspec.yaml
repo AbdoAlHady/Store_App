@@ -23,8 +23,13 @@ dependencies:
   flutter_native_splash: ^2.4.0
   flutter_localizations:
     sdk: flutter
-  # Animation
+  
+  # UI
   animate_do: ^3.3.4
+  fluttertoast: ^8.2.5
+  flutter_zoom_drawer: ^3.2.0
+
+
   # Bloc
   flutter_bloc: ^8.1.5
   # DataBase
@@ -49,11 +54,11 @@ dependencies:
   # is an dio client generator using source_gen 
   retrofit: ^4.1.0
   retrofit_generator: ^8.1.0
-  fluttertoast: ^8.2.5
   # A Plugin for selecting images from the Android and iOS
   image_picker: ^1.1.1
   # This plugin provides a cross-platform (iOS, Android) API to request and check permissions.
   permission_handler: ^11.3.1
+  
  
 
 dev_dependencies:

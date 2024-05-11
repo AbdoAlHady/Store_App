@@ -23,5 +23,5 @@ extension ContextExt on BuildContext {
   Future<void> pushNamedAndRemoveUntil(String routeName, {Object? argumnets}) =>
       Navigator.of(this).pushNamedAndRemoveUntil(routeName, (route) => false,
           arguments: argumnets);
-  voidpop() => Navigator.of(this).pop();
+  void pop() => Navigator.of(this).pop();
 }
