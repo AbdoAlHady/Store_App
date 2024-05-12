@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:store_app/core/extensions/context_extension.dart';
 
 import '../../../../../core/common/widgets/admin_app_bar.dart';
+import '../refactors/add_categories_body.dart';
 
 class AddCategoriesScreen extends StatelessWidget {
   const AddCategoriesScreen({super.key});
@@ -13,12 +14,7 @@ class AddCategoriesScreen extends StatelessWidget {
           isMain: true,
           backgroundColor: context.color.mainColor!,
           title: 'Categories'),
-      body: const Center(
-        child: Text(
-          'Add Categories Screen ',
-          style: TextStyle(color: Colors.white, fontSize: 20),
-        ),
-      ),
+      body: const AddCategoriesBody(),
     );
   }
 }

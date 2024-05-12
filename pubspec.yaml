@@ -60,6 +60,7 @@ dependencies:
   image_picker: ^1.1.1
   # This plugin provides a cross-platform (iOS, Android) API to request and check permissions.
   permission_handler: ^11.3.1
+  cached_network_image: ^3.3.1
   
  
 
