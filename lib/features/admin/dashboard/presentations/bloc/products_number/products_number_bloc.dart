@@ -6,7 +6,7 @@ import 'package:store_app/features/admin/dashboard/repos/dashboard_repo.dart';
 
 class ProductsNumberBloc
     extends Bloc<ProductsNumberEvent, ProductsNumberState> {
-  ProductsNumberBloc(this._repo) : super(const ProductsNumberState.initial()) {
+  ProductsNumberBloc(this._repo) : super( const ProductsNumberState.initial()) {
     on<ProductsNumberEvent>(_getProductsNumber);
   }
 

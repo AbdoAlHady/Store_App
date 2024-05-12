@@ -12,16 +12,16 @@ class ProductNumberResponse {
       _$ProductNumberResponseFromJson(json);
 
   String get productsNumber {
-    if(data.prodcuts == null) return '0';
-    return data.prodcuts!.length.toString();
+    if(data.products!.isEmpty) return '0';
+    return data.products!.length.toString();
   }
 }
 
 @JsonSerializable()
 class ProductsDataModel {
-  final List<ProdcutsNumberModel>? prodcuts;
+  final List<ProdcutsNumberModel>? products;
 
-  ProductsDataModel({required this.prodcuts});
+  ProductsDataModel({required this.products});
   factory ProductsDataModel.fromJson(Map<String, dynamic> json) =>
       _$ProductsDataModelFromJson(json);
 }
