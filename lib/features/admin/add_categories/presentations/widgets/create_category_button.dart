@@ -5,6 +5,9 @@ import 'package:store_app/core/common/widgets/text_app.dart';
 import 'package:store_app/core/extensions/context_extension.dart';
 import 'package:store_app/core/styles/colors/colors_dark.dart';
 import 'package:store_app/core/styles/fonts/font_wight_helper.dart';
+import 'package:store_app/features/admin/add_categories/presentations/widgets/create_category_bottom_sheet.dart';
+
+import '../../../../../core/common/bootm_sheet/custom_btuttom_sheet.dart';
 
 class CreateCategoryButton extends StatelessWidget {
   const CreateCategoryButton({super.key});
@@ -25,7 +28,8 @@ class CreateCategoryButton extends StatelessWidget {
         // Button,
         CustomButton(
           onPressed: () {
-          // TODO: Craete Category Bottom Sheet
+            CustomBottomSheet.showCustomModelSheet(
+                context: context, child: const CreateCategoryBottomSheet());
           },
           text: 'Add',
           backgroundColor: ColorsDark.blueDark,
