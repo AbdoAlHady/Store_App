@@ -2,6 +2,9 @@ import 'package:flutter/widgets.dart';
 import 'package:get_it/get_it.dart';
 import 'package:store_app/core/app/upload_image/repos/upload_image_repos.dart';
 import 'package:store_app/core/networking/dio_factory.dart';
+import 'package:store_app/features/admin/add_categories/data/data_source/categories_admin_data_source.dart';
+import 'package:store_app/features/admin/add_categories/data/repo/categories_admin_repo.dart';
+import 'package:store_app/features/admin/add_categories/presentations/bloc/get_all_admin_categories_bloc/get_all_admin_categories_bloc.dart';
 import 'package:store_app/features/admin/dashboard/data/data_source/dashboard_data_source.dart';
 import 'package:store_app/features/admin/dashboard/presentations/bloc/products_number/products_number_bloc.dart';
 import 'package:store_app/features/admin/dashboard/presentations/bloc/users_number/users_number_bloc.dart';
@@ -22,6 +25,7 @@ Future<void> setupDependancyInjection() async {
   await _initCore();
   await _initAuth();
   await _initDashboard();
+  await _initAdminCategories();
 }
 
 Future<void> _initCore() async {
@@ -63,4 +67,13 @@ Future<void> _initDashboard() async {
   getIt.registerFactory(() => UsersNumberBloc(getIt<DashboardRepo>()));
   // Categories Number Bloc
   getIt.registerFactory(() => CategoriesNumberBloc(getIt<DashboardRepo>()));
-  }
+}
+
+Future<void> _initAdminCategories() async {
+  // Admin Categories Data Source
+  getIt.registerLazySingleton(() => CategoriesAdminDataSource(getIt()));
+  // Admin Categories Repo
+  getIt.registerLazySingleton(() => CategoriesAdminRepo(getIt()));
+  // Admin  Get All Categories  Bloc
+  getIt.registerFactory(() => GetAllAdminCategoriesBloc(getIt()));
+}
