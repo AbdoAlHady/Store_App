@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:store_app/core/networking/api_result.dart';
 import 'package:store_app/core/utils/app_string.dart';
 import 'package:store_app/features/admin/add_categories/data/data_source/categories_admin_data_source.dart';
@@ -14,6 +15,7 @@ class CategoriesAdminRepo {
       final result = await _dataSource.getAllCategoriesAdmin();
       return ApiResult.success(result);
     } catch (e) {
+       debugPrint("===Categories Admin Error ====: $e");
       return const ApiResult.failure(AppString.errorMessage);
     }
   }

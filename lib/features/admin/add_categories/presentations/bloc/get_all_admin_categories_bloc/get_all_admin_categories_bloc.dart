@@ -1,16 +1,29 @@
+import 'dart:async';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store_app/features/admin/add_categories/data/data_source/categories_admin_data_source.dart';
-
+import 'package:store_app/features/admin/add_categories/data/repo/categories_admin_repo.dart';
 import 'get_all_admin_categories_event.dart';
 import 'get_all_admin_categories_state.dart';
 
 class GetAllAdminCategoriesBloc
     extends Bloc<GetAllAdminCategoriesEvent, GetAllAdminCategoriesState> {
-  final CategoriesAdminDataSource _dataSource;
-  GetAllAdminCategoriesBloc(this._dataSource)
+  final CategoriesAdminRepo _repo;
+  GetAllAdminCategoriesBloc(this._repo)
       : super(const GetAllAdminCategoriesState.loading()) {
-    on<GetAllAdminCategoriesEvent>((event, emit) {
-      // TODO: implement event handler
+    on<GetAllAdminCategoriesEvent>(_getAllAdminCategories);
+  }
+
+  FutureOr<void> _getAllAdminCategories(event, emit) async {
+    emit(const GetAllAdminCategoriesState.loading());
+    final result = await _repo.getAllCategoriesAdmin();
+    result.when(success: (categoriesResponseData) {
+      if (categoriesResponseData.data.categories == []) {
+        emit(const GetAllAdminCategoriesState.empty());
+      } else {
+        emit(GetAllAdminCategoriesState.success(
+            categoriesResponseData.data.categories!));
+      }
+    }, failure: (error) {
+      emit(GetAllAdminCategoriesState.failure(error));
     });
   }
 }

@@ -8,14 +8,12 @@ part of 'categories_response_model.dart';
 
 CategoriesResponse _$CategoriesResponseFromJson(Map<String, dynamic> json) =>
     CategoriesResponse(
-      json['date'] == null
-          ? null
-          : CategoriesDateModel.fromJson(json['date'] as Map<String, dynamic>),
+      CategoriesDateModel.fromJson(json['data'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$CategoriesResponseToJson(CategoriesResponse instance) =>
     <String, dynamic>{
-      'date': instance.date,
+      'data': instance.data,
     };
 
 CategoriesDateModel _$CategoriesDateModelFromJson(Map<String, dynamic> json) =>

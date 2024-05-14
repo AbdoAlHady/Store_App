@@ -2,9 +2,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'categories_response_model.g.dart';
 @JsonSerializable()
 class CategoriesResponse {
-   final CategoriesDateModel? date;
+   final CategoriesDateModel data;
 
-  CategoriesResponse(this.date);
+  CategoriesResponse(this.data);
   factory CategoriesResponse.fromJson(Map<String, dynamic> json) =>
       _$CategoriesResponseFromJson(json);
 }
@@ -19,6 +19,7 @@ class CategoriesDateModel {
 }
 
 @JsonSerializable()
+// 
 class CategoriesModel {
   final String? id;
   final String? name;
