@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_app/core/helper/spacing.dart';
 import 'package:store_app/core/styles/colors/colors_dark.dart';
-import 'package:store_app/features/admin/add_categories/presentations/widgets/add_category_item.dart';
-
+import 'package:store_app/features/admin/add_categories/presentations/bloc/get_all_admin_categories_bloc/get_all_admin_categories_bloc.dart';
+import '../bloc/get_all_admin_categories_bloc/get_all_admin_categories_event.dart';
 import '../widgets/add_categories_list.dart';
 import '../widgets/create_category_button.dart';
 
@@ -23,7 +24,9 @@ class AddCategoriesBody extends StatelessWidget {
           // Categories List,
           Expanded(
             child: RefreshIndicator(
-              onRefresh: () async {},
+              onRefresh: () async {
+                context.read<GetAllAdminCategoriesBloc>().add(const GetAllAdminCategoriesEvent.getAllAdminCategories());
+              },
               color: ColorsDark.blueLight,
               child: const CustomScrollView(
                 slivers: [

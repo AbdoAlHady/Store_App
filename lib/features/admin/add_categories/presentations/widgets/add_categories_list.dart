@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:store_app/core/common/widgets/empty_screen.dart';
 import 'package:store_app/core/helper/spacing.dart';
 import 'package:store_app/features/admin/add_categories/presentations/bloc/get_all_admin_categories_bloc/get_all_admin_categories_bloc.dart';
 import 'package:store_app/features/admin/add_categories/presentations/widgets/add_category_item.dart';
@@ -40,9 +41,7 @@ class AddCategoriesList extends StatelessWidget {
             );
           },
           empty: () {
-            return const Center(
-              child: Text('No Categories Found'),
-            );
+            return const EmptyScreen();
           },
         );
       },
