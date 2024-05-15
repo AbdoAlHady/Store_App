@@ -50,12 +50,17 @@ class AddCategoryItem extends StatelessWidget {
                       ),
                       horizontalSpace(20),
                       // Edit,
-                      const UpdateCategoryButton(),
+                      UpdateCategoryButton(
+                        imageUrl: imageUrl,
+                        name: name,
+                        id: categoryId,
+                      ),
                     ],
                   )
                 ],
               ),
             ),
+            horizontalSpace(5),
             ClipRRect(
               borderRadius: BorderRadius.circular(10),
               child: CachedNetworkImage(
@@ -82,5 +87,3 @@ class AddCategoryItem extends StatelessWidget {
     );
   }
 }
-
-
