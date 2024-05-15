@@ -4,6 +4,7 @@ import 'package:store_app/core/app/upload_image/repos/upload_image_repos.dart';
 import 'package:store_app/core/networking/dio_factory.dart';
 import 'package:store_app/features/admin/add_categories/data/data_source/categories_admin_data_source.dart';
 import 'package:store_app/features/admin/add_categories/data/repo/categories_admin_repo.dart';
+import 'package:store_app/features/admin/add_categories/presentations/bloc/create_category_bloc/create_category_bloc.dart';
 import 'package:store_app/features/admin/add_categories/presentations/bloc/get_all_admin_categories_bloc/get_all_admin_categories_bloc.dart';
 import 'package:store_app/features/admin/dashboard/data/data_source/dashboard_data_source.dart';
 import 'package:store_app/features/admin/dashboard/presentations/bloc/products_number/products_number_bloc.dart';
@@ -76,4 +77,6 @@ Future<void> _initAdminCategories() async {
   getIt.registerLazySingleton(() => CategoriesAdminRepo(getIt()));
   // Admin  Get All Categories  Bloc
   getIt.registerFactory(() => GetAllAdminCategoriesBloc(getIt()));
+  // Create Category Bloc
+  getIt.registerFactory(() => CreateCategoryBloc(getIt()));
 }
