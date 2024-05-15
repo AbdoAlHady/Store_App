@@ -12,6 +12,7 @@ import 'package:store_app/features/admin/dashboard/presentations/bloc/products_n
 import 'package:store_app/features/admin/dashboard/presentations/bloc/users_number/users_number_bloc.dart';
 import 'package:store_app/features/admin/dashboard/repos/dashboard_repo.dart';
 
+import '../../features/admin/add_categories/presentations/bloc/update_category_bloc/update_category_bloc.dart';
 import '../../features/admin/dashboard/presentations/bloc/categories_number/categories_number_bloc.dart';
 import '../../features/auth/data/datasource/auth_data_source.dart';
 import '../../features/auth/data/repos/auth_repo.dart';
@@ -82,4 +83,6 @@ Future<void> _initAdminCategories() async {
   getIt.registerFactory(() => CreateCategoryBloc(getIt()));
   // Delete Category Bloc
   getIt.registerFactory(() => DeleteCategoryBloc(getIt()));
+  // Update Category Bloc
+  getIt.registerFactory(() => UpdateCategoryBloc(getIt()));
 }

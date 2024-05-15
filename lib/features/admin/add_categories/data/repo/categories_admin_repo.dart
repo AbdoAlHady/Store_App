@@ -5,6 +5,8 @@ import 'package:store_app/features/admin/add_categories/data/data_source/categor
 import 'package:store_app/features/admin/add_categories/data/models/categories_response_model.dart';
 import 'package:store_app/features/admin/add_categories/data/models/create_category_request_body.dart';
 
+import '../models/update_category_request_body.dart';
+
 class CategoriesAdminRepo {
   final CategoriesAdminDataSource _dataSource;
 
@@ -39,6 +41,17 @@ class CategoriesAdminRepo {
       return ApiResult.success(result);
     } catch (e) {
       debugPrint("=== Delete Category Error ====: $e");
+      return const ApiResult.failure(AppString.errorMessage);
+    }
+  }
+
+  // Update category
+  Future<ApiResult<void>> updateCategory(UpdateCategoryRequestBody body) async {
+    try {
+      final result = await _dataSource.updateCategory(body);
+      return ApiResult.success(result);
+    } catch (e) {
+      debugPrint("=== Update Category Error ====: $e");
       return const ApiResult.failure(AppString.errorMessage);
     }
   }

@@ -1,4 +1,5 @@
 import 'package:store_app/features/admin/add_categories/data/models/create_category_request_body.dart';
+import 'package:store_app/features/admin/add_categories/data/models/update_category_request_body.dart';
 
 class CategoriesQueries {
   const CategoriesQueries._();
@@ -41,6 +42,7 @@ class CategoriesQueries {
     };
   }
 
+  // Delete category query
   Map<String, dynamic> deleteCategoryQuery({required String categoryId}) {
     return {
       'query': r'''
@@ -51,6 +53,25 @@ class CategoriesQueries {
       'variables': {
         'id': categoryId,
       },
+    };
+  }
+
+  // Update category query
+  Map<String, dynamic> updateCategory(UpdateCategoryRequestBody body) {
+    return {
+      'query': r'''
+      mutation UpdateCategory($id: ID!, $name: String!, $image : String!) {
+      	updateCategory(id: $id, changes: { name: $name, image: $image}) {
+          id
+        }
+      }
+
+    ''',
+      'variables': {
+        'id': body.id,
+        'name': body.name ?? "",
+        'image': body.image ?? "",
+      }
     };
   }
 }
