@@ -2,6 +2,8 @@ import 'package:dio/dio.dart';
 import 'package:retrofit/http.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:store_app/core/networking/api_constans.dart';
+import 'package:store_app/features/admin/add_categories/data/models/categories_response_model.dart';
+import 'package:store_app/features/admin/add_categories/data/models/create_category_response.dart';
 import 'package:store_app/features/admin/dashboard/data/models/category_number_response.dart';
 import 'package:store_app/features/admin/dashboard/data/models/prodcut_number_response.dart';
 import 'package:store_app/features/auth/data/models/login_response.dart';
@@ -30,11 +32,27 @@ abstract class ApiService {
   Future<SignUpResponse> signUp(@Body() Map<String, dynamic> mutation);
 
   @POST(ApiConstants.graphql)
-  Future<ProductNumberResponse>numberOfProdcuts(@Body() Map<String, dynamic> query);
+  Future<ProductNumberResponse> numberOfProdcuts(
+      @Body() Map<String, dynamic> query);
 
   @POST(ApiConstants.graphql)
-  Future<CategoriesNumberResonse>numberOfCategories(@Body() Map<String, dynamic> query);
+  Future<CategoriesNumberResonse> numberOfCategories(
+      @Body() Map<String, dynamic> query);
 
   @POST(ApiConstants.graphql)
-  Future<UsersNumberResponse>numberOfUsers(@Body() Map<String, dynamic> query);
+  Future<UsersNumberResponse> numberOfUsers(@Body() Map<String, dynamic> query);
+
+  @POST(ApiConstants.graphql)
+  Future<CategoriesResponse> getAllCategories(
+      @Body() Map<String, dynamic> query);
+
+  @POST(ApiConstants.graphql)
+  Future<CreateCategoryResponse> createCategory(
+      @Body() Map<String, dynamic> mutation);
+
+  @POST(ApiConstants.graphql)
+  Future<void> deleteCategory(@Body() Map<String, dynamic> mutation);
+
+  @POST(ApiConstants.graphql)
+  Future<void>updateCategory(@Body() Map<String, dynamic> mutation);
 }

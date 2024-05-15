@@ -2,11 +2,17 @@ import 'package:flutter/widgets.dart';
 import 'package:get_it/get_it.dart';
 import 'package:store_app/core/app/upload_image/repos/upload_image_repos.dart';
 import 'package:store_app/core/networking/dio_factory.dart';
+import 'package:store_app/features/admin/add_categories/data/data_source/categories_admin_data_source.dart';
+import 'package:store_app/features/admin/add_categories/data/repo/categories_admin_repo.dart';
+import 'package:store_app/features/admin/add_categories/presentations/bloc/create_category_bloc/create_category_bloc.dart';
+import 'package:store_app/features/admin/add_categories/presentations/bloc/delete_category_bloc/delete_category_bloc.dart';
+import 'package:store_app/features/admin/add_categories/presentations/bloc/get_all_admin_categories_bloc/get_all_admin_categories_bloc.dart';
 import 'package:store_app/features/admin/dashboard/data/data_source/dashboard_data_source.dart';
 import 'package:store_app/features/admin/dashboard/presentations/bloc/products_number/products_number_bloc.dart';
 import 'package:store_app/features/admin/dashboard/presentations/bloc/users_number/users_number_bloc.dart';
 import 'package:store_app/features/admin/dashboard/repos/dashboard_repo.dart';
 
+import '../../features/admin/add_categories/presentations/bloc/update_category_bloc/update_category_bloc.dart';
 import '../../features/admin/dashboard/presentations/bloc/categories_number/categories_number_bloc.dart';
 import '../../features/auth/data/datasource/auth_data_source.dart';
 import '../../features/auth/data/repos/auth_repo.dart';
@@ -22,6 +28,7 @@ Future<void> setupDependancyInjection() async {
   await _initCore();
   await _initAuth();
   await _initDashboard();
+  await _initAdminCategories();
 }
 
 Future<void> _initCore() async {
@@ -63,4 +70,19 @@ Future<void> _initDashboard() async {
   getIt.registerFactory(() => UsersNumberBloc(getIt<DashboardRepo>()));
   // Categories Number Bloc
   getIt.registerFactory(() => CategoriesNumberBloc(getIt<DashboardRepo>()));
-  }
+}
+
+Future<void> _initAdminCategories() async {
+  // Admin Categories Data Source
+  getIt.registerLazySingleton(() => CategoriesAdminDataSource(getIt()));
+  // Admin Categories Repo
+  getIt.registerLazySingleton(() => CategoriesAdminRepo(getIt()));
+  // Admin  Get All Categories  Bloc
+  getIt.registerFactory(() => GetAllAdminCategoriesBloc(getIt()));
+  // Create Category Bloc
+  getIt.registerFactory(() => CreateCategoryBloc(getIt()));
+  // Delete Category Bloc
+  getIt.registerFactory(() => DeleteCategoryBloc(getIt()));
+  // Update Category Bloc
+  getIt.registerFactory(() => UpdateCategoryBloc(getIt()));
+}
