@@ -61,6 +61,7 @@ dependencies:
   # This plugin provides a cross-platform (iOS, Android) API to request and check permissions.
   permission_handler: ^11.3.1
   cached_network_image: ^3.3.1
+  fancy_shimmer_image: ^2.0.3
   
  
 

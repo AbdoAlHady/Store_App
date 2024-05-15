@@ -6,7 +6,7 @@ import 'package:store_app/core/styles/colors/colors_dark.dart';
 import 'package:store_app/features/admin/add_categories/presentations/bloc/get_all_admin_categories_bloc/get_all_admin_categories_bloc.dart';
 import '../bloc/get_all_admin_categories_bloc/get_all_admin_categories_event.dart';
 import '../widgets/add_categories_list.dart';
-import '../widgets/create_category_button.dart';
+import '../widgets/add_category_button.dart';
 
 class AddCategoriesBody extends StatelessWidget {
   const AddCategoriesBody({super.key});
@@ -18,7 +18,7 @@ class AddCategoriesBody extends StatelessWidget {
       child: Column(
         children: [
           // Create Categor Buuton,
-          const CreateCategoryButton(),
+          const AddCategoryButton(),
           verticalSpace(30),
 
           // Categories List,

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_app/core/di/dependancy_injection.dart';
 import 'package:store_app/core/extensions/context_extension.dart';
-import 'package:store_app/features/admin/add_categories/presentations/bloc/create_category_bloc/create_category_bloc.dart';
 import 'package:store_app/features/admin/add_categories/presentations/bloc/get_all_admin_categories_bloc/get_all_admin_categories_bloc.dart';
 import 'package:store_app/features/admin/add_categories/presentations/bloc/get_all_admin_categories_bloc/get_all_admin_categories_event.dart';
 
@@ -20,9 +19,6 @@ class AddCategoriesScreen extends StatelessWidget {
           create: (context) => getIt<GetAllAdminCategoriesBloc>()
             ..add(const GetAllAdminCategoriesEvent.getAllAdminCategories()),
         ),
-         BlocProvider(
-          create: (context) => getIt<CreateCategoryBloc>(),
-        )
       ],
       child: Scaffold(
         appBar: AdminAppBar(

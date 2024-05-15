@@ -11,7 +11,7 @@ class CustomBottomSheet {
           required Widget child,
           Color? background,
           VoidCallback? whenComplet}) =>
-      showModalBottomSheet(
+      showModalBottomSheet<dynamic>(
         context: context,
         builder: (context) => SingleChildScrollView(
             child: Padding(
