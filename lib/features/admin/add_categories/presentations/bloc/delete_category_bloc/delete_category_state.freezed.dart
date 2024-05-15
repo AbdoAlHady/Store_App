@@ -19,7 +19,7 @@ mixin _$DeleteCategoryState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() loading,
+    required TResult Function(String id) loading,
     required TResult Function() success,
     required TResult Function(String message) failure,
   }) =>
@@ -27,7 +27,7 @@ mixin _$DeleteCategoryState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? loading,
+    TResult? Function(String id)? loading,
     TResult? Function()? success,
     TResult? Function(String message)? failure,
   }) =>
@@ -35,7 +35,7 @@ mixin _$DeleteCategoryState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? loading,
+    TResult Function(String id)? loading,
     TResult Function()? success,
     TResult Function(String message)? failure,
     required TResult orElse(),
@@ -125,7 +125,7 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() loading,
+    required TResult Function(String id) loading,
     required TResult Function() success,
     required TResult Function(String message) failure,
   }) {
@@ -136,7 +136,7 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? loading,
+    TResult? Function(String id)? loading,
     TResult? Function()? success,
     TResult? Function(String message)? failure,
   }) {
@@ -147,7 +147,7 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? loading,
+    TResult Function(String id)? loading,
     TResult Function()? success,
     TResult Function(String message)? failure,
     required TResult orElse(),
@@ -205,6 +205,8 @@ abstract class _$$LoadingStateImplCopyWith<$Res> {
   factory _$$LoadingStateImplCopyWith(
           _$LoadingStateImpl value, $Res Function(_$LoadingStateImpl) then) =
       __$$LoadingStateImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String id});
 }
 
 /// @nodoc
@@ -214,60 +216,84 @@ class __$$LoadingStateImplCopyWithImpl<$Res>
   __$$LoadingStateImplCopyWithImpl(
       _$LoadingStateImpl _value, $Res Function(_$LoadingStateImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+  }) {
+    return _then(_$LoadingStateImpl(
+      null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$LoadingStateImpl implements LoadingState {
-  const _$LoadingStateImpl();
+  const _$LoadingStateImpl(this.id);
+
+  @override
+  final String id;
 
   @override
   String toString() {
-    return 'DeleteCategoryState.loading()';
+    return 'DeleteCategoryState.loading(id: $id)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LoadingStateImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$LoadingStateImpl &&
+            (identical(other.id, id) || other.id == id));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, id);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$LoadingStateImplCopyWith<_$LoadingStateImpl> get copyWith =>
+      __$$LoadingStateImplCopyWithImpl<_$LoadingStateImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() loading,
+    required TResult Function(String id) loading,
     required TResult Function() success,
     required TResult Function(String message) failure,
   }) {
-    return loading();
+    return loading(id);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? loading,
+    TResult? Function(String id)? loading,
     TResult? Function()? success,
     TResult? Function(String message)? failure,
   }) {
-    return loading?.call();
+    return loading?.call(id);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? loading,
+    TResult Function(String id)? loading,
     TResult Function()? success,
     TResult Function(String message)? failure,
     required TResult orElse(),
   }) {
     if (loading != null) {
-      return loading();
+      return loading(id);
     }
     return orElse();
   }
@@ -311,7 +337,12 @@ class _$LoadingStateImpl implements LoadingState {
 }
 
 abstract class LoadingState implements DeleteCategoryState {
-  const factory LoadingState() = _$LoadingStateImpl;
+  const factory LoadingState(final String id) = _$LoadingStateImpl;
+
+  String get id;
+  @JsonKey(ignore: true)
+  _$$LoadingStateImplCopyWith<_$LoadingStateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -353,7 +384,7 @@ class _$SuccessStateImpl implements SuccessState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() loading,
+    required TResult Function(String id) loading,
     required TResult Function() success,
     required TResult Function(String message) failure,
   }) {
@@ -364,7 +395,7 @@ class _$SuccessStateImpl implements SuccessState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? loading,
+    TResult? Function(String id)? loading,
     TResult? Function()? success,
     TResult? Function(String message)? failure,
   }) {
@@ -375,7 +406,7 @@ class _$SuccessStateImpl implements SuccessState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? loading,
+    TResult Function(String id)? loading,
     TResult Function()? success,
     TResult Function(String message)? failure,
     required TResult orElse(),
@@ -493,7 +524,7 @@ class _$FailureStateImpl implements FailureState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() loading,
+    required TResult Function(String id) loading,
     required TResult Function() success,
     required TResult Function(String message) failure,
   }) {
@@ -504,7 +535,7 @@ class _$FailureStateImpl implements FailureState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? loading,
+    TResult? Function(String id)? loading,
     TResult? Function()? success,
     TResult? Function(String message)? failure,
   }) {
@@ -515,7 +546,7 @@ class _$FailureStateImpl implements FailureState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? loading,
+    TResult Function(String id)? loading,
     TResult Function()? success,
     TResult Function(String message)? failure,
     required TResult orElse(),

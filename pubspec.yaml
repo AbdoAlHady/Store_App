@@ -62,6 +62,7 @@ dependencies:
   permission_handler: ^11.3.1
   cached_network_image: ^3.3.1
   fancy_shimmer_image: ^2.0.3
+  delightful_toast: ^1.1.0
   
  
 

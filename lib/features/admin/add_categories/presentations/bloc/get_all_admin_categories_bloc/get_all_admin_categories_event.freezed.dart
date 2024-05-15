@@ -19,19 +19,19 @@ mixin _$GetAllAdminCategoriesEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function() getAllAdminCategories,
+    required TResult Function(bool isLoading) getAllAdminCategories,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function()? getAllAdminCategories,
+    TResult? Function(bool isLoading)? getAllAdminCategories,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? getAllAdminCategories,
+    TResult Function(bool isLoading)? getAllAdminCategories,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -116,7 +116,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function() getAllAdminCategories,
+    required TResult Function(bool isLoading) getAllAdminCategories,
   }) {
     return started();
   }
@@ -125,7 +125,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function()? getAllAdminCategories,
+    TResult? Function(bool isLoading)? getAllAdminCategories,
   }) {
     return started?.call();
   }
@@ -134,7 +134,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? getAllAdminCategories,
+    TResult Function(bool isLoading)? getAllAdminCategories,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -186,6 +186,8 @@ abstract class _$$GetAllAdminCategoriesImplCopyWith<$Res> {
           _$GetAllAdminCategoriesImpl value,
           $Res Function(_$GetAllAdminCategoriesImpl) then) =
       __$$GetAllAdminCategoriesImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({bool isLoading});
 }
 
 /// @nodoc
@@ -196,55 +198,80 @@ class __$$GetAllAdminCategoriesImplCopyWithImpl<$Res>
   __$$GetAllAdminCategoriesImplCopyWithImpl(_$GetAllAdminCategoriesImpl _value,
       $Res Function(_$GetAllAdminCategoriesImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? isLoading = null,
+  }) {
+    return _then(_$GetAllAdminCategoriesImpl(
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$GetAllAdminCategoriesImpl implements GetAllAdminCategories {
-  const _$GetAllAdminCategoriesImpl();
+  const _$GetAllAdminCategoriesImpl({required this.isLoading});
+
+  @override
+  final bool isLoading;
 
   @override
   String toString() {
-    return 'GetAllAdminCategoriesEvent.getAllAdminCategories()';
+    return 'GetAllAdminCategoriesEvent.getAllAdminCategories(isLoading: $isLoading)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GetAllAdminCategoriesImpl);
+            other is _$GetAllAdminCategoriesImpl &&
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, isLoading);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GetAllAdminCategoriesImplCopyWith<_$GetAllAdminCategoriesImpl>
+      get copyWith => __$$GetAllAdminCategoriesImplCopyWithImpl<
+          _$GetAllAdminCategoriesImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function() getAllAdminCategories,
+    required TResult Function(bool isLoading) getAllAdminCategories,
   }) {
-    return getAllAdminCategories();
+    return getAllAdminCategories(isLoading);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function()? getAllAdminCategories,
+    TResult? Function(bool isLoading)? getAllAdminCategories,
   }) {
-    return getAllAdminCategories?.call();
+    return getAllAdminCategories?.call(isLoading);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? getAllAdminCategories,
+    TResult Function(bool isLoading)? getAllAdminCategories,
     required TResult orElse(),
   }) {
     if (getAllAdminCategories != null) {
-      return getAllAdminCategories();
+      return getAllAdminCategories(isLoading);
     }
     return orElse();
   }
@@ -283,5 +310,11 @@ class _$GetAllAdminCategoriesImpl implements GetAllAdminCategories {
 }
 
 abstract class GetAllAdminCategories implements GetAllAdminCategoriesEvent {
-  const factory GetAllAdminCategories() = _$GetAllAdminCategoriesImpl;
+  const factory GetAllAdminCategories({required final bool isLoading}) =
+      _$GetAllAdminCategoriesImpl;
+
+  bool get isLoading;
+  @JsonKey(ignore: true)
+  _$$GetAllAdminCategoriesImplCopyWith<_$GetAllAdminCategoriesImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

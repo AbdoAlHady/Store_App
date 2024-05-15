@@ -11,6 +11,8 @@ import 'package:store_app/core/helper/spacing.dart';
 import 'package:store_app/core/styles/fonts/font_wight_helper.dart';
 import 'package:store_app/features/admin/add_categories/presentations/widgets/update_category_button.dart';
 
+import 'delete_category_button.dart';
+
 class AddCategoryItem extends StatelessWidget {
   const AddCategoryItem(
       {super.key,
@@ -46,9 +48,9 @@ class AddCategoryItem extends StatelessWidget {
                   Row(
                     children: [
                       // Delete,
-                      InkWell(
-                          onTap: () {},
-                          child: const Icon(Icons.delete, color: Colors.red)),
+                      DeleteCategoryButton(
+                        categoryId: categoryId,
+                      ),
                       horizontalSpace(20),
                       // Edit,
                       InkWell(

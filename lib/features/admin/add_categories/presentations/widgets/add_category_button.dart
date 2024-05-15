@@ -38,7 +38,7 @@ class AddCategoryButton extends StatelessWidget {
               context: context,
               whenComplet: () {
                 context.read<GetAllAdminCategoriesBloc>().add(
-                    const GetAllAdminCategoriesEvent.getAllAdminCategories());
+                    const GetAllAdminCategoriesEvent.getAllAdminCategories(isLoading: false));
               },
               child: MultiBlocProvider(
                 providers: [

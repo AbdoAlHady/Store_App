@@ -13,14 +13,16 @@ class GetAllAdminCategoriesBloc
   }
 
   FutureOr<void> _getAllAdminCategories(event, emit) async {
-    emit(const GetAllAdminCategoriesState.loading());
+    if (event.isLoading) {
+      emit(const GetAllAdminCategoriesState.loading());
+    }
     final result = await _repo.getAllCategoriesAdmin();
     result.when(success: (categoriesResponseData) {
       if (categoriesResponseData.data.categories == []) {
         emit(const GetAllAdminCategoriesState.empty());
       } else {
         emit(GetAllAdminCategoriesState.success(
-            categoriesResponseData.data.categories!));
+            categoriesResponseData.data.categories!.reversed.toList()));
       }
     }, failure: (error) {
       emit(GetAllAdminCategoriesState.failure(error));

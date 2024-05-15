@@ -1,31 +1,64 @@
+import 'package:delightful_toast/delight_toast.dart';
+import 'package:delightful_toast/toast/components/toast_card.dart';
+import 'package:delightful_toast/toast/utils/enums.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+import 'package:store_app/core/styles/fonts/font_wight_helper.dart';
 
 class ShowToast {
   const ShowToast._();
 
-  static void showToastError({required BuildContext context, required String message , int ?second}) {
-    Fluttertoast.showToast(
-      msg: message,
-      toastLength: Toast.LENGTH_SHORT,
-      gravity: ToastGravity.BOTTOM,
-      timeInSecForIosWeb:second??3 ,
-      backgroundColor: Colors.red,
-      textColor: Colors.white,
-      fontSize: 16.sp
-    );
+  static void showToastError(
+      {required BuildContext context, required String message, int? second}) {
+    DelightToastBar(
+      autoDismiss: true,
+      position: DelightSnackbarPosition.bottom,
+      snackbarDuration: Duration(seconds: second ?? 3),
+      builder: (context) {
+        return ToastCard(
+          title: Text(
+            message,
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 14.sp,
+              fontWeight: FontWeightHelper.medium,
+            ),
+          ),
+          leading: const Icon(
+            Icons.error,
+            color: Colors.white,
+            size: 32,
+          ),
+          color: Colors.red,
+        );
+      },
+    ).show(context);
   }
 
-    static void showToastSuccess({required BuildContext context, required String message , int ?second}) {
-    Fluttertoast.showToast(
-      msg: message,
-      toastLength: Toast.LENGTH_SHORT,
-      gravity: ToastGravity.BOTTOM,
-      timeInSecForIosWeb:second??3 ,
-      backgroundColor: Colors.green,
-      textColor: Colors.white,
-      fontSize: 16.sp
-    );
+  static void showToastSuccess(
+      {required BuildContext context, required String message, int? second}) {
+    DelightToastBar(
+      autoDismiss: true,
+      position: DelightSnackbarPosition.bottom,
+      snackbarDuration: Duration(seconds: second ?? 3),
+      builder: (context) {
+        return ToastCard(
+          title: Text(
+            message,
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 14.sp,
+              fontWeight: FontWeightHelper.medium,
+            ),
+          ),
+          leading: const Icon(
+            Icons.done,
+            color: Colors.white,
+            size: 32,
+          ),
+          color: Colors.green,
+        );
+      },
+    ).show(context);
   }
 }

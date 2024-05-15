@@ -13,7 +13,7 @@ class DeleteCategoryBloc
   }
 
   FutureOr<void> _deleteCategory(event, emit) async {
-    emit(const DeleteCategoryState.loading());
+    emit( DeleteCategoryState.loading(event.categoryId));
     final result = await _repo.deleteCategory(event.categoryId);
     result.when(
       success: (data) {
