@@ -31,4 +31,15 @@ class CategoriesAdminRepo {
       return const ApiResult.failure(AppString.errorMessage);
     }
   }
+
+  // Delete category
+  Future<ApiResult<void>> deleteCategory(String categoryId) async {
+    try {
+      final result = await _dataSource.deleteCategory(categoryId);
+      return ApiResult.success(result);
+    } catch (e) {
+      debugPrint("=== Delete Category Error ====: $e");
+      return const ApiResult.failure(AppString.errorMessage);
+    }
+  }
 }

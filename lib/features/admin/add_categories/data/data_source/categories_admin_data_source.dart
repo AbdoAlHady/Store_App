@@ -22,4 +22,11 @@ class CategoriesAdminDataSource {
         .createCategory(CategoriesQueries().addCategoriesQuery(body: body));
     return response;
   }
+
+  // Delete category
+  Future<void> deleteCategory(String categoryId) async {
+    final response=  await _apiService.deleteCategory(
+        CategoriesQueries().deleteCategoryQuery(categoryId: categoryId));
+    return response;
+  }
 }
