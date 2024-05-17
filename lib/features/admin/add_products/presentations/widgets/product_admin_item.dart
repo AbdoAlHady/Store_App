@@ -1,12 +1,14 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:store_app/core/common/bootm_sheet/custom_btuttom_sheet.dart';
 import 'package:store_app/core/common/widgets/custom_conatiner_admin.dart';
 import 'package:store_app/core/common/widgets/shimmer_effect.dart';
 import 'package:store_app/core/common/widgets/text_app.dart';
 import 'package:store_app/core/extensions/context_extension.dart';
 import 'package:store_app/core/helper/spacing.dart';
 import 'package:store_app/core/styles/fonts/font_wight_helper.dart';
+import 'package:store_app/features/admin/add_products/presentations/widgets/update_product_buttom_sheet.dart';
 
 class ProductAdminItem extends StatelessWidget {
   const ProductAdminItem(
@@ -43,7 +45,12 @@ class ProductAdminItem extends StatelessWidget {
               ),
               //Update Button
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  CustomBottomSheet.showCustomModelSheet(
+                    context: context,
+                    child: const UpdateProductButtomSheet(),
+                  );
+                },
                 padding: EdgeInsets.zero,
                 icon: const Icon(
                   Icons.edit,

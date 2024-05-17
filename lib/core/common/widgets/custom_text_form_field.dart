@@ -19,7 +19,7 @@ class AppTextFormFiled extends StatelessWidget {
        this.overrideValidator,
       this.hintStyle,
       this.maxLength,
-      this.minLines = 1});
+      this.maxLines = 1});
   final TextEditingController controller;
   final String? hintText;
   final String? Function(String?)? validator;
@@ -34,7 +34,7 @@ class AppTextFormFiled extends StatelessWidget {
   final bool? overrideValidator;
   final TextStyle? hintStyle;
   final int? maxLength;
-  final int? minLines;
+  final int? maxLines;
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +52,7 @@ class AppTextFormFiled extends StatelessWidget {
       keyboardType: keyboardType,
       obscureText: obsecureText!,
       readOnly: readOnly,
-      minLines: minLines,
+      maxLines: maxLines,
       maxLength: maxLength,
 
       decoration: InputDecoration(
