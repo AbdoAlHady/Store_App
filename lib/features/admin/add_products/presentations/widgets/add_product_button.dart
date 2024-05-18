@@ -3,7 +3,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_app/core/common/widgets/custom_buttom.dart';
 import 'package:store_app/core/extensions/context_extension.dart';
 import 'package:store_app/core/styles/colors/colors_dark.dart';
+import 'package:store_app/features/admin/add_products/presentations/widgets/create_product_bottom_sheet.dart';
 
+import '../../../../../core/common/bootm_sheet/custom_btuttom_sheet.dart';
 import '../../../../../core/styles/fonts/font_wight_helper.dart';
 
 class AddProductButton extends StatelessWidget {
@@ -26,7 +28,10 @@ class AddProductButton extends StatelessWidget {
         // Add Button,
         CustomButton(
             onPressed: () {
-              // TODO: Create Add Product Bottom Sheet 
+              CustomBottomSheet.showCustomModelSheet(
+                context: context,
+                child: const CreateProductBottomSheet(),
+              );
             },
             lastRadius: 10,
             threeRadius: 10,

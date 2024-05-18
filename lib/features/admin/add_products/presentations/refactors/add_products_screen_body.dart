@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_app/core/helper/spacing.dart';
 import 'package:store_app/features/admin/add_products/presentations/widgets/add_products_list.dart';
 
-import '../screens/add_product_button.dart';
+import '../widgets/add_product_button.dart';
 
 class AddProductScreenBody extends StatelessWidget {
   const AddProductScreenBody({super.key});

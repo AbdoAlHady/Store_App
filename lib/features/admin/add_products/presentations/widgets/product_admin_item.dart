@@ -37,10 +37,16 @@ class ProductAdminItem extends StatelessWidget {
               //Delete Button
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 10.w),
-                child: const Icon(
-                  Icons.delete,
-                  color: Colors.red,
-                  size: 25,
+                child: IconButton(
+                  padding: EdgeInsets.zero,
+                  onPressed: () {
+                
+                  },
+                  icon: const Icon(
+                    Icons.delete,
+                    color: Colors.red,
+                    size: 25,
+                  ),
                 ),
               ),
               //Update Button
