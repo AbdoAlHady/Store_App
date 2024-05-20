@@ -16,6 +16,7 @@ import 'package:store_app/features/admin/dashboard/presentations/bloc/users_numb
 import 'package:store_app/features/admin/dashboard/repos/dashboard_repo.dart';
 
 import '../../features/admin/add_categories/presentations/bloc/update_category_bloc/update_category_bloc.dart';
+import '../../features/admin/add_products/presentations/bloc/create_product_bloc/create_product_bloc.dart';
 import '../../features/admin/dashboard/presentations/bloc/categories_number/categories_number_bloc.dart';
 import '../../features/auth/data/datasource/auth_data_source.dart';
 import '../../features/auth/data/repos/auth_repo.dart';
@@ -98,4 +99,6 @@ Future<void> _initAdminProducts() async {
   getIt.registerLazySingleton(() => ProductAdminRepo(getIt()));
   // Admin  Get All Products  Bloc
   getIt.registerFactory(() => GetAllAdminProductsBloc(getIt()));
+  // Create Product Bloc
+  getIt.registerFactory(() => CreateProductBloc(getIt()));
 }
