@@ -12,7 +12,7 @@ class ProductsAdminQueries {
             title
             description
             price
-            image
+            images
             category {
               id
               name

@@ -19,19 +19,19 @@ mixin _$GetAllAdminProductsEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function() getAdminProducts,
+    required TResult Function(bool isLoading) getAdminProducts,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function()? getAdminProducts,
+    TResult? Function(bool isLoading)? getAdminProducts,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? getAdminProducts,
+    TResult Function(bool isLoading)? getAdminProducts,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -114,7 +114,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function() getAdminProducts,
+    required TResult Function(bool isLoading) getAdminProducts,
   }) {
     return started();
   }
@@ -123,7 +123,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function()? getAdminProducts,
+    TResult? Function(bool isLoading)? getAdminProducts,
   }) {
     return started?.call();
   }
@@ -132,7 +132,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? getAdminProducts,
+    TResult Function(bool isLoading)? getAdminProducts,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -182,6 +182,8 @@ abstract class _$$GetAdminProductsImplCopyWith<$Res> {
   factory _$$GetAdminProductsImplCopyWith(_$GetAdminProductsImpl value,
           $Res Function(_$GetAdminProductsImpl) then) =
       __$$GetAdminProductsImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({bool isLoading});
 }
 
 /// @nodoc
@@ -191,54 +193,80 @@ class __$$GetAdminProductsImplCopyWithImpl<$Res>
   __$$GetAdminProductsImplCopyWithImpl(_$GetAdminProductsImpl _value,
       $Res Function(_$GetAdminProductsImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? isLoading = null,
+  }) {
+    return _then(_$GetAdminProductsImpl(
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$GetAdminProductsImpl implements GetAdminProducts {
-  const _$GetAdminProductsImpl();
+  const _$GetAdminProductsImpl({required this.isLoading});
+
+  @override
+  final bool isLoading;
 
   @override
   String toString() {
-    return 'GetAllAdminProductsEvent.getAdminProducts()';
+    return 'GetAllAdminProductsEvent.getAdminProducts(isLoading: $isLoading)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$GetAdminProductsImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$GetAdminProductsImpl &&
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, isLoading);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GetAdminProductsImplCopyWith<_$GetAdminProductsImpl> get copyWith =>
+      __$$GetAdminProductsImplCopyWithImpl<_$GetAdminProductsImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function() getAdminProducts,
+    required TResult Function(bool isLoading) getAdminProducts,
   }) {
-    return getAdminProducts();
+    return getAdminProducts(isLoading);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function()? getAdminProducts,
+    TResult? Function(bool isLoading)? getAdminProducts,
   }) {
-    return getAdminProducts?.call();
+    return getAdminProducts?.call(isLoading);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? getAdminProducts,
+    TResult Function(bool isLoading)? getAdminProducts,
     required TResult orElse(),
   }) {
     if (getAdminProducts != null) {
-      return getAdminProducts();
+      return getAdminProducts(isLoading);
     }
     return orElse();
   }
@@ -276,5 +304,11 @@ class _$GetAdminProductsImpl implements GetAdminProducts {
 }
 
 abstract class GetAdminProducts implements GetAllAdminProductsEvent {
-  const factory GetAdminProducts() = _$GetAdminProductsImpl;
+  const factory GetAdminProducts({required final bool isLoading}) =
+      _$GetAdminProductsImpl;
+
+  bool get isLoading;
+  @JsonKey(ignore: true)
+  _$$GetAdminProductsImplCopyWith<_$GetAdminProductsImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

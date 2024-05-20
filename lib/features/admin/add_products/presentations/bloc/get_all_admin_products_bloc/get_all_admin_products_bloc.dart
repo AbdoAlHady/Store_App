@@ -8,12 +8,17 @@ import 'get_all_admin_products_state.dart';
 class GetAllAdminProductsBloc
     extends Bloc<GetAllAdminProductsEvent, GetAllAdminProductsState> {
   final ProductAdminRepo _repo;
-  GetAllAdminProductsBloc(this._repo) : super(const GetAllAdminProductsState.loading()) {
+  GetAllAdminProductsBloc(this._repo)
+      : super(const GetAllAdminProductsState.loading()) {
     on<GetAdminProducts>(_getAllProducts);
   }
 
-  FutureOr<void> _getAllProducts(event, emit)async {
-    final result= await _repo.getAllAdminProducts();
+  FutureOr<void> _getAllProducts(event, emit) async {
+    if (event.isLoading) {
+      emit(const GetAllAdminProductsState.loading());
+    }
+
+    final result = await _repo.getAllAdminProducts();
     result.when(
       success: (data) {
         if (data.products.isEmpty) {

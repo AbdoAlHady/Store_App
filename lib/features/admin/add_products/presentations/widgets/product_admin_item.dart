@@ -6,6 +6,7 @@ import 'package:store_app/core/common/widgets/custom_conatiner_admin.dart';
 import 'package:store_app/core/common/widgets/shimmer_effect.dart';
 import 'package:store_app/core/common/widgets/text_app.dart';
 import 'package:store_app/core/extensions/context_extension.dart';
+import 'package:store_app/core/extensions/string_extension.dart';
 import 'package:store_app/core/helper/spacing.dart';
 import 'package:store_app/core/styles/fonts/font_wight_helper.dart';
 import 'package:store_app/features/admin/add_products/presentations/widgets/update_product_buttom_sheet.dart';
@@ -76,7 +77,7 @@ class ProductAdminItem extends StatelessWidget {
                   width: 120.w,
                   height: 200.h,
                 ),
-                imageUrl: imageUrl,
+                imageUrl: imageUrl.imageProductFormat(),
                 errorWidget: (context, url, error) => const Icon(
                   Icons.error,
                   color: Colors.red,

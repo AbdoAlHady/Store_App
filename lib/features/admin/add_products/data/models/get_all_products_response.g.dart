@@ -35,8 +35,8 @@ GetAllProductsModel _$GetAllProductsModelFromJson(Map<String, dynamic> json) =>
       json['id'] as String?,
       json['title'] as String?,
       json['description'] as String?,
-      json['price'] as String?,
-      (json['image'] as List<dynamic>?)?.map((e) => e as String).toList(),
+      json['price'] as num?,
+      (json['images'] as List<dynamic>?)?.map((e) => e as String).toList(),
       json['category'] == null
           ? null
           : GetAllProductsCatgeoryModel.fromJson(
@@ -50,7 +50,7 @@ Map<String, dynamic> _$GetAllProductsModelToJson(
       'title': instance.title,
       'description': instance.description,
       'price': instance.price,
-      'image': instance.image,
+      'images': instance.images,
       'category': instance.category,
     };
 

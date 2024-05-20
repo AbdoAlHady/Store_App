@@ -32,12 +32,12 @@ class GetAllProductsModel {
   final String? id;
   final String? title;
   final String? description;
-  final String? price;
-  final List<String>? image;
+  final num? price;
+  final List<String>? images;
   final GetAllProductsCatgeoryModel? category;
 
   GetAllProductsModel(this.id, this.title, this.description, this.price,
-      this.image, this.category);
+      this.images, this.category);
   factory GetAllProductsModel.fromJson(Map<String, dynamic> json) =>
       _$GetAllProductsModelFromJson(json);
 }

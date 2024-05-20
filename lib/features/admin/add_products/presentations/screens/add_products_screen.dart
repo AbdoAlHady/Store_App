@@ -17,7 +17,7 @@ class AddProductsScreen extends StatelessWidget {
       providers: [
         BlocProvider<GetAllAdminProductsBloc>(
           create: (context) => getIt<GetAllAdminProductsBloc>()
-            ..add(const GetAllAdminProductsEvent.getAdminProducts()),
+            ..add(const GetAllAdminProductsEvent.getAdminProducts(isLoading: true)),
         ),
       ],
       child: Scaffold(
