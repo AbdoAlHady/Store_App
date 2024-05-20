@@ -9,6 +9,7 @@ import 'package:store_app/features/admin/dashboard/data/models/prodcut_number_re
 import 'package:store_app/features/auth/data/models/login_response.dart';
 import 'package:store_app/features/auth/data/models/sign_up_response.dart';
 
+import '../../features/admin/add_products/data/models/get_all_products_response.dart';
 import '../../features/admin/dashboard/data/models/user_number_response.dart';
 import '../../features/auth/data/models/user_role.dart';
 import '../app/upload_image/models/upload_image_response.dart';
@@ -55,4 +56,7 @@ abstract class ApiService {
 
   @POST(ApiConstants.graphql)
   Future<void>updateCategory(@Body() Map<String, dynamic> mutation);
+
+ @POST(ApiConstants.graphql)
+ Future<GetAllProductsResponse>getAllProducts(@Body() Map<String, dynamic> query);
 }
