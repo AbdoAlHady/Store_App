@@ -6,7 +6,12 @@ class GetAllProductsResponse {
   final GetAllProductsData data;
 
   GetAllProductsResponse(this.data);
-  List<GetAllProductsModel> get products => data.products;
+  List<GetAllProductsModel> get products {
+    if (data.products.isEmpty) {
+      return [];
+    }
+    return data.products;
+  } 
 
   factory GetAllProductsResponse.fromJson(Map<String, dynamic> json) =>
       _$GetAllProductsResponseFromJson(json);

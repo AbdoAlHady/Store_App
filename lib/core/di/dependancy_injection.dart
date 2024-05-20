@@ -7,6 +7,9 @@ import 'package:store_app/features/admin/add_categories/data/repo/categories_adm
 import 'package:store_app/features/admin/add_categories/presentations/bloc/create_category_bloc/create_category_bloc.dart';
 import 'package:store_app/features/admin/add_categories/presentations/bloc/delete_category_bloc/delete_category_bloc.dart';
 import 'package:store_app/features/admin/add_categories/presentations/bloc/get_all_admin_categories_bloc/get_all_admin_categories_bloc.dart';
+import 'package:store_app/features/admin/add_products/data/data_source/product_admin_data_source.dart';
+import 'package:store_app/features/admin/add_products/data/repo/prodcut_admin_repo.dart';
+import 'package:store_app/features/admin/add_products/presentations/bloc/get_all_admin_products_bloc/get_all_admin_products_bloc.dart';
 import 'package:store_app/features/admin/dashboard/data/data_source/dashboard_data_source.dart';
 import 'package:store_app/features/admin/dashboard/presentations/bloc/products_number/products_number_bloc.dart';
 import 'package:store_app/features/admin/dashboard/presentations/bloc/users_number/users_number_bloc.dart';
@@ -29,6 +32,7 @@ Future<void> setupDependancyInjection() async {
   await _initAuth();
   await _initDashboard();
   await _initAdminCategories();
+  await _initAdminProducts();
 }
 
 Future<void> _initCore() async {
@@ -85,4 +89,13 @@ Future<void> _initAdminCategories() async {
   getIt.registerFactory(() => DeleteCategoryBloc(getIt()));
   // Update Category Bloc
   getIt.registerFactory(() => UpdateCategoryBloc(getIt()));
+}
+
+Future<void> _initAdminProducts() async {
+  // Admin Products Data Source
+  getIt.registerLazySingleton(() => ProductAdminDataSource(getIt()));
+  // Admin Categories Repo
+  getIt.registerLazySingleton(() => ProductAdminRepo(getIt()));
+  // Admin  Get All Products  Bloc
+  getIt.registerFactory(() => GetAllAdminProductsBloc(getIt()));
 }
