@@ -9,6 +9,7 @@ class UploadImageCubit extends Cubit<UploadImageState> {
   UploadImageCubit(this._repo) : super(const UploadImageState.initial());
   final UploadImageRepo _repo;
   String imageUrl = '';
+  List<String> images = ['', '', ''];
 
   // Save Image And Get Image Url
   Future<void> uploadImage() async {
@@ -18,6 +19,20 @@ class UploadImageCubit extends Cubit<UploadImageState> {
     final result = await _repo.uploadImage(pickedImage);
     result.when(success: (image) {
       imageUrl = image.location!;
+      emit(const UploadImageState.sucess());
+    }, failure: (message) {
+      emit(UploadImageState.error(message));
+    });
+  }
+
+  // Save Image as List And Get Image Url
+  Future<void> uploadImageList({required int index}) async {
+    final pickedImage = await PickImageHelper().pickImage();
+    if (pickedImage == null) return;
+    emit( UploadImageState.loadingList(index));
+    final result = await _repo.uploadImage(pickedImage);
+    result.when(success: (image) {
+      images..removeAt(index)..insert(index, image.location??'');
       emit(const UploadImageState.sucess());
     }, failure: (message) {
       emit(UploadImageState.error(message));
