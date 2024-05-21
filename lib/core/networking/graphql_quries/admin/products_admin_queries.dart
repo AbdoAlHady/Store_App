@@ -27,7 +27,7 @@ class ProductsAdminQueries {
   }
 
   Map<String, dynamic> createProductQuery(CreateProductRequestBody body) {
-   return {
+    return {
       'query': r'''
           mutation CreateProduct($title: String!, $price: Float!, $description:String!, $categoryId: Float!,$imagesList:[String!]!  ) {
               addProduct(
@@ -49,6 +49,20 @@ class ProductsAdminQueries {
         'description': body.description,
         'categoryId': body.categoryId,
         'imagesList': body.images,
+      },
+    };
+  }
+
+  // Delete Product
+  Map<String, dynamic> deleteProductQuery(String productId) {
+    return {
+      'query': r'''
+         mutation DeleteProduct($productId: ID!){
+            	deleteProduct(id: $productId)
+          }
+        ''',
+      'variables': {
+        'productId': productId,
       },
     };
   }

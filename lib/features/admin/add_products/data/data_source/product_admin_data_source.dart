@@ -19,4 +19,9 @@ class ProductAdminDataSource {
     return response;
 
   }
+  // Delete Product
+  Future<void>deleteProduct(String id)async{
+    final response= await _apiService.deleteProduct(ProductsAdminQueries().deleteProductQuery(id));
+    return response;
+  }
 }

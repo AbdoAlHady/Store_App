@@ -31,4 +31,14 @@ class ProductAdminRepo {
       return const ApiResult.failure(AppString.errorMessage);
     }
   }
+  // Delete Product
+  Future<ApiResult<void>> deleteProduct(String id) async {
+    try {
+      final result = await _dataSource.deleteProduct(id);
+      return ApiResult.success(result);
+    } catch (e) {
+      debugPrint('======Error in Delete Product repo :$e ======');
+      return const ApiResult.failure(AppString.errorMessage);
+    }
+  }
 }
