@@ -19,19 +19,19 @@ mixin _$DeleteProductEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(String id) deleteProduct,
+    required TResult Function(String productId) deleteProduct,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(String id)? deleteProduct,
+    TResult? Function(String productId)? deleteProduct,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(String id)? deleteProduct,
+    TResult Function(String productId)? deleteProduct,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -113,7 +113,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(String id) deleteProduct,
+    required TResult Function(String productId) deleteProduct,
   }) {
     return started();
   }
@@ -122,7 +122,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(String id)? deleteProduct,
+    TResult? Function(String productId)? deleteProduct,
   }) {
     return started?.call();
   }
@@ -131,7 +131,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(String id)? deleteProduct,
+    TResult Function(String productId)? deleteProduct,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -182,7 +182,7 @@ abstract class _$$RemoveProductEventImplCopyWith<$Res> {
           $Res Function(_$RemoveProductEventImpl) then) =
       __$$RemoveProductEventImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String id});
+  $Res call({String productId});
 }
 
 /// @nodoc
@@ -196,12 +196,12 @@ class __$$RemoveProductEventImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
+    Object? productId = null,
   }) {
     return _then(_$RemoveProductEventImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
+      productId: null == productId
+          ? _value.productId
+          : productId // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -210,14 +210,14 @@ class __$$RemoveProductEventImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$RemoveProductEventImpl implements RemoveProductEvent {
-  const _$RemoveProductEventImpl({required this.id});
+  const _$RemoveProductEventImpl({required this.productId});
 
   @override
-  final String id;
+  final String productId;
 
   @override
   String toString() {
-    return 'DeleteProductEvent.deleteProduct(id: $id)';
+    return 'DeleteProductEvent.deleteProduct(productId: $productId)';
   }
 
   @override
@@ -225,11 +225,12 @@ class _$RemoveProductEventImpl implements RemoveProductEvent {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$RemoveProductEventImpl &&
-            (identical(other.id, id) || other.id == id));
+            (identical(other.productId, productId) ||
+                other.productId == productId));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id);
+  int get hashCode => Object.hash(runtimeType, productId);
 
   @JsonKey(ignore: true)
   @override
@@ -242,29 +243,29 @@ class _$RemoveProductEventImpl implements RemoveProductEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(String id) deleteProduct,
+    required TResult Function(String productId) deleteProduct,
   }) {
-    return deleteProduct(id);
+    return deleteProduct(productId);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(String id)? deleteProduct,
+    TResult? Function(String productId)? deleteProduct,
   }) {
-    return deleteProduct?.call(id);
+    return deleteProduct?.call(productId);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(String id)? deleteProduct,
+    TResult Function(String productId)? deleteProduct,
     required TResult orElse(),
   }) {
     if (deleteProduct != null) {
-      return deleteProduct(id);
+      return deleteProduct(productId);
     }
     return orElse();
   }
@@ -302,10 +303,10 @@ class _$RemoveProductEventImpl implements RemoveProductEvent {
 }
 
 abstract class RemoveProductEvent implements DeleteProductEvent {
-  const factory RemoveProductEvent({required final String id}) =
+  const factory RemoveProductEvent({required final String productId}) =
       _$RemoveProductEventImpl;
 
-  String get id;
+  String get productId;
   @JsonKey(ignore: true)
   _$$RemoveProductEventImplCopyWith<_$RemoveProductEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
