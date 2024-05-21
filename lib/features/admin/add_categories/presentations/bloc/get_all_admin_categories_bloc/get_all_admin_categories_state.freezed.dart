@@ -19,7 +19,7 @@ mixin _$GetAllAdminCategoriesState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<CategoriesModel> categories) success,
+    required TResult Function(CategoriesResponse response) success,
     required TResult Function(String message) failure,
     required TResult Function() empty,
   }) =>
@@ -27,7 +27,7 @@ mixin _$GetAllAdminCategoriesState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(List<CategoriesModel> categories)? success,
+    TResult? Function(CategoriesResponse response)? success,
     TResult? Function(String message)? failure,
     TResult? Function()? empty,
   }) =>
@@ -35,7 +35,7 @@ mixin _$GetAllAdminCategoriesState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<CategoriesModel> categories)? success,
+    TResult Function(CategoriesResponse response)? success,
     TResult Function(String message)? failure,
     TResult Function()? empty,
     required TResult orElse(),
@@ -127,7 +127,7 @@ class _$loadingStateImpl implements loadingState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<CategoriesModel> categories) success,
+    required TResult Function(CategoriesResponse response) success,
     required TResult Function(String message) failure,
     required TResult Function() empty,
   }) {
@@ -138,7 +138,7 @@ class _$loadingStateImpl implements loadingState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(List<CategoriesModel> categories)? success,
+    TResult? Function(CategoriesResponse response)? success,
     TResult? Function(String message)? failure,
     TResult? Function()? empty,
   }) {
@@ -149,7 +149,7 @@ class _$loadingStateImpl implements loadingState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<CategoriesModel> categories)? success,
+    TResult Function(CategoriesResponse response)? success,
     TResult Function(String message)? failure,
     TResult Function()? empty,
     required TResult orElse(),
@@ -208,7 +208,7 @@ abstract class _$$SuccessStateImplCopyWith<$Res> {
           _$SuccessStateImpl value, $Res Function(_$SuccessStateImpl) then) =
       __$$SuccessStateImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<CategoriesModel> categories});
+  $Res call({CategoriesResponse response});
 }
 
 /// @nodoc
@@ -222,13 +222,13 @@ class __$$SuccessStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? categories = null,
+    Object? response = null,
   }) {
     return _then(_$SuccessStateImpl(
-      null == categories
-          ? _value._categories
-          : categories // ignore: cast_nullable_to_non_nullable
-              as List<CategoriesModel>,
+      null == response
+          ? _value.response
+          : response // ignore: cast_nullable_to_non_nullable
+              as CategoriesResponse,
     ));
   }
 }
@@ -236,20 +236,14 @@ class __$$SuccessStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$SuccessStateImpl implements SuccessState {
-  const _$SuccessStateImpl(final List<CategoriesModel> categories)
-      : _categories = categories;
+  const _$SuccessStateImpl(this.response);
 
-  final List<CategoriesModel> _categories;
   @override
-  List<CategoriesModel> get categories {
-    if (_categories is EqualUnmodifiableListView) return _categories;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_categories);
-  }
+  final CategoriesResponse response;
 
   @override
   String toString() {
-    return 'GetAllAdminCategoriesState.success(categories: $categories)';
+    return 'GetAllAdminCategoriesState.success(response: $response)';
   }
 
   @override
@@ -257,13 +251,12 @@ class _$SuccessStateImpl implements SuccessState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SuccessStateImpl &&
-            const DeepCollectionEquality()
-                .equals(other._categories, _categories));
+            (identical(other.response, response) ||
+                other.response == response));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_categories));
+  int get hashCode => Object.hash(runtimeType, response);
 
   @JsonKey(ignore: true)
   @override
@@ -275,35 +268,35 @@ class _$SuccessStateImpl implements SuccessState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<CategoriesModel> categories) success,
+    required TResult Function(CategoriesResponse response) success,
     required TResult Function(String message) failure,
     required TResult Function() empty,
   }) {
-    return success(categories);
+    return success(response);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(List<CategoriesModel> categories)? success,
+    TResult? Function(CategoriesResponse response)? success,
     TResult? Function(String message)? failure,
     TResult? Function()? empty,
   }) {
-    return success?.call(categories);
+    return success?.call(response);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<CategoriesModel> categories)? success,
+    TResult Function(CategoriesResponse response)? success,
     TResult Function(String message)? failure,
     TResult Function()? empty,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(categories);
+      return success(response);
     }
     return orElse();
   }
@@ -347,10 +340,10 @@ class _$SuccessStateImpl implements SuccessState {
 }
 
 abstract class SuccessState implements GetAllAdminCategoriesState {
-  const factory SuccessState(final List<CategoriesModel> categories) =
+  const factory SuccessState(final CategoriesResponse response) =
       _$SuccessStateImpl;
 
-  List<CategoriesModel> get categories;
+  CategoriesResponse get response;
   @JsonKey(ignore: true)
   _$$SuccessStateImplCopyWith<_$SuccessStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -421,7 +414,7 @@ class _$FailureStateImpl implements FailureState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<CategoriesModel> categories) success,
+    required TResult Function(CategoriesResponse response) success,
     required TResult Function(String message) failure,
     required TResult Function() empty,
   }) {
@@ -432,7 +425,7 @@ class _$FailureStateImpl implements FailureState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(List<CategoriesModel> categories)? success,
+    TResult? Function(CategoriesResponse response)? success,
     TResult? Function(String message)? failure,
     TResult? Function()? empty,
   }) {
@@ -443,7 +436,7 @@ class _$FailureStateImpl implements FailureState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<CategoriesModel> categories)? success,
+    TResult Function(CategoriesResponse response)? success,
     TResult Function(String message)? failure,
     TResult Function()? empty,
     required TResult orElse(),
@@ -540,7 +533,7 @@ class _$EmptyStateImpl implements EmptyState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<CategoriesModel> categories) success,
+    required TResult Function(CategoriesResponse response) success,
     required TResult Function(String message) failure,
     required TResult Function() empty,
   }) {
@@ -551,7 +544,7 @@ class _$EmptyStateImpl implements EmptyState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(List<CategoriesModel> categories)? success,
+    TResult? Function(CategoriesResponse response)? success,
     TResult? Function(String message)? failure,
     TResult? Function()? empty,
   }) {
@@ -562,7 +555,7 @@ class _$EmptyStateImpl implements EmptyState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<CategoriesModel> categories)? success,
+    TResult Function(CategoriesResponse response)? success,
     TResult Function(String message)? failure,
     TResult Function()? empty,
     required TResult orElse(),

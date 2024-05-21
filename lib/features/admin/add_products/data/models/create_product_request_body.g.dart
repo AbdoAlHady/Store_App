@@ -12,7 +12,7 @@ CreateProductRequestBody _$CreateProductRequestBodyFromJson(
       title: json['title'] as String,
       price: json['price'] as num,
       description: json['description'] as String,
-      categoryId: json['categoryId'] as String,
+      categoryId: (json['categoryId'] as num).toDouble(),
       images:
           (json['images'] as List<dynamic>).map((e) => e as String).toList(),
     );

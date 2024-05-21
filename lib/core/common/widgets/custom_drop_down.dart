@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_app/core/common/widgets/text_app.dart';
 import 'package:store_app/core/extensions/context_extension.dart';
-import 'package:store_app/core/styles/colors/colors_dark.dart';
-import 'package:store_app/core/styles/fonts/font_wight_helper.dart';
 
-class CustomDropDown extends StatelessWidget {
-  const CustomDropDown({
+import '../../styles/colors/colors_dark.dart';
+import '../../styles/fonts/font_wight_helper.dart';
+
+class CustomCreateDropDown extends StatelessWidget {
+  const CustomCreateDropDown({
     required this.items,
     required this.hintText,
     required this.onChanged,

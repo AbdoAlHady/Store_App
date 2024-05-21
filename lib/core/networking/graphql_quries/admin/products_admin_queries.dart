@@ -27,29 +27,29 @@ class ProductsAdminQueries {
   }
 
   Map<String, dynamic> createProductQuery(CreateProductRequestBody body) {
-    return {
+   return {
       'query': r'''
-       mutation CreateProduct($title:String!,$price:Float!,$description:String!,$categoryId:Int!,$images:[String!]!){ ){
-            addProduct(
-                  data: {
-                    title: $title
-                    price: $price
-                    description: $description
-                    categoryId: $categoryId
-                    images: $images
-                  }
-          ) {
-            title
-          }
-        }
-      ''',
+          mutation CreateProduct($title: String!, $price: Float!, $description:String!, $categoryId: Float!,$imagesList:[String!]!  ) {
+              addProduct(
+                data: {
+                  title: $title,
+                  price: $price
+                  description: $description
+                  categoryId: $categoryId
+                  images: $imagesList
+                }
+              ) {
+                title
+              }
+            }
+        ''',
       'variables': {
         'title': body.title,
         'price': body.price,
         'description': body.description,
         'categoryId': body.categoryId,
-        'images': body.images
-      }
+        'imagesList': body.images,
+      },
     };
   }
 }

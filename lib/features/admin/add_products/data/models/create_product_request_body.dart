@@ -6,7 +6,7 @@ class CreateProductRequestBody {
   final String title;
   final num price;
   final String description;
-  final String categoryId;
+  final double categoryId;
   final List<String> images;
 
   CreateProductRequestBody({required this.title, required this.price, required this.description, required this.categoryId, required this.images});

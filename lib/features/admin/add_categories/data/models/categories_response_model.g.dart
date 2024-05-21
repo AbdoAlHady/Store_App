@@ -18,8 +18,8 @@ Map<String, dynamic> _$CategoriesResponseToJson(CategoriesResponse instance) =>
 
 CategoriesDateModel _$CategoriesDateModelFromJson(Map<String, dynamic> json) =>
     CategoriesDateModel(
-      (json['categories'] as List<dynamic>?)
-          ?.map((e) => CategoriesModel.fromJson(e as Map<String, dynamic>))
+      (json['categories'] as List<dynamic>)
+          .map((e) => CategoriesModel.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 

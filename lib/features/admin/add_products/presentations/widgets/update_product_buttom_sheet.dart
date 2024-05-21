@@ -11,6 +11,7 @@ import 'package:store_app/features/admin/add_products/presentations/widgets/upda
 
 import '../../../../../core/common/widgets/custom_drop_down.dart';
 
+
 class UpdateProductButtomSheet extends StatefulWidget {
   const UpdateProductButtomSheet({super.key});
 
@@ -139,7 +140,7 @@ class _UpdateProductButtomSheetState extends State<UpdateProductButtomSheet> {
                 ),
               ),
               verticalSpace(10),
-              CustomDropDown(
+              CustomCreateDropDown(
                 items: const [],
                 hintText: 'MackBook',
                 onChanged: (String? value) {

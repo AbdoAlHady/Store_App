@@ -22,7 +22,7 @@ class GetAllAdminCategoriesBloc
         emit(const GetAllAdminCategoriesState.empty());
       } else {
         emit(GetAllAdminCategoriesState.success(
-            categoriesResponseData.data.categories!.reversed.toList()));
+            categoriesResponseData));
       }
     }, failure: (error) {
       emit(GetAllAdminCategoriesState.failure(error));

@@ -21,7 +21,8 @@ class AddCategoriesList extends StatelessWidget {
           loading: () {
             return const CategoriesListLoading();
           },
-          success: (categories) {
+          success: (response) {
+            final categories=response.data.categories;
             return SliverList.separated(
               itemBuilder: (BuildContext context, int index) {
                 return AddCategoryItem(
