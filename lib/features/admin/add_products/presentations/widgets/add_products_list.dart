@@ -34,7 +34,7 @@ class AddProductsList extends StatelessWidget {
                       imageUrl: products[index].images!.first,
                       title: products[index].title!,
                       price: products[index].price!.toString(),
-                      categoryName: products[index].category!.name!,
+                      categoryName: products[index].category!.name!, productId: products[index].id!,
                     );
                   },
                 );

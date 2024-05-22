@@ -9,6 +9,7 @@ import 'package:store_app/core/extensions/context_extension.dart';
 import 'package:store_app/core/extensions/string_extension.dart';
 import 'package:store_app/core/helper/spacing.dart';
 import 'package:store_app/core/styles/fonts/font_wight_helper.dart';
+import 'package:store_app/features/admin/add_products/presentations/widgets/delete_product_button.dart';
 import 'package:store_app/features/admin/add_products/presentations/widgets/update_product_buttom_sheet.dart';
 
 class ProductAdminItem extends StatelessWidget {
@@ -17,11 +18,13 @@ class ProductAdminItem extends StatelessWidget {
       required this.imageUrl,
       required this.title,
       required this.categoryName,
-      required this.price});
+      required this.price,
+      required this.productId});
   final String imageUrl;
   final String title;
   final String categoryName;
   final String price;
+  final String productId;
 
   @override
   Widget build(BuildContext context) {
@@ -38,14 +41,8 @@ class ProductAdminItem extends StatelessWidget {
               //Delete Button,
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 10.w),
-                child: IconButton(
-                  padding: EdgeInsets.zero,
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.delete,
-                    color: Colors.red,
-                    size: 25,
-                  ),
+                child: DeleteProductButton(
+                  productId: productId,
                 ),
               ),
               //Update Button
