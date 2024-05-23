@@ -65,4 +65,7 @@ abstract class ApiService {
 
   @POST(ApiConstants.graphql)
   Future<void>deleteProduct(@Body() Map<String, dynamic> mutation);
+
+  @POST(ApiConstants.graphql)
+  Future<void>updateProduct(@Body() Map<String, dynamic> mutation);
 }

@@ -1,4 +1,5 @@
 import '../../../../features/admin/add_products/data/models/create_product_request_body.dart';
+import '../../../../features/admin/add_products/data/models/update_product_request_body.dart';
 
 class ProductsAdminQueries {
   const ProductsAdminQueries._();
@@ -63,6 +64,28 @@ class ProductsAdminQueries {
         ''',
       'variables': {
         'productId': productId,
+      },
+    };
+  }
+  // Update Product
+  Map<String, dynamic> updateProductQuery(UpdateProductRequestBody body) {
+    return {
+      'query': r'''
+         mutation UpdateProduct($id: ID!, $title: String!, $price: Float!, $description:String!, $categoryId: Float!,$images:[String!]! ){
+              updateProduct(id: $id, changes: { title: $title, price: $price, description: $description, categoryId: $categoryId, images: $images}) {
+                title
+                
+              }
+        }
+
+        ''',
+      'variables': {
+        'id': body.id,
+        'title': body.title,
+        'price': body.price,
+        'description': body.description,
+        'categoryId': body.categoryId,
+        'images': body.images,
       },
     };
   }

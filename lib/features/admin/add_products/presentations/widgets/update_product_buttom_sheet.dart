@@ -11,9 +11,9 @@ import 'package:store_app/features/admin/add_products/presentations/widgets/upda
 
 import '../../../../../core/common/widgets/custom_drop_down.dart';
 
-
 class UpdateProductButtomSheet extends StatefulWidget {
-  const UpdateProductButtomSheet({super.key});
+  const UpdateProductButtomSheet({super.key, required this.images});
+  final List<String> images;
 
   @override
   State<UpdateProductButtomSheet> createState() =>
@@ -66,7 +66,7 @@ class _UpdateProductButtomSheetState extends State<UpdateProductButtomSheet> {
                 ),
               ),
               verticalSpace(15),
-              const UpdateProductImage(),
+               UpdateProductImage(images:widget.images),
               verticalSpace(15),
 
               // Title

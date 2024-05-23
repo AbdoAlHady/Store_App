@@ -11,6 +11,7 @@ import 'package:store_app/features/admin/add_products/data/data_source/product_a
 import 'package:store_app/features/admin/add_products/data/repo/prodcut_admin_repo.dart';
 import 'package:store_app/features/admin/add_products/presentations/bloc/delete_product/delete_product_bloc.dart';
 import 'package:store_app/features/admin/add_products/presentations/bloc/get_all_admin_products_bloc/get_all_admin_products_bloc.dart';
+import 'package:store_app/features/admin/add_products/presentations/bloc/update_product/update_product_bloc.dart';
 import 'package:store_app/features/admin/dashboard/data/data_source/dashboard_data_source.dart';
 import 'package:store_app/features/admin/dashboard/presentations/bloc/products_number/products_number_bloc.dart';
 import 'package:store_app/features/admin/dashboard/presentations/bloc/users_number/users_number_bloc.dart';
@@ -104,4 +105,6 @@ Future<void> _initAdminProducts() async {
   getIt.registerFactory(() => CreateProductBloc(getIt()));
   // Delete Product Bloc
   getIt.registerFactory(() => DeleteProductBloc(getIt()));
+  // Update Product Bloc
+  getIt.registerFactory(() => UpdateProductBloc(getIt()));
 }
