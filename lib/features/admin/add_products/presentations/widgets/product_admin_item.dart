@@ -12,9 +12,14 @@ import 'package:store_app/core/extensions/context_extension.dart';
 import 'package:store_app/core/extensions/string_extension.dart';
 import 'package:store_app/core/helper/spacing.dart';
 import 'package:store_app/core/styles/fonts/font_wight_helper.dart';
+import 'package:store_app/features/admin/add_categories/presentations/bloc/get_all_admin_categories_bloc/get_all_admin_categories_bloc.dart';
+import 'package:store_app/features/admin/add_products/presentations/bloc/get_all_admin_products_bloc/get_all_admin_products_bloc.dart';
+import 'package:store_app/features/admin/add_products/presentations/bloc/get_all_admin_products_bloc/get_all_admin_products_event.dart';
 import 'package:store_app/features/admin/add_products/presentations/bloc/update_product/update_product_bloc.dart';
 import 'package:store_app/features/admin/add_products/presentations/widgets/delete_product_button.dart';
 import 'package:store_app/features/admin/add_products/presentations/widgets/update_product_buttom_sheet.dart';
+
+import '../../../add_categories/presentations/bloc/get_all_admin_categories_bloc/get_all_admin_categories_event.dart';
 
 class ProductAdminItem extends StatelessWidget {
   const ProductAdminItem(
@@ -23,13 +28,18 @@ class ProductAdminItem extends StatelessWidget {
       required this.title,
       required this.categoryName,
       required this.price,
-      required this.productId, required this.images});
+      required this.productId,
+      required this.images,
+      required this.descripation,
+      required this.categoryId});
   final String imageUrl;
   final String title;
   final String categoryName;
   final String price;
   final String productId;
   final List<String> images;
+  final String descripation;
+  final String categoryId;
 
   @override
   Widget build(BuildContext context) {
@@ -55,6 +65,11 @@ class ProductAdminItem extends StatelessWidget {
                 onPressed: () {
                   CustomBottomSheet.showCustomModelSheet(
                     context: context,
+                    whenComplet: () {
+                      context.read<GetAllAdminProductsBloc>().add(
+                          const GetAllAdminProductsEvent.getAdminProducts(
+                              isLoading: false));
+                    },
                     child: MultiBlocProvider(
                       providers: [
                         BlocProvider(
@@ -63,8 +78,22 @@ class ProductAdminItem extends StatelessWidget {
                         BlocProvider(
                           create: (context) => getIt<UploadImageCubit>(),
                         ),
+                        BlocProvider(
+                          create: (context) =>
+                              getIt<GetAllAdminCategoriesBloc>()
+                                ..add(const GetAllAdminCategoriesEvent
+                                    .getAllAdminCategories(isLoading: false)),
+                        ),
                       ],
-                      child:  UpdateProductButtomSheet(images: images,),
+                      child: UpdateProductButtomSheet(
+                        images: images,
+                        categoryName: categoryName,
+                        price: price,
+                        descripation: descripation,
+                        title: title,
+                        productId: productId,
+                        categoryId: categoryId,
+                      ),
                     ),
                   );
                 },

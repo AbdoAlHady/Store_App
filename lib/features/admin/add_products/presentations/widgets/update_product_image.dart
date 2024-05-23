@@ -56,7 +56,7 @@ class UpdateProductImage extends StatelessWidget {
             separatorBuilder: (context, index) {
               return verticalSpace(6);
             },
-            itemCount: 3);
+            itemCount: images.length);
       },
     );
   }
