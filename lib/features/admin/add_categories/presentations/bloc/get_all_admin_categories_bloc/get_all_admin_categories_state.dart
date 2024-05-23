@@ -6,7 +6,7 @@ part 'get_all_admin_categories_state.freezed.dart';
 @Freezed()
 class GetAllAdminCategoriesState with _$GetAllAdminCategoriesState {
   const factory GetAllAdminCategoriesState.loading() = loadingState;
-  const factory GetAllAdminCategoriesState.success(List<CategoriesModel> categories) = SuccessState;
+  const factory GetAllAdminCategoriesState.success(CategoriesResponse response) = SuccessState;
   const factory GetAllAdminCategoriesState.failure(String message) = FailureState;
   const factory GetAllAdminCategoriesState.empty() = EmptyState;
 }

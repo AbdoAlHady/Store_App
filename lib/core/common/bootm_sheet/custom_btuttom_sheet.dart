@@ -13,6 +13,8 @@ class CustomBottomSheet {
           VoidCallback? whenComplet}) =>
       showModalBottomSheet<dynamic>(
         context: context,
+        isScrollControlled: true,
+        barrierColor: Colors.transparent,
         builder: (context) => SingleChildScrollView(
             child: Padding(
           padding:
@@ -28,5 +30,5 @@ class CustomBottomSheet {
           ),
         ),
         backgroundColor: background ?? ColorsDark.blueDark,
-      ).whenComplete(whenComplet??(){});
+      ).whenComplete(whenComplet ?? () {});
 }

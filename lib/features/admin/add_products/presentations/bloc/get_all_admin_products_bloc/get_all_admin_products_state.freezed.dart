@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'get_all_admin_categories_state.dart';
+part of 'get_all_admin_products_state.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,72 +15,71 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$GetAllAdminCategoriesState {
+mixin _$GetAllAdminProductsState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(CategoriesResponse response) success,
-    required TResult Function(String message) failure,
+    required TResult Function(List<GetAllProductsModel> products) success,
     required TResult Function() empty,
+    required TResult Function(String message) failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(CategoriesResponse response)? success,
-    TResult? Function(String message)? failure,
+    TResult? Function(List<GetAllProductsModel> products)? success,
     TResult? Function()? empty,
+    TResult? Function(String message)? failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(CategoriesResponse response)? success,
-    TResult Function(String message)? failure,
+    TResult Function(List<GetAllProductsModel> products)? success,
     TResult Function()? empty,
+    TResult Function(String message)? failure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(loadingState value) loading,
+    required TResult Function(LoadingState value) loading,
     required TResult Function(SuccessState value) success,
-    required TResult Function(FailureState value) failure,
     required TResult Function(EmptyState value) empty,
+    required TResult Function(FailureState value) failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(loadingState value)? loading,
+    TResult? Function(LoadingState value)? loading,
     TResult? Function(SuccessState value)? success,
-    TResult? Function(FailureState value)? failure,
     TResult? Function(EmptyState value)? empty,
+    TResult? Function(FailureState value)? failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(loadingState value)? loading,
+    TResult Function(LoadingState value)? loading,
     TResult Function(SuccessState value)? success,
-    TResult Function(FailureState value)? failure,
     TResult Function(EmptyState value)? empty,
+    TResult Function(FailureState value)? failure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $GetAllAdminCategoriesStateCopyWith<$Res> {
-  factory $GetAllAdminCategoriesStateCopyWith(GetAllAdminCategoriesState value,
-          $Res Function(GetAllAdminCategoriesState) then) =
-      _$GetAllAdminCategoriesStateCopyWithImpl<$Res,
-          GetAllAdminCategoriesState>;
+abstract class $GetAllAdminProductsStateCopyWith<$Res> {
+  factory $GetAllAdminProductsStateCopyWith(GetAllAdminProductsState value,
+          $Res Function(GetAllAdminProductsState) then) =
+      _$GetAllAdminProductsStateCopyWithImpl<$Res, GetAllAdminProductsState>;
 }
 
 /// @nodoc
-class _$GetAllAdminCategoriesStateCopyWithImpl<$Res,
-        $Val extends GetAllAdminCategoriesState>
-    implements $GetAllAdminCategoriesStateCopyWith<$Res> {
-  _$GetAllAdminCategoriesStateCopyWithImpl(this._value, this._then);
+class _$GetAllAdminProductsStateCopyWithImpl<$Res,
+        $Val extends GetAllAdminProductsState>
+    implements $GetAllAdminProductsStateCopyWith<$Res> {
+  _$GetAllAdminProductsStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -89,35 +88,35 @@ class _$GetAllAdminCategoriesStateCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$loadingStateImplCopyWith<$Res> {
-  factory _$$loadingStateImplCopyWith(
-          _$loadingStateImpl value, $Res Function(_$loadingStateImpl) then) =
-      __$$loadingStateImplCopyWithImpl<$Res>;
+abstract class _$$LoadingStateImplCopyWith<$Res> {
+  factory _$$LoadingStateImplCopyWith(
+          _$LoadingStateImpl value, $Res Function(_$LoadingStateImpl) then) =
+      __$$LoadingStateImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$loadingStateImplCopyWithImpl<$Res>
-    extends _$GetAllAdminCategoriesStateCopyWithImpl<$Res, _$loadingStateImpl>
-    implements _$$loadingStateImplCopyWith<$Res> {
-  __$$loadingStateImplCopyWithImpl(
-      _$loadingStateImpl _value, $Res Function(_$loadingStateImpl) _then)
+class __$$LoadingStateImplCopyWithImpl<$Res>
+    extends _$GetAllAdminProductsStateCopyWithImpl<$Res, _$LoadingStateImpl>
+    implements _$$LoadingStateImplCopyWith<$Res> {
+  __$$LoadingStateImplCopyWithImpl(
+      _$LoadingStateImpl _value, $Res Function(_$LoadingStateImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$loadingStateImpl implements loadingState {
-  const _$loadingStateImpl();
+class _$LoadingStateImpl implements LoadingState {
+  const _$LoadingStateImpl();
 
   @override
   String toString() {
-    return 'GetAllAdminCategoriesState.loading()';
+    return 'GetAllAdminProductsState.loading()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$loadingStateImpl);
+        (other.runtimeType == runtimeType && other is _$LoadingStateImpl);
   }
 
   @override
@@ -127,9 +126,9 @@ class _$loadingStateImpl implements loadingState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(CategoriesResponse response) success,
-    required TResult Function(String message) failure,
+    required TResult Function(List<GetAllProductsModel> products) success,
     required TResult Function() empty,
+    required TResult Function(String message) failure,
   }) {
     return loading();
   }
@@ -138,9 +137,9 @@ class _$loadingStateImpl implements loadingState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(CategoriesResponse response)? success,
-    TResult? Function(String message)? failure,
+    TResult? Function(List<GetAllProductsModel> products)? success,
     TResult? Function()? empty,
+    TResult? Function(String message)? failure,
   }) {
     return loading?.call();
   }
@@ -149,9 +148,9 @@ class _$loadingStateImpl implements loadingState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(CategoriesResponse response)? success,
-    TResult Function(String message)? failure,
+    TResult Function(List<GetAllProductsModel> products)? success,
     TResult Function()? empty,
+    TResult Function(String message)? failure,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -163,10 +162,10 @@ class _$loadingStateImpl implements loadingState {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(loadingState value) loading,
+    required TResult Function(LoadingState value) loading,
     required TResult Function(SuccessState value) success,
-    required TResult Function(FailureState value) failure,
     required TResult Function(EmptyState value) empty,
+    required TResult Function(FailureState value) failure,
   }) {
     return loading(this);
   }
@@ -174,10 +173,10 @@ class _$loadingStateImpl implements loadingState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(loadingState value)? loading,
+    TResult? Function(LoadingState value)? loading,
     TResult? Function(SuccessState value)? success,
-    TResult? Function(FailureState value)? failure,
     TResult? Function(EmptyState value)? empty,
+    TResult? Function(FailureState value)? failure,
   }) {
     return loading?.call(this);
   }
@@ -185,10 +184,10 @@ class _$loadingStateImpl implements loadingState {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(loadingState value)? loading,
+    TResult Function(LoadingState value)? loading,
     TResult Function(SuccessState value)? success,
-    TResult Function(FailureState value)? failure,
     TResult Function(EmptyState value)? empty,
+    TResult Function(FailureState value)? failure,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -198,8 +197,8 @@ class _$loadingStateImpl implements loadingState {
   }
 }
 
-abstract class loadingState implements GetAllAdminCategoriesState {
-  const factory loadingState() = _$loadingStateImpl;
+abstract class LoadingState implements GetAllAdminProductsState {
+  const factory LoadingState() = _$LoadingStateImpl;
 }
 
 /// @nodoc
@@ -208,12 +207,12 @@ abstract class _$$SuccessStateImplCopyWith<$Res> {
           _$SuccessStateImpl value, $Res Function(_$SuccessStateImpl) then) =
       __$$SuccessStateImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({CategoriesResponse response});
+  $Res call({List<GetAllProductsModel> products});
 }
 
 /// @nodoc
 class __$$SuccessStateImplCopyWithImpl<$Res>
-    extends _$GetAllAdminCategoriesStateCopyWithImpl<$Res, _$SuccessStateImpl>
+    extends _$GetAllAdminProductsStateCopyWithImpl<$Res, _$SuccessStateImpl>
     implements _$$SuccessStateImplCopyWith<$Res> {
   __$$SuccessStateImplCopyWithImpl(
       _$SuccessStateImpl _value, $Res Function(_$SuccessStateImpl) _then)
@@ -222,13 +221,13 @@ class __$$SuccessStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? response = null,
+    Object? products = null,
   }) {
     return _then(_$SuccessStateImpl(
-      null == response
-          ? _value.response
-          : response // ignore: cast_nullable_to_non_nullable
-              as CategoriesResponse,
+      null == products
+          ? _value._products
+          : products // ignore: cast_nullable_to_non_nullable
+              as List<GetAllProductsModel>,
     ));
   }
 }
@@ -236,14 +235,20 @@ class __$$SuccessStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$SuccessStateImpl implements SuccessState {
-  const _$SuccessStateImpl(this.response);
+  const _$SuccessStateImpl(final List<GetAllProductsModel> products)
+      : _products = products;
 
+  final List<GetAllProductsModel> _products;
   @override
-  final CategoriesResponse response;
+  List<GetAllProductsModel> get products {
+    if (_products is EqualUnmodifiableListView) return _products;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_products);
+  }
 
   @override
   String toString() {
-    return 'GetAllAdminCategoriesState.success(response: $response)';
+    return 'GetAllAdminProductsState.success(products: $products)';
   }
 
   @override
@@ -251,12 +256,12 @@ class _$SuccessStateImpl implements SuccessState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SuccessStateImpl &&
-            (identical(other.response, response) ||
-                other.response == response));
+            const DeepCollectionEquality().equals(other._products, _products));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, response);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_products));
 
   @JsonKey(ignore: true)
   @override
@@ -268,35 +273,35 @@ class _$SuccessStateImpl implements SuccessState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(CategoriesResponse response) success,
-    required TResult Function(String message) failure,
+    required TResult Function(List<GetAllProductsModel> products) success,
     required TResult Function() empty,
+    required TResult Function(String message) failure,
   }) {
-    return success(response);
+    return success(products);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(CategoriesResponse response)? success,
-    TResult? Function(String message)? failure,
+    TResult? Function(List<GetAllProductsModel> products)? success,
     TResult? Function()? empty,
+    TResult? Function(String message)? failure,
   }) {
-    return success?.call(response);
+    return success?.call(products);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(CategoriesResponse response)? success,
-    TResult Function(String message)? failure,
+    TResult Function(List<GetAllProductsModel> products)? success,
     TResult Function()? empty,
+    TResult Function(String message)? failure,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(response);
+      return success(products);
     }
     return orElse();
   }
@@ -304,10 +309,10 @@ class _$SuccessStateImpl implements SuccessState {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(loadingState value) loading,
+    required TResult Function(LoadingState value) loading,
     required TResult Function(SuccessState value) success,
-    required TResult Function(FailureState value) failure,
     required TResult Function(EmptyState value) empty,
+    required TResult Function(FailureState value) failure,
   }) {
     return success(this);
   }
@@ -315,10 +320,10 @@ class _$SuccessStateImpl implements SuccessState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(loadingState value)? loading,
+    TResult? Function(LoadingState value)? loading,
     TResult? Function(SuccessState value)? success,
-    TResult? Function(FailureState value)? failure,
     TResult? Function(EmptyState value)? empty,
+    TResult? Function(FailureState value)? failure,
   }) {
     return success?.call(this);
   }
@@ -326,10 +331,10 @@ class _$SuccessStateImpl implements SuccessState {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(loadingState value)? loading,
+    TResult Function(LoadingState value)? loading,
     TResult Function(SuccessState value)? success,
-    TResult Function(FailureState value)? failure,
     TResult Function(EmptyState value)? empty,
+    TResult Function(FailureState value)? failure,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -339,14 +344,128 @@ class _$SuccessStateImpl implements SuccessState {
   }
 }
 
-abstract class SuccessState implements GetAllAdminCategoriesState {
-  const factory SuccessState(final CategoriesResponse response) =
+abstract class SuccessState implements GetAllAdminProductsState {
+  const factory SuccessState(final List<GetAllProductsModel> products) =
       _$SuccessStateImpl;
 
-  CategoriesResponse get response;
+  List<GetAllProductsModel> get products;
   @JsonKey(ignore: true)
   _$$SuccessStateImplCopyWith<_$SuccessStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$EmptyStateImplCopyWith<$Res> {
+  factory _$$EmptyStateImplCopyWith(
+          _$EmptyStateImpl value, $Res Function(_$EmptyStateImpl) then) =
+      __$$EmptyStateImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$EmptyStateImplCopyWithImpl<$Res>
+    extends _$GetAllAdminProductsStateCopyWithImpl<$Res, _$EmptyStateImpl>
+    implements _$$EmptyStateImplCopyWith<$Res> {
+  __$$EmptyStateImplCopyWithImpl(
+      _$EmptyStateImpl _value, $Res Function(_$EmptyStateImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$EmptyStateImpl implements EmptyState {
+  const _$EmptyStateImpl();
+
+  @override
+  String toString() {
+    return 'GetAllAdminProductsState.empty()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$EmptyStateImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loading,
+    required TResult Function(List<GetAllProductsModel> products) success,
+    required TResult Function() empty,
+    required TResult Function(String message) failure,
+  }) {
+    return empty();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loading,
+    TResult? Function(List<GetAllProductsModel> products)? success,
+    TResult? Function()? empty,
+    TResult? Function(String message)? failure,
+  }) {
+    return empty?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loading,
+    TResult Function(List<GetAllProductsModel> products)? success,
+    TResult Function()? empty,
+    TResult Function(String message)? failure,
+    required TResult orElse(),
+  }) {
+    if (empty != null) {
+      return empty();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(LoadingState value) loading,
+    required TResult Function(SuccessState value) success,
+    required TResult Function(EmptyState value) empty,
+    required TResult Function(FailureState value) failure,
+  }) {
+    return empty(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(LoadingState value)? loading,
+    TResult? Function(SuccessState value)? success,
+    TResult? Function(EmptyState value)? empty,
+    TResult? Function(FailureState value)? failure,
+  }) {
+    return empty?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(LoadingState value)? loading,
+    TResult Function(SuccessState value)? success,
+    TResult Function(EmptyState value)? empty,
+    TResult Function(FailureState value)? failure,
+    required TResult orElse(),
+  }) {
+    if (empty != null) {
+      return empty(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class EmptyState implements GetAllAdminProductsState {
+  const factory EmptyState() = _$EmptyStateImpl;
 }
 
 /// @nodoc
@@ -360,7 +479,7 @@ abstract class _$$FailureStateImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$FailureStateImplCopyWithImpl<$Res>
-    extends _$GetAllAdminCategoriesStateCopyWithImpl<$Res, _$FailureStateImpl>
+    extends _$GetAllAdminProductsStateCopyWithImpl<$Res, _$FailureStateImpl>
     implements _$$FailureStateImplCopyWith<$Res> {
   __$$FailureStateImplCopyWithImpl(
       _$FailureStateImpl _value, $Res Function(_$FailureStateImpl) _then)
@@ -390,7 +509,7 @@ class _$FailureStateImpl implements FailureState {
 
   @override
   String toString() {
-    return 'GetAllAdminCategoriesState.failure(message: $message)';
+    return 'GetAllAdminProductsState.failure(message: $message)';
   }
 
   @override
@@ -414,9 +533,9 @@ class _$FailureStateImpl implements FailureState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(CategoriesResponse response) success,
-    required TResult Function(String message) failure,
+    required TResult Function(List<GetAllProductsModel> products) success,
     required TResult Function() empty,
+    required TResult Function(String message) failure,
   }) {
     return failure(message);
   }
@@ -425,9 +544,9 @@ class _$FailureStateImpl implements FailureState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(CategoriesResponse response)? success,
-    TResult? Function(String message)? failure,
+    TResult? Function(List<GetAllProductsModel> products)? success,
     TResult? Function()? empty,
+    TResult? Function(String message)? failure,
   }) {
     return failure?.call(message);
   }
@@ -436,9 +555,9 @@ class _$FailureStateImpl implements FailureState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(CategoriesResponse response)? success,
-    TResult Function(String message)? failure,
+    TResult Function(List<GetAllProductsModel> products)? success,
     TResult Function()? empty,
+    TResult Function(String message)? failure,
     required TResult orElse(),
   }) {
     if (failure != null) {
@@ -450,10 +569,10 @@ class _$FailureStateImpl implements FailureState {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(loadingState value) loading,
+    required TResult Function(LoadingState value) loading,
     required TResult Function(SuccessState value) success,
-    required TResult Function(FailureState value) failure,
     required TResult Function(EmptyState value) empty,
+    required TResult Function(FailureState value) failure,
   }) {
     return failure(this);
   }
@@ -461,10 +580,10 @@ class _$FailureStateImpl implements FailureState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(loadingState value)? loading,
+    TResult? Function(LoadingState value)? loading,
     TResult? Function(SuccessState value)? success,
-    TResult? Function(FailureState value)? failure,
     TResult? Function(EmptyState value)? empty,
+    TResult? Function(FailureState value)? failure,
   }) {
     return failure?.call(this);
   }
@@ -472,10 +591,10 @@ class _$FailureStateImpl implements FailureState {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(loadingState value)? loading,
+    TResult Function(LoadingState value)? loading,
     TResult Function(SuccessState value)? success,
-    TResult Function(FailureState value)? failure,
     TResult Function(EmptyState value)? empty,
+    TResult Function(FailureState value)? failure,
     required TResult orElse(),
   }) {
     if (failure != null) {
@@ -485,125 +604,11 @@ class _$FailureStateImpl implements FailureState {
   }
 }
 
-abstract class FailureState implements GetAllAdminCategoriesState {
+abstract class FailureState implements GetAllAdminProductsState {
   const factory FailureState(final String message) = _$FailureStateImpl;
 
   String get message;
   @JsonKey(ignore: true)
   _$$FailureStateImplCopyWith<_$FailureStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$EmptyStateImplCopyWith<$Res> {
-  factory _$$EmptyStateImplCopyWith(
-          _$EmptyStateImpl value, $Res Function(_$EmptyStateImpl) then) =
-      __$$EmptyStateImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$EmptyStateImplCopyWithImpl<$Res>
-    extends _$GetAllAdminCategoriesStateCopyWithImpl<$Res, _$EmptyStateImpl>
-    implements _$$EmptyStateImplCopyWith<$Res> {
-  __$$EmptyStateImplCopyWithImpl(
-      _$EmptyStateImpl _value, $Res Function(_$EmptyStateImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$EmptyStateImpl implements EmptyState {
-  const _$EmptyStateImpl();
-
-  @override
-  String toString() {
-    return 'GetAllAdminCategoriesState.empty()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$EmptyStateImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() loading,
-    required TResult Function(CategoriesResponse response) success,
-    required TResult Function(String message) failure,
-    required TResult Function() empty,
-  }) {
-    return empty();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? loading,
-    TResult? Function(CategoriesResponse response)? success,
-    TResult? Function(String message)? failure,
-    TResult? Function()? empty,
-  }) {
-    return empty?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? loading,
-    TResult Function(CategoriesResponse response)? success,
-    TResult Function(String message)? failure,
-    TResult Function()? empty,
-    required TResult orElse(),
-  }) {
-    if (empty != null) {
-      return empty();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(loadingState value) loading,
-    required TResult Function(SuccessState value) success,
-    required TResult Function(FailureState value) failure,
-    required TResult Function(EmptyState value) empty,
-  }) {
-    return empty(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(loadingState value)? loading,
-    TResult? Function(SuccessState value)? success,
-    TResult? Function(FailureState value)? failure,
-    TResult? Function(EmptyState value)? empty,
-  }) {
-    return empty?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(loadingState value)? loading,
-    TResult Function(SuccessState value)? success,
-    TResult Function(FailureState value)? failure,
-    TResult Function(EmptyState value)? empty,
-    required TResult orElse(),
-  }) {
-    if (empty != null) {
-      return empty(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class EmptyState implements GetAllAdminCategoriesState {
-  const factory EmptyState() = _$EmptyStateImpl;
 }
