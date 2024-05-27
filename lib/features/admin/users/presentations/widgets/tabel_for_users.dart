@@ -4,11 +4,12 @@ import 'package:store_app/core/common/widgets/text_app.dart';
 import 'package:store_app/core/extensions/context_extension.dart';
 import 'package:store_app/core/styles/colors/colors_dark.dart';
 import 'package:store_app/core/styles/fonts/font_wight_helper.dart';
+import 'package:store_app/features/admin/users/data/models/get_all_users_response.dart';
 import 'package:store_app/features/admin/users/presentations/widgets/table_cell_title_widget.dart';
 
 class TabelForUsers extends StatelessWidget {
-  const TabelForUsers({super.key});
-
+  const TabelForUsers({super.key, required this.users});
+  final List<GetAllUsersModel> users;
   @override
   Widget build(BuildContext context) {
     return Table(
@@ -36,7 +37,7 @@ class TabelForUsers extends StatelessWidget {
             // Email
             TableCell(
               verticalAlignment: TableCellVerticalAlignment.middle,
-              child:TableCellTitleWidget(
+              child: TableCellTitleWidget(
                 title: 'Email',
                 icon: Icons.email_outlined,
               ),
@@ -44,7 +45,7 @@ class TabelForUsers extends StatelessWidget {
             // Delete
             TableCell(
               verticalAlignment: TableCellVerticalAlignment.middle,
-              child:TableCellTitleWidget(
+              child: TableCellTitleWidget(
                 title: 'Delete',
                 icon: Icons.delete_forever,
               ),
@@ -52,7 +53,7 @@ class TabelForUsers extends StatelessWidget {
           ],
         ),
         ...List.generate(
-          4,
+          users.length,
           (index) => TableRow(
             children: [
               TableCell(
@@ -60,9 +61,10 @@ class TabelForUsers extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.all(10),
                   child: TextApp(
-                      text: 'Abdo',
+                      text: users[index].name!,
                       style: context.textStyle.copyWith(
-                          fontSize: 12.sp, fontWeight: FontWeightHelper.medium)),
+                          fontSize: 12.sp,
+                          fontWeight: FontWeightHelper.medium)),
                 ),
               ),
               TableCell(
@@ -70,9 +72,10 @@ class TabelForUsers extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: TextApp(
-                      text: 'abdo.admin@gmail.com ',
+                      text: users[index].email!,
                       style: context.textStyle.copyWith(
-                          fontSize: 12.sp, fontWeight: FontWeightHelper.medium)),
+                          fontSize: 12.sp,
+                          fontWeight: FontWeightHelper.medium)),
                 ),
               ),
               const TableCell(

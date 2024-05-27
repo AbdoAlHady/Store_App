@@ -1,8 +1,15 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:store_app/core/common/widgets/empty_screen.dart';
 import 'package:store_app/core/helper/spacing.dart';
+import 'package:store_app/core/styles/colors/colors_dark.dart';
+import 'package:store_app/features/admin/users/presentations/bloc/get_all_users/get_all_users_bloc.dart';
+import 'package:store_app/features/admin/users/presentations/bloc/get_all_users/get_all_users_state.dart';
 
+import '../bloc/get_all_users/get_all_users_event.dart';
 import '../widgets/search_for_user.dart';
 import '../widgets/tabel_for_users.dart';
 
@@ -18,21 +25,40 @@ class UsersAdminBody extends StatelessWidget {
           // Search For Users,
           const SearchForUser(),
           verticalSpace(20),
-          Expanded(
+          Flexible(
             child: RefreshIndicator(
                 child: CustomScrollView(
                   slivers: [
                     // Users Table,
-                    const SliverToBoxAdapter(
-                      child: TabelForUsers(),
+                    SliverToBoxAdapter(
+                      child: BlocBuilder<GetAllUsersBloc, GetAllUsersState>(
+                        builder: (context, state) {
+                          return state.when(
+                            loading: () => const Center(
+                              child: CircularProgressIndicator(
+                                color: ColorsDark.blueDark,
+                              ),
+                            ),
+                            success: (users) {
+                              return TabelForUsers(users: users);
+                            },
+                            empty: EmptyScreen.new,
+                            failure: Text.new,
+                          );
+                        },
+                      ),
                     ),
-                
+
                     SliverToBoxAdapter(
                       child: verticalSpace(25),
                     ),
                   ],
                 ),
-                onRefresh: () async {}),
+                onRefresh: () async {
+                  context.read<GetAllUsersBloc>().add(
+                         const GetAllUsersEvent.getUsersEvent(isLoading: true),
+                      );
+                }),
           ),
         ],
       ),
