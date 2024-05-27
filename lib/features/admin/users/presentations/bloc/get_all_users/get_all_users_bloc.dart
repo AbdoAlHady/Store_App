@@ -10,7 +10,19 @@ class GetAllUsersBloc extends Bloc<GetAllUsersEvent, GetAllUsersState> {
     on<GetUsersEvent>(_getAllUsers);
   }
 
-  FutureOr<void> _getAllUsers(event, emit) {
-    // TODO: implement event handler
+  FutureOr<void> _getAllUsers(event, emit) async {
+    if (event.isLoading) {
+      emit(const GetAllUsersState.loading());
+    }
+    final result = await _repo.getAllUsers();
+    result.when(success: (usersResponse) {
+      if (usersResponse.data.users!.isEmpty) {
+        emit(const GetAllUsersState.empty());
+      } else {
+        emit(GetAllUsersState.success(usersResponse.data.users!));
+      }
+    }, failure: (message) {
+      emit(GetAllUsersState.failure(message));
+    });
   }
 }
