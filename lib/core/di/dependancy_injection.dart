@@ -18,7 +18,8 @@ import 'package:store_app/features/admin/dashboard/presentations/bloc/users_numb
 import 'package:store_app/features/admin/dashboard/repos/dashboard_repo.dart';
 import 'package:store_app/features/admin/users/data/data_source/users_data_source.dart';
 import 'package:store_app/features/admin/users/data/repo/users_repo.dart';
-import 'package:store_app/features/admin/users/presentations/bloc/get_all_users/get_all_users_bloc.dart';
+import 'package:store_app/features/admin/users/presentations/delete_user/bloc/delete_user_bloc.dart';
+import 'package:store_app/features/admin/users/presentations/delete_user/get_all_users/get_all_users_bloc.dart';
 
 import '../../features/admin/add_categories/presentations/bloc/update_category_bloc/update_category_bloc.dart';
 import '../../features/admin/add_products/presentations/bloc/create_product_bloc/create_product_bloc.dart';
@@ -121,5 +122,7 @@ Future<void> _initUsers() async {
   getIt.registerLazySingleton(() => UsersRepo(getIt()));
   // Get all Users  Bloc
   getIt.registerFactory(() => GetAllUsersBloc(getIt()));
+  // Delete User Bloc
+  getIt.registerFactory(() => DeleteUserBloc(getIt()));
   
 }

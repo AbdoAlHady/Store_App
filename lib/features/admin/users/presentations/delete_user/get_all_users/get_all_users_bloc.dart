@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_app/features/admin/users/data/models/get_all_users_response.dart';
 import 'package:store_app/features/admin/users/data/repo/users_repo.dart';
-import 'package:store_app/features/admin/users/presentations/bloc/get_all_users/get_all_users_event.dart';
-import 'package:store_app/features/admin/users/presentations/bloc/get_all_users/get_all_users_state.dart';
+import 'package:store_app/features/admin/users/presentations/delete_user/get_all_users/get_all_users_event.dart';
+import 'package:store_app/features/admin/users/presentations/delete_user/get_all_users/get_all_users_state.dart';
 
 class GetAllUsersBloc extends Bloc<GetAllUsersEvent, GetAllUsersState> {
   final UsersRepo _repo;
