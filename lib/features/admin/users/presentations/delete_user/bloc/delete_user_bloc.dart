@@ -10,7 +10,14 @@ class DeleteUserBloc extends Bloc<DeleteUserEvent, DeleteUserState> {
     on<RemoveUserEvent>(_deleteUser);
   }
 
-  FutureOr<void> _deleteUser(RemoveUserEvent event, emit) {
-    // TODO: implement event handler
+  FutureOr<void> _deleteUser(RemoveUserEvent event, emit) async {
+    emit(DeleteUserState.loading(userId: event.userId));
+    final result = await _repo.deleteUser(event.userId);
+    result.when(
+      success: (data)=> emit(const DeleteUserState.success()),
+      failure: (message) => emit(
+        DeleteUserState.failure(message: message),
+      ),
+    );
   }
 }
