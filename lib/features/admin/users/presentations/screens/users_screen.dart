@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_app/core/di/dependancy_injection.dart';
 import 'package:store_app/core/extensions/context_extension.dart';
+import 'package:store_app/features/admin/users/presentations/delete_user/bloc/delete_user_bloc.dart';
 import 'package:store_app/features/admin/users/presentations/delete_user/get_all_users/get_all_users_bloc.dart';
 import 'package:store_app/features/admin/users/presentations/delete_user/get_all_users/get_all_users_event.dart';
 import 'package:store_app/features/admin/users/presentations/refactors/users_body.dart';
@@ -21,6 +22,7 @@ class UsersScreen extends StatelessWidget {
               const GetAllUsersEvent.getUsersEvent(isLoading: true),
             ),
         ),
+        BlocProvider(create: (_) => getIt<DeleteUserBloc>()),
       ],
       child: Scaffold(
         appBar: AdminAppBar(
