@@ -39,6 +39,9 @@ class UsersAdminBody extends StatelessWidget {
                                 color: ColorsDark.blueDark,
                               ),
                             ),
+                            search: (users) {
+                              return TabelForUsers(users: users);
+                            },
                             success: (users) {
                               return TabelForUsers(users: users);
                             },

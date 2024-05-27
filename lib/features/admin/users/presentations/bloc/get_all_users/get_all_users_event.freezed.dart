@@ -20,18 +20,21 @@ mixin _$GetAllUsersEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(bool isLoading) getUsersEvent,
+    required TResult Function(String? searchName) searchForUser,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function(bool isLoading)? getUsersEvent,
+    TResult? Function(String? searchName)? searchForUser,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(bool isLoading)? getUsersEvent,
+    TResult Function(String? searchName)? searchForUser,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +42,21 @@ mixin _$GetAllUsersEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(GetUsersEvent value) getUsersEvent,
+    required TResult Function(SearchForUserEvent value) searchForUser,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(GetUsersEvent value)? getUsersEvent,
+    TResult? Function(SearchForUserEvent value)? searchForUser,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(GetUsersEvent value)? getUsersEvent,
+    TResult Function(SearchForUserEvent value)? searchForUser,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -114,6 +120,7 @@ class _$StartedImpl implements _Started {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(bool isLoading) getUsersEvent,
+    required TResult Function(String? searchName) searchForUser,
   }) {
     return started();
   }
@@ -123,6 +130,7 @@ class _$StartedImpl implements _Started {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function(bool isLoading)? getUsersEvent,
+    TResult? Function(String? searchName)? searchForUser,
   }) {
     return started?.call();
   }
@@ -132,6 +140,7 @@ class _$StartedImpl implements _Started {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(bool isLoading)? getUsersEvent,
+    TResult Function(String? searchName)? searchForUser,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -145,6 +154,7 @@ class _$StartedImpl implements _Started {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(GetUsersEvent value) getUsersEvent,
+    required TResult Function(SearchForUserEvent value) searchForUser,
   }) {
     return started(this);
   }
@@ -154,6 +164,7 @@ class _$StartedImpl implements _Started {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(GetUsersEvent value)? getUsersEvent,
+    TResult? Function(SearchForUserEvent value)? searchForUser,
   }) {
     return started?.call(this);
   }
@@ -163,6 +174,7 @@ class _$StartedImpl implements _Started {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(GetUsersEvent value)? getUsersEvent,
+    TResult Function(SearchForUserEvent value)? searchForUser,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -243,6 +255,7 @@ class _$GetUsersEventImpl implements GetUsersEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(bool isLoading) getUsersEvent,
+    required TResult Function(String? searchName) searchForUser,
   }) {
     return getUsersEvent(isLoading);
   }
@@ -252,6 +265,7 @@ class _$GetUsersEventImpl implements GetUsersEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function(bool isLoading)? getUsersEvent,
+    TResult? Function(String? searchName)? searchForUser,
   }) {
     return getUsersEvent?.call(isLoading);
   }
@@ -261,6 +275,7 @@ class _$GetUsersEventImpl implements GetUsersEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(bool isLoading)? getUsersEvent,
+    TResult Function(String? searchName)? searchForUser,
     required TResult orElse(),
   }) {
     if (getUsersEvent != null) {
@@ -274,6 +289,7 @@ class _$GetUsersEventImpl implements GetUsersEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(GetUsersEvent value) getUsersEvent,
+    required TResult Function(SearchForUserEvent value) searchForUser,
   }) {
     return getUsersEvent(this);
   }
@@ -283,6 +299,7 @@ class _$GetUsersEventImpl implements GetUsersEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(GetUsersEvent value)? getUsersEvent,
+    TResult? Function(SearchForUserEvent value)? searchForUser,
   }) {
     return getUsersEvent?.call(this);
   }
@@ -292,6 +309,7 @@ class _$GetUsersEventImpl implements GetUsersEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(GetUsersEvent value)? getUsersEvent,
+    TResult Function(SearchForUserEvent value)? searchForUser,
     required TResult orElse(),
   }) {
     if (getUsersEvent != null) {
@@ -308,5 +326,147 @@ abstract class GetUsersEvent implements GetAllUsersEvent {
   bool get isLoading;
   @JsonKey(ignore: true)
   _$$GetUsersEventImplCopyWith<_$GetUsersEventImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SearchForUserEventImplCopyWith<$Res> {
+  factory _$$SearchForUserEventImplCopyWith(_$SearchForUserEventImpl value,
+          $Res Function(_$SearchForUserEventImpl) then) =
+      __$$SearchForUserEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String? searchName});
+}
+
+/// @nodoc
+class __$$SearchForUserEventImplCopyWithImpl<$Res>
+    extends _$GetAllUsersEventCopyWithImpl<$Res, _$SearchForUserEventImpl>
+    implements _$$SearchForUserEventImplCopyWith<$Res> {
+  __$$SearchForUserEventImplCopyWithImpl(_$SearchForUserEventImpl _value,
+      $Res Function(_$SearchForUserEventImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? searchName = freezed,
+  }) {
+    return _then(_$SearchForUserEventImpl(
+      freezed == searchName
+          ? _value.searchName
+          : searchName // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SearchForUserEventImpl implements SearchForUserEvent {
+  const _$SearchForUserEventImpl(this.searchName);
+
+  @override
+  final String? searchName;
+
+  @override
+  String toString() {
+    return 'GetAllUsersEvent.searchForUser(searchName: $searchName)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SearchForUserEventImpl &&
+            (identical(other.searchName, searchName) ||
+                other.searchName == searchName));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, searchName);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SearchForUserEventImplCopyWith<_$SearchForUserEventImpl> get copyWith =>
+      __$$SearchForUserEventImplCopyWithImpl<_$SearchForUserEventImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(bool isLoading) getUsersEvent,
+    required TResult Function(String? searchName) searchForUser,
+  }) {
+    return searchForUser(searchName);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(bool isLoading)? getUsersEvent,
+    TResult? Function(String? searchName)? searchForUser,
+  }) {
+    return searchForUser?.call(searchName);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(bool isLoading)? getUsersEvent,
+    TResult Function(String? searchName)? searchForUser,
+    required TResult orElse(),
+  }) {
+    if (searchForUser != null) {
+      return searchForUser(searchName);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(GetUsersEvent value) getUsersEvent,
+    required TResult Function(SearchForUserEvent value) searchForUser,
+  }) {
+    return searchForUser(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(GetUsersEvent value)? getUsersEvent,
+    TResult? Function(SearchForUserEvent value)? searchForUser,
+  }) {
+    return searchForUser?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(GetUsersEvent value)? getUsersEvent,
+    TResult Function(SearchForUserEvent value)? searchForUser,
+    required TResult orElse(),
+  }) {
+    if (searchForUser != null) {
+      return searchForUser(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SearchForUserEvent implements GetAllUsersEvent {
+  const factory SearchForUserEvent(final String? searchName) =
+      _$SearchForUserEventImpl;
+
+  String? get searchName;
+  @JsonKey(ignore: true)
+  _$$SearchForUserEventImplCopyWith<_$SearchForUserEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
