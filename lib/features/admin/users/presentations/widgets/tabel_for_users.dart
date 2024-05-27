@@ -5,6 +5,7 @@ import 'package:store_app/core/extensions/context_extension.dart';
 import 'package:store_app/core/styles/colors/colors_dark.dart';
 import 'package:store_app/core/styles/fonts/font_wight_helper.dart';
 import 'package:store_app/features/admin/users/data/models/get_all_users_response.dart';
+import 'package:store_app/features/admin/users/presentations/widgets/delete_user_icon.dart';
 import 'package:store_app/features/admin/users/presentations/widgets/table_cell_title_widget.dart';
 
 class TabelForUsers extends StatelessWidget {
@@ -78,12 +79,10 @@ class TabelForUsers extends StatelessWidget {
                           fontWeight: FontWeightHelper.medium)),
                 ),
               ),
-              const TableCell(
+              TableCell(
                 verticalAlignment: TableCellVerticalAlignment.middle,
-                child: Icon(
-                  Icons.delete,
-                  color: Colors.red,
-                  size: 25,
+                child: DeleteUserIcon(
+                  id: users[index].id!,
                 ),
               ),
             ],

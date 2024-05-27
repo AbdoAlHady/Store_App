@@ -6,10 +6,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_app/core/common/widgets/empty_screen.dart';
 import 'package:store_app/core/helper/spacing.dart';
 import 'package:store_app/core/styles/colors/colors_dark.dart';
-import 'package:store_app/features/admin/users/presentations/bloc/get_all_users/get_all_users_bloc.dart';
-import 'package:store_app/features/admin/users/presentations/bloc/get_all_users/get_all_users_state.dart';
+import 'package:store_app/features/admin/users/presentations/delete_user/get_all_users/get_all_users_bloc.dart';
+import 'package:store_app/features/admin/users/presentations/delete_user/get_all_users/get_all_users_state.dart';
 
-import '../bloc/get_all_users/get_all_users_event.dart';
+import '../delete_user/get_all_users/get_all_users_event.dart';
 import '../widgets/search_for_user.dart';
 import '../widgets/tabel_for_users.dart';
 
