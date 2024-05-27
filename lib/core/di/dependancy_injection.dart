@@ -16,6 +16,9 @@ import 'package:store_app/features/admin/dashboard/data/data_source/dashboard_da
 import 'package:store_app/features/admin/dashboard/presentations/bloc/products_number/products_number_bloc.dart';
 import 'package:store_app/features/admin/dashboard/presentations/bloc/users_number/users_number_bloc.dart';
 import 'package:store_app/features/admin/dashboard/repos/dashboard_repo.dart';
+import 'package:store_app/features/admin/users/data/data_source/users_data_source.dart';
+import 'package:store_app/features/admin/users/data/repo/users_repo.dart';
+import 'package:store_app/features/admin/users/presentations/bloc/get_all_users/get_all_users_bloc.dart';
 
 import '../../features/admin/add_categories/presentations/bloc/update_category_bloc/update_category_bloc.dart';
 import '../../features/admin/add_products/presentations/bloc/create_product_bloc/create_product_bloc.dart';
@@ -36,6 +39,7 @@ Future<void> setupDependancyInjection() async {
   await _initDashboard();
   await _initAdminCategories();
   await _initAdminProducts();
+  await _initUsers();
 }
 
 Future<void> _initCore() async {
@@ -107,4 +111,15 @@ Future<void> _initAdminProducts() async {
   getIt.registerFactory(() => DeleteProductBloc(getIt()));
   // Update Product Bloc
   getIt.registerFactory(() => UpdateProductBloc(getIt()));
+}
+
+
+Future<void> _initUsers() async {
+  // Users Data Source
+  getIt.registerLazySingleton(() => UsersDataSource(getIt()));
+  // Users Repo
+  getIt.registerLazySingleton(() => UsersRepo(getIt()));
+  // Get all Users  Bloc
+  getIt.registerFactory(() => GetAllUsersBloc(getIt()));
+  
 }
