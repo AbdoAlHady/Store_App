@@ -20,4 +20,15 @@ class UsersRepo {
       return const ApiResult.failure(AppString.errorMessage);
     }
   }
+
+  // Delete User
+  Future<ApiResult<void>> deleteUser(String userId) async {
+    try {
+      final result = await _dataSource.deleteUser(userId);
+      return ApiResult.success(result);
+    } catch (e) {
+      debugPrint('===[Error in Delete User Repo : ${e.toString()}]===');
+      return const ApiResult.failure(AppString.errorMessage);
+    }
+  }
 }
