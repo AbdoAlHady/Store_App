@@ -3,9 +3,10 @@ class UsersAdminQueries {
   static const UsersAdminQueries _instance = UsersAdminQueries._();
   factory UsersAdminQueries() => _instance;
 
+  // Get all users query
   Map<String, dynamic> getAllUsersQuery() {
     return {
-      'query':'''
+      'query': '''
         {
           users{
             id
@@ -14,6 +15,20 @@ class UsersAdminQueries {
           }
         }
        '''
+    };
+  }
+
+  // Delete user query
+  Map<String, dynamic> deleteUser(String userId) {
+    return {
+      'query': r'''
+             mutation DeleteUser($id: ID!){
+              deleteUser(id: $id)
+            }
+       ''',
+      'variables': {
+        'id': userId,
+      }
     };
   }
 }
