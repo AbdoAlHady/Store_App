@@ -6,6 +6,7 @@ import 'package:store_app/features/admin/add_categories/data/models/categories_r
 import 'package:store_app/features/admin/add_categories/data/models/create_category_response.dart';
 import 'package:store_app/features/admin/dashboard/data/models/category_number_response.dart';
 import 'package:store_app/features/admin/dashboard/data/models/prodcut_number_response.dart';
+import 'package:store_app/features/admin/users/data/models/get_all_users_response.dart';
 import 'package:store_app/features/auth/data/models/login_response.dart';
 import 'package:store_app/features/auth/data/models/sign_up_response.dart';
 
@@ -55,17 +56,24 @@ abstract class ApiService {
   Future<void> deleteCategory(@Body() Map<String, dynamic> mutation);
 
   @POST(ApiConstants.graphql)
-  Future<void>updateCategory(@Body() Map<String, dynamic> mutation);
-
- @POST(ApiConstants.graphql)
- Future<GetAllProductsResponse>getAllProducts(@Body() Map<String, dynamic> query);
+  Future<void> updateCategory(@Body() Map<String, dynamic> mutation);
 
   @POST(ApiConstants.graphql)
-  Future<void>createProduct(@Body() Map<String, dynamic> mutation);
+  Future<GetAllProductsResponse> getAllProducts(
+      @Body() Map<String, dynamic> query);
 
   @POST(ApiConstants.graphql)
-  Future<void>deleteProduct(@Body() Map<String, dynamic> mutation);
+  Future<void> createProduct(@Body() Map<String, dynamic> mutation);
 
   @POST(ApiConstants.graphql)
-  Future<void>updateProduct(@Body() Map<String, dynamic> mutation);
+  Future<void> deleteProduct(@Body() Map<String, dynamic> mutation);
+
+  @POST(ApiConstants.graphql)
+  Future<void> updateProduct(@Body() Map<String, dynamic> mutation);
+
+  @POST(ApiConstants.graphql)
+  Future<GetAllUsersResponse> getAllUsers(@Body() Map<String, dynamic> query);
+
+  @POST(ApiConstants.graphql)
+  Future<void> deleteUser(@Body() Map<String, dynamic> mutation);
 }
