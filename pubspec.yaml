@@ -63,6 +63,11 @@ dependencies:
   cached_network_image: ^3.3.1
   fancy_shimmer_image: ^2.0.3
   delightful_toast: ^1.1.0
+
+  # Notifcation
+  firebase_messaging: ^14.9.3
+  googleapis: ^13.1.0
+  googleapis_auth: ^1.6.0
   
  
 

@@ -6,6 +6,9 @@ class EnvVariables {
   EnvVariables._();
   static final EnvVariables instance = EnvVariables._();
   String _envType = '';
+  String _notificationBaseUrl = '';
+  String _serverKey = '';
+
   Future<void> init({required EnvTypeEnum type}) async {
     switch (type) {
       case EnvTypeEnum.dev:
@@ -15,7 +18,11 @@ class EnvVariables {
         await dotenv.load(fileName: '.env.prod');
     }
     _envType = dotenv.get('ENV_TYPE');
+    _notificationBaseUrl = dotenv.get('NOTIFICATION_BASEURL');
+    _serverKey = dotenv.get('SERVER_KEY');
   }
 
-  bool get depugMode => _envType=='dev';
+  bool get depugMode => _envType == 'dev';
+  String get notificationBaseUrl => _notificationBaseUrl;
+  String get serverKey => _serverKey;
 }
