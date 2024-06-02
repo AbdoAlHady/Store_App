@@ -1,3 +1,5 @@
+
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -7,9 +9,9 @@ import 'package:store_app/core/app/env_variables.dart';
 import 'package:store_app/core/helper/cahec_helper.dart';
 import 'package:store_app/firebase_options.dart';
 import 'package:store_app/store_app.dart';
-
 import 'core/di/dependancy_injection.dart';
 import 'core/service/push_notification/firebase_cloud_messaging.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,13 +21,15 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   // Initialize Notification
-  await FireBaseCloudMessaging().init();
+  if (!kIsWeb) {
+    await FireBaseCloudMessaging().init();
+  }
 
   // Initialize Shared Preferences
   await CacheHelper().init();
-  
+
   // Initialize Dependency Injection
-   await setupDependancyInjection();
+  await setupDependancyInjection();
 
   // Setup Bloc Observer
   Bloc.observer = AppBlocObserver();
