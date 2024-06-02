@@ -9,6 +9,7 @@ import 'package:store_app/firebase_options.dart';
 import 'package:store_app/store_app.dart';
 
 import 'core/di/dependancy_injection.dart';
+import 'core/service/push_notification/firebase_cloud_messaging.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,6 +18,8 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  // Initialize Notification
+  await FireBaseCloudMessaging().init();
 
   // Initialize Shared Preferences
   await CacheHelper().init();
