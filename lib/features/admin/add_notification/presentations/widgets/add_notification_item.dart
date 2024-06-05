@@ -7,6 +7,8 @@ import 'package:store_app/core/helper/spacing.dart';
 import 'package:store_app/core/styles/colors/colors_dark.dart';
 import 'package:store_app/core/styles/fonts/font_wight_helper.dart';
 
+import 'edit/edit_notification_button.dart';
+
 class AddNotificationItem extends StatelessWidget {
   const AddNotificationItem({super.key});
 
@@ -37,7 +39,7 @@ class AddNotificationItem extends StatelessWidget {
                 const Icon(Icons.delete, color: Colors.red),
                 horizontalSpace(40),
                 // Edit Notification
-                const Icon(Icons.edit, color: Colors.yellow),
+               const EditNotificationBtn(),
                 horizontalSpace(40),
                 // Send Notification,
                 const Icon(Icons.send, color: Colors.green),
