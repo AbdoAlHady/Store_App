@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_app/core/common/bootm_sheet/custom_btuttom_sheet.dart';
 import 'package:store_app/core/common/widgets/custom_buttom.dart';
 import 'package:store_app/core/common/widgets/text_app.dart';
 import 'package:store_app/core/extensions/context_extension.dart';
 import 'package:store_app/core/styles/fonts/font_wight_helper.dart';
+import 'package:store_app/features/admin/add_notification/presentations/bloc/create_notification/create_notification_bloc.dart';
 import 'package:store_app/features/admin/add_notification/presentations/widgets/create_notification_bottom_sheet.dart';
 
 import '../../../../../core/styles/colors/colors_dark.dart';
@@ -29,7 +31,11 @@ class CreateNotificationTitleAndButton extends StatelessWidget {
         CustomButton(
           onPressed: () {
             CustomBottomSheet.showCustomModelSheet(
-                context: context, child: const CreateNotificationBottomSheet());
+                context: context,
+                child: BlocProvider(
+                  create: (context) => CreateNotificationBloc(),
+                  child: const CreateNotificationBottomSheet(),
+                ));
           },
           text: 'Add',
           backgroundColor: ColorsDark.blueDark,
