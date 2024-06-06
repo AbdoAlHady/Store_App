@@ -7,9 +7,11 @@ import 'package:store_app/core/common/widgets/text_app.dart';
 import 'package:store_app/core/extensions/context_extension.dart';
 import 'package:store_app/core/styles/fonts/font_wight_helper.dart';
 import 'package:store_app/features/admin/add_notification/presentations/bloc/create_notification/create_notification_bloc.dart';
+import 'package:store_app/features/admin/add_notification/presentations/bloc/get_all_notifications_admin/get_all_notifications_admin_bloc.dart';
 import 'package:store_app/features/admin/add_notification/presentations/widgets/create_notification_bottom_sheet.dart';
 
 import '../../../../../core/styles/colors/colors_dark.dart';
+import '../bloc/get_all_notifications_admin/get_all_notifications_admin_event.dart';
 
 class CreateNotificationTitleAndButton extends StatelessWidget {
   const CreateNotificationTitleAndButton({super.key});
@@ -32,6 +34,12 @@ class CreateNotificationTitleAndButton extends StatelessWidget {
           onPressed: () {
             CustomBottomSheet.showCustomModelSheet(
                 context: context,
+                whenComplet: () {
+                  context.read<GetAllNotificationsAdminBloc>().add(
+                        const GetAllNotificationsAdminEvent
+                            .getAllAdminNotifications(isLoading: false),
+                      );
+                },
                 child: BlocProvider(
                   create: (context) => CreateNotificationBloc(),
                   child: const CreateNotificationBottomSheet(),

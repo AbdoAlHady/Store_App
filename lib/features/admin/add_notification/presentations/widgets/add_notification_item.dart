@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:intl/intl.dart';
 import 'package:store_app/core/common/widgets/custom_conatiner_admin.dart';
 import 'package:store_app/core/common/widgets/text_app.dart';
 import 'package:store_app/core/extensions/context_extension.dart';
+import 'package:store_app/core/extensions/date_extension.dart';
 import 'package:store_app/core/helper/spacing.dart';
 import 'package:store_app/core/styles/colors/colors_dark.dart';
 import 'package:store_app/core/styles/fonts/font_wight_helper.dart';
+import 'package:store_app/features/admin/add_notification/data/models/add_notification_model.dart';
 
 import 'edit/edit_notification_button.dart';
 
 class AddNotificationItem extends StatelessWidget {
-  const AddNotificationItem({super.key});
-
+  const AddNotificationItem({super.key, required this.notificationModel});
+  final AddNotificationModel notificationModel;
   @override
   Widget build(BuildContext context) {
     return CustomContainerGradientAdmin(
@@ -26,11 +29,13 @@ class AddNotificationItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Spacer(),
-            const NotificationInfo(title: 'Title', body: 'sdaasdsadasd'),
+            NotificationInfo(title: 'Title', body: notificationModel.title),
             const Spacer(),
-            const NotificationInfo(title: 'Body', body: 'sdaasdsadasd'),
+            NotificationInfo(title: 'Body', body: notificationModel.body),
             const Spacer(),
-            const NotificationInfo(title: 'CreatedAt', body: '5/6/2024'),
+            NotificationInfo(
+                title: 'CreatedAt',
+                body: notificationModel.createdAt.formattedDayMonthYear),
             const Spacer(),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
@@ -39,7 +44,7 @@ class AddNotificationItem extends StatelessWidget {
                 const Icon(Icons.delete, color: Colors.red),
                 horizontalSpace(40),
                 // Edit Notification
-               const EditNotificationBtn(),
+                const EditNotificationBtn(),
                 horizontalSpace(40),
                 // Send Notification,
                 const Icon(Icons.send, color: Colors.green),
@@ -60,6 +65,7 @@ class NotificationInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         TextApp(
           text: '$title :',
