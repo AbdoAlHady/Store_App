@@ -29,7 +29,10 @@ class NotificationsListView extends StatelessWidget {
                 slivers: [
                   SliverList.separated(
                     itemBuilder: (context, index) {
-                      return  AddNotificationItem(notificationModel:notificationsList[index],);
+                      return AddNotificationItem(
+                        notificationModel: notificationsList[index],
+                        index: index,
+                      );
                     },
                     itemCount: notificationsList.length,
                     separatorBuilder: (BuildContext context, int index) =>

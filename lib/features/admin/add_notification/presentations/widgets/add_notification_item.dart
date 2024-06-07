@@ -9,12 +9,15 @@ import 'package:store_app/core/styles/colors/colors_dark.dart';
 import 'package:store_app/core/styles/fonts/font_wight_helper.dart';
 import 'package:store_app/features/admin/add_notification/data/models/add_notification_model.dart';
 import 'package:store_app/features/admin/add_notification/presentations/widgets/delete_notification_button.dart';
+import 'package:store_app/features/admin/add_notification/presentations/widgets/send_notification_icon_button.dart';
 
 import 'edit/edit_notification_button.dart';
 
 class AddNotificationItem extends StatelessWidget {
-  const AddNotificationItem({super.key, required this.notificationModel});
+  const AddNotificationItem(
+      {super.key, required this.notificationModel, required this.index});
   final AddNotificationModel notificationModel;
+  final int index;
   @override
   Widget build(BuildContext context) {
     return CustomContainerGradientAdmin(
@@ -49,7 +52,8 @@ class AddNotificationItem extends StatelessWidget {
                 ),
                 horizontalSpace(40),
                 // Send Notification,
-                const Icon(Icons.send, color: Colors.green),
+                SendNotificationIconButton(
+                    notificationModel: notificationModel, notificationIndex: index),
               ],
             )
           ],
