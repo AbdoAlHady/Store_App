@@ -68,7 +68,7 @@ class StoreApp extends StatelessWidget {
                         ? CacheHelper().getData(key: SharedPrefKeys.userRole) ==
                                 'admin'
                             ? Routes.homeAdmin
-                            : Routes.homeCustomer
+                            : Routes.mainScreen
                         : Routes.loginScreen,
                   );
                 },

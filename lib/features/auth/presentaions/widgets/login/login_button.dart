@@ -30,7 +30,7 @@ class LoginButton extends StatelessWidget {
               ); // Routes.homeAdmin
             } else {
               context.pushNamedAndRemoveUntil(
-                Routes.homeCustomer,
+                Routes.mainScreen,
               ); // Routes.homeCustomer
             }
           },
