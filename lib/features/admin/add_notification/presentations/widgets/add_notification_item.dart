@@ -8,6 +8,7 @@ import 'package:store_app/core/helper/spacing.dart';
 import 'package:store_app/core/styles/colors/colors_dark.dart';
 import 'package:store_app/core/styles/fonts/font_wight_helper.dart';
 import 'package:store_app/features/admin/add_notification/data/models/add_notification_model.dart';
+import 'package:store_app/features/admin/add_notification/presentations/widgets/delete_notification_button.dart';
 
 import 'edit/edit_notification_button.dart';
 
@@ -39,8 +40,8 @@ class AddNotificationItem extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                // Delete Notification
-                const Icon(Icons.delete, color: Colors.red),
+                // Delete Notification,
+                DeleteNotificationButton(notificationModel: notificationModel),
                 horizontalSpace(40),
                 // Edit Notification
                 EditNotificationBtn(

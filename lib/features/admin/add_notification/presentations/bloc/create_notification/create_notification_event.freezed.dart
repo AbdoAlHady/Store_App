@@ -21,6 +21,8 @@ mixin _$CreateNotificationEvent {
     required TResult Function() started,
     required TResult Function(AddNotificationModel addNotificationModel)
         createNewNotification,
+    required TResult Function(AddNotificationModel addNotificationModel)
+        deleteNotification,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +30,8 @@ mixin _$CreateNotificationEvent {
     TResult? Function()? started,
     TResult? Function(AddNotificationModel addNotificationModel)?
         createNewNotification,
+    TResult? Function(AddNotificationModel addNotificationModel)?
+        deleteNotification,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +39,8 @@ mixin _$CreateNotificationEvent {
     TResult Function()? started,
     TResult Function(AddNotificationModel addNotificationModel)?
         createNewNotification,
+    TResult Function(AddNotificationModel addNotificationModel)?
+        deleteNotification,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,18 +49,21 @@ mixin _$CreateNotificationEvent {
     required TResult Function(_Started value) started,
     required TResult Function(CreateNewNotification value)
         createNewNotification,
+    required TResult Function(DeleteNotification value) deleteNotification,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(CreateNewNotification value)? createNewNotification,
+    TResult? Function(DeleteNotification value)? deleteNotification,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(CreateNewNotification value)? createNewNotification,
+    TResult Function(DeleteNotification value)? deleteNotification,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -120,6 +129,8 @@ class _$StartedImpl implements _Started {
     required TResult Function() started,
     required TResult Function(AddNotificationModel addNotificationModel)
         createNewNotification,
+    required TResult Function(AddNotificationModel addNotificationModel)
+        deleteNotification,
   }) {
     return started();
   }
@@ -130,6 +141,8 @@ class _$StartedImpl implements _Started {
     TResult? Function()? started,
     TResult? Function(AddNotificationModel addNotificationModel)?
         createNewNotification,
+    TResult? Function(AddNotificationModel addNotificationModel)?
+        deleteNotification,
   }) {
     return started?.call();
   }
@@ -140,6 +153,8 @@ class _$StartedImpl implements _Started {
     TResult Function()? started,
     TResult Function(AddNotificationModel addNotificationModel)?
         createNewNotification,
+    TResult Function(AddNotificationModel addNotificationModel)?
+        deleteNotification,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -154,6 +169,7 @@ class _$StartedImpl implements _Started {
     required TResult Function(_Started value) started,
     required TResult Function(CreateNewNotification value)
         createNewNotification,
+    required TResult Function(DeleteNotification value) deleteNotification,
   }) {
     return started(this);
   }
@@ -163,6 +179,7 @@ class _$StartedImpl implements _Started {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(CreateNewNotification value)? createNewNotification,
+    TResult? Function(DeleteNotification value)? deleteNotification,
   }) {
     return started?.call(this);
   }
@@ -172,6 +189,7 @@ class _$StartedImpl implements _Started {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(CreateNewNotification value)? createNewNotification,
+    TResult Function(DeleteNotification value)? deleteNotification,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -256,6 +274,8 @@ class _$CreateNewNotificationImpl implements CreateNewNotification {
     required TResult Function() started,
     required TResult Function(AddNotificationModel addNotificationModel)
         createNewNotification,
+    required TResult Function(AddNotificationModel addNotificationModel)
+        deleteNotification,
   }) {
     return createNewNotification(addNotificationModel);
   }
@@ -266,6 +286,8 @@ class _$CreateNewNotificationImpl implements CreateNewNotification {
     TResult? Function()? started,
     TResult? Function(AddNotificationModel addNotificationModel)?
         createNewNotification,
+    TResult? Function(AddNotificationModel addNotificationModel)?
+        deleteNotification,
   }) {
     return createNewNotification?.call(addNotificationModel);
   }
@@ -276,6 +298,8 @@ class _$CreateNewNotificationImpl implements CreateNewNotification {
     TResult Function()? started,
     TResult Function(AddNotificationModel addNotificationModel)?
         createNewNotification,
+    TResult Function(AddNotificationModel addNotificationModel)?
+        deleteNotification,
     required TResult orElse(),
   }) {
     if (createNewNotification != null) {
@@ -290,6 +314,7 @@ class _$CreateNewNotificationImpl implements CreateNewNotification {
     required TResult Function(_Started value) started,
     required TResult Function(CreateNewNotification value)
         createNewNotification,
+    required TResult Function(DeleteNotification value) deleteNotification,
   }) {
     return createNewNotification(this);
   }
@@ -299,6 +324,7 @@ class _$CreateNewNotificationImpl implements CreateNewNotification {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(CreateNewNotification value)? createNewNotification,
+    TResult? Function(DeleteNotification value)? deleteNotification,
   }) {
     return createNewNotification?.call(this);
   }
@@ -308,6 +334,7 @@ class _$CreateNewNotificationImpl implements CreateNewNotification {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(CreateNewNotification value)? createNewNotification,
+    TResult Function(DeleteNotification value)? deleteNotification,
     required TResult orElse(),
   }) {
     if (createNewNotification != null) {
@@ -326,4 +353,155 @@ abstract class CreateNewNotification implements CreateNotificationEvent {
   @JsonKey(ignore: true)
   _$$CreateNewNotificationImplCopyWith<_$CreateNewNotificationImpl>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$DeleteNotificationImplCopyWith<$Res> {
+  factory _$$DeleteNotificationImplCopyWith(_$DeleteNotificationImpl value,
+          $Res Function(_$DeleteNotificationImpl) then) =
+      __$$DeleteNotificationImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({AddNotificationModel addNotificationModel});
+}
+
+/// @nodoc
+class __$$DeleteNotificationImplCopyWithImpl<$Res>
+    extends _$CreateNotificationEventCopyWithImpl<$Res,
+        _$DeleteNotificationImpl>
+    implements _$$DeleteNotificationImplCopyWith<$Res> {
+  __$$DeleteNotificationImplCopyWithImpl(_$DeleteNotificationImpl _value,
+      $Res Function(_$DeleteNotificationImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? addNotificationModel = null,
+  }) {
+    return _then(_$DeleteNotificationImpl(
+      null == addNotificationModel
+          ? _value.addNotificationModel
+          : addNotificationModel // ignore: cast_nullable_to_non_nullable
+              as AddNotificationModel,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DeleteNotificationImpl implements DeleteNotification {
+  const _$DeleteNotificationImpl(this.addNotificationModel);
+
+  @override
+  final AddNotificationModel addNotificationModel;
+
+  @override
+  String toString() {
+    return 'CreateNotificationEvent.deleteNotification(addNotificationModel: $addNotificationModel)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DeleteNotificationImpl &&
+            (identical(other.addNotificationModel, addNotificationModel) ||
+                other.addNotificationModel == addNotificationModel));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, addNotificationModel);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DeleteNotificationImplCopyWith<_$DeleteNotificationImpl> get copyWith =>
+      __$$DeleteNotificationImplCopyWithImpl<_$DeleteNotificationImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(AddNotificationModel addNotificationModel)
+        createNewNotification,
+    required TResult Function(AddNotificationModel addNotificationModel)
+        deleteNotification,
+  }) {
+    return deleteNotification(addNotificationModel);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(AddNotificationModel addNotificationModel)?
+        createNewNotification,
+    TResult? Function(AddNotificationModel addNotificationModel)?
+        deleteNotification,
+  }) {
+    return deleteNotification?.call(addNotificationModel);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(AddNotificationModel addNotificationModel)?
+        createNewNotification,
+    TResult Function(AddNotificationModel addNotificationModel)?
+        deleteNotification,
+    required TResult orElse(),
+  }) {
+    if (deleteNotification != null) {
+      return deleteNotification(addNotificationModel);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(CreateNewNotification value)
+        createNewNotification,
+    required TResult Function(DeleteNotification value) deleteNotification,
+  }) {
+    return deleteNotification(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(CreateNewNotification value)? createNewNotification,
+    TResult? Function(DeleteNotification value)? deleteNotification,
+  }) {
+    return deleteNotification?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(CreateNewNotification value)? createNewNotification,
+    TResult Function(DeleteNotification value)? deleteNotification,
+    required TResult orElse(),
+  }) {
+    if (deleteNotification != null) {
+      return deleteNotification(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class DeleteNotification implements CreateNotificationEvent {
+  const factory DeleteNotification(
+          final AddNotificationModel addNotificationModel) =
+      _$DeleteNotificationImpl;
+
+  AddNotificationModel get addNotificationModel;
+  @JsonKey(ignore: true)
+  _$$DeleteNotificationImplCopyWith<_$DeleteNotificationImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

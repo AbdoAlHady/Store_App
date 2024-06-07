@@ -6,4 +6,5 @@ part 'create_notification_event.freezed.dart';
 class CreateNotificationEvent with _$CreateNotificationEvent {
   const factory CreateNotificationEvent.started() = _Started;
   const factory CreateNotificationEvent.createNewNotification(AddNotificationModel addNotificationModel)= CreateNewNotification;
+  const factory CreateNotificationEvent.deleteNotification(AddNotificationModel addNotificationModel)= DeleteNotification;
 }

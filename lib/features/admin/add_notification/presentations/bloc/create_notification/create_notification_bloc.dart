@@ -8,6 +8,13 @@ class CreateNotificationBloc
     extends Bloc<CreateNotificationEvent, CreateNotificationState> {
   CreateNotificationBloc() : super(const CreateNotificationState.initial()) {
     on<CreateNewNotification>(_createNotification);
+    on<DeleteNotification>(_deleteNotification);
+  }
+  // Delete Notification
+  FutureOr<void> _deleteNotification(DeleteNotification event, emit) async {
+    emit(const CreateNotificationState.loading());
+    event.addNotificationModel.delete();
+    emit(const CreateNotificationState.success());
   }
 
   FutureOr<void> _createNotification(CreateNewNotification event, emit) async {
