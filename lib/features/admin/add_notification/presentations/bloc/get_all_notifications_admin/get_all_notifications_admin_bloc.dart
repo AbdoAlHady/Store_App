@@ -13,9 +13,7 @@ class GetAllNotificationsAdminBloc
 
   FutureOr<void> _getAllAdminNotifications(
       FetchAllNotificationsAdminEvent event, emit) async {
-   if(event.isLoading){
-     emit(const GetAllNotificationsAdminState.loading());
-   }
+   emit(const GetAllNotificationsAdminState.loading());
     try {
       final list = HiveDatabase().notificaionBox?.values.toList();
       if (list!.isEmpty) {

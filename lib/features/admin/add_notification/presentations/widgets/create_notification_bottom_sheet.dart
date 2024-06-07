@@ -172,7 +172,7 @@ class _CreateNotificationBottomSheetState
                 createdAt: DateTime.now(),
                 title: _titleController.text.trim(),
                 body: _bodyController.text.trim(),
-                productId: _productIdController.text,
+                productId: int.parse(_productIdController.text.trim()),
               ),
             ),
           );

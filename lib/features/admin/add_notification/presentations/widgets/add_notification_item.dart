@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:intl/intl.dart';
 import 'package:store_app/core/common/widgets/custom_conatiner_admin.dart';
 import 'package:store_app/core/common/widgets/text_app.dart';
 import 'package:store_app/core/extensions/context_extension.dart';
@@ -44,7 +43,9 @@ class AddNotificationItem extends StatelessWidget {
                 const Icon(Icons.delete, color: Colors.red),
                 horizontalSpace(40),
                 // Edit Notification
-                const EditNotificationBtn(),
+                EditNotificationBtn(
+                  notificationModel: notificationModel,
+                ),
                 horizontalSpace(40),
                 // Send Notification,
                 const Icon(Icons.send, color: Colors.green),
