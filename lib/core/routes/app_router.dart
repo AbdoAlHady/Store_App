@@ -7,7 +7,8 @@ import 'package:store_app/core/routes/routes.dart';
 import 'package:store_app/features/auth/presentaions/bloc/auth_bloc.dart';
 import 'package:store_app/features/auth/presentaions/screens/login_screen.dart';
 import 'package:store_app/features/auth/presentaions/screens/sign_up_screen.dart';
-import 'package:store_app/features/customer/home_customer/presentations/screens/home_customer.dart';
+import 'package:store_app/features/customer/main/presentation/cubit/main_cubit.dart';
+import 'package:store_app/features/customer/main/presentation/screens/main_screen.dart';
 
 import '../../features/admin/home_admin/presentations/home_admin.dart';
 
@@ -23,20 +24,24 @@ class AppRouter {
       case Routes.signupScreen:
         return BaseRoute(
             page: MultiBlocProvider(
-         providers: [
+          providers: [
             BlocProvider(
               create: (context) => getIt<UploadImageCubit>(),
             ),
             BlocProvider(
               create: (context) => getIt<AuthBloc>(),
             ),
-         ],
+          ],
           child: const SignUpScreen(),
         ));
       case Routes.homeAdmin:
         return BaseRoute(page: const HomeAdminScreen());
-      case Routes.homeCustomer:
-        return BaseRoute(page: const HomeCustomer());
+      case Routes.mainScreen:
+        return BaseRoute(
+            page: BlocProvider(
+          create: (context) => MainCubit(),
+          child: const MainScreen(),
+        ));
       default:
         return BaseRoute(
             page: Scaffold(
