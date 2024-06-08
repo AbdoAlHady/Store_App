@@ -17,8 +17,9 @@ class DioFactroy {
         ..options.connectTimeout = timeOut
         ..options.receiveTimeout = timeOut
         ..options.headers['Authorization'] =
-            'Bearer ${CacheHelper().getData(key: SharedPrefKeys.accessToken)}';
-
+        'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjQsImlhdCI6MTcxNzg0NTc3MywiZXhwIjoxNzE5NTczNzczfQ.vymGl6-JP8zxtmtcoJFvdsnLdaiuAoZpwJgM9PjUdn0';
+            // 'Bearer ${CacheHelper().getData(key: SharedPrefKeys.accessToken)}';
+         // eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjQsImlhdCI6MTcxNzg0NTc3MywiZXhwIjoxNzE5NTczNzczfQ.vymGl6-JP8zxtmtcoJFvdsnLdaiuAoZpwJgM9PjUdn0
         debugPrint('[USER TOKEN]: ${CacheHelper().getData(key: SharedPrefKeys.accessToken)?? 'No Token Found'}');
       addDioInterceptor();
       return dio!;

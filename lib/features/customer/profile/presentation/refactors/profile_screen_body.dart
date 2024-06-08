@@ -13,7 +13,7 @@ class ProfileScreenBody extends StatelessWidget {
         child: Column(
           children: [
             // User Profile Inf,o
-            UserProfileInfo(),
+            Center(child: UserProfileInfo()),
           ],
         ),
       ),
