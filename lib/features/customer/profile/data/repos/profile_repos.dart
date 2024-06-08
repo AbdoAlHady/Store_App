@@ -5,7 +5,9 @@ import 'package:store_app/features/auth/data/models/user_model.dart';
 import 'package:store_app/features/customer/profile/data/data_source/profile_data_source.dart';
 
 class ProfileRepos {
-  late final ProfileDataSource _dataSource;
+   final ProfileDataSource _dataSource;
+
+  ProfileRepos(this._dataSource);
 
   // Get User Info
   Future<ApiResult<UserModel>> getUserInfo() async {
