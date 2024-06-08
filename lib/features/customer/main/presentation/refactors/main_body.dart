@@ -7,7 +7,7 @@ import 'package:store_app/features/customer/main/presentation/cubit/main_state.d
 
 import '../../../../../core/enums/nav_bar_enums.dart';
 import '../../../caregories/categories_screen.dart';
-import '../../../profile/profile_screen.dart';
+import '../../../profile/presentation/screens/profile_screen.dart';
 
 class MainBody extends StatelessWidget {
   const MainBody({super.key});
