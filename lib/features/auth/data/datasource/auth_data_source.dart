@@ -7,7 +7,7 @@ import 'package:store_app/features/auth/data/models/login_response.dart';
 import 'package:store_app/features/auth/data/models/sign_up_request_body.dart';
 import 'package:store_app/features/auth/data/models/sign_up_response.dart';
 
-import '../models/user_role.dart';
+import '../models/user_model.dart';
 
 class AuthDataSource {
   final ApiService _apiService;
@@ -21,11 +21,11 @@ class AuthDataSource {
   }
 
   // User Role
-  Future<UserRole> getUserRole({required String token}) async {
+  Future<UserModel> getUserRole({required String token}) async {
     Dio dio = Dio();
     final client = ApiService(dio);
     dio.options.headers['Authorization'] = 'Bearer $token';
-    final response = await client.getUserRole();
+    final response = await client.getUserInfo();
     debugPrint('[USER ROLE]: ${response.role}');
     return response;
   }

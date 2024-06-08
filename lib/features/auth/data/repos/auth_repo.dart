@@ -7,7 +7,7 @@ import 'package:store_app/features/auth/data/models/login_response.dart';
 import 'package:store_app/features/auth/data/models/sign_up_request_body.dart';
 import 'package:store_app/features/auth/data/models/sign_up_response.dart';
 
-import '../models/user_role.dart';
+import '../models/user_model.dart';
 
 class AuthRepo {
   final AuthDataSource _authDataSource;
@@ -27,7 +27,7 @@ class AuthRepo {
   }
 
   // User Role
-  Future<UserRole> getUserRole(String token) async {
+  Future<UserModel> getUserRole(String token) async {
     final response = _authDataSource.getUserRole(token: token);
     return response;
   }
