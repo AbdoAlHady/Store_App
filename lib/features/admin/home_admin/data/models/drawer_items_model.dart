@@ -2,13 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_app/core/common/widgets/text_app.dart';
 import 'package:store_app/core/extensions/context_extension.dart';
-import 'package:store_app/core/helper/cahec_helper.dart';
 import 'package:store_app/core/helper/custom_dialog.dart';
-import 'package:store_app/core/helper/shared_prefrences_keys.dart';
 import 'package:store_app/core/language/lang_keys.dart';
-import 'package:store_app/core/routes/routes.dart';
 import 'package:store_app/core/styles/fonts/font_manager.dart';
 import 'package:store_app/core/styles/fonts/font_wight_helper.dart';
+import 'package:store_app/core/utils/app_logout.dart';
 import 'package:store_app/features/admin/add_categories/presentations/screens/add_categories_screen.dart';
 import 'package:store_app/features/admin/add_notification/presentations/screens/add_notification_screen.dart';
 import 'package:store_app/features/admin/add_products/presentations/screens/add_products_screen.dart';
@@ -107,13 +105,7 @@ List<DrawerItemModel> adminDrawerList(BuildContext context) {
               textButton1: context.translator(LangKeys.yes),
               textButton2: context.translator(LangKeys.no),
               onPressed: () async {
-                final navigate = Navigator.of(context);
-                await CacheHelper().removeData(key: SharedPrefKeys.accessToken);
-                await CacheHelper().removeData(key: SharedPrefKeys.userId);
-                await CacheHelper().removeData(key: SharedPrefKeys.userRole);
-
-                navigate.pushNamedAndRemoveUntil(
-                    Routes.loginScreen, (route) => false);
+               await AppLogout().logout();
               },
               isLoading: false);
         },
