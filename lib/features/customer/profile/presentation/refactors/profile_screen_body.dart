@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:store_app/core/common/animation/animate_do.dart';
 import 'package:store_app/core/common/widgets/text_app.dart';
 import 'package:store_app/core/extensions/context_extension.dart';
 import 'package:store_app/core/helper/spacing.dart';
 import 'package:store_app/core/language/lang_keys.dart';
 import 'package:store_app/core/styles/fonts/font_wight_helper.dart';
+import 'package:store_app/features/customer/profile/presentation/widgets/change_dark_mode.dart';
 import 'package:store_app/features/customer/profile/presentation/widgets/change_language.dart';
 import 'package:store_app/features/customer/profile/presentation/widgets/user_profile_info.dart';
 
@@ -34,8 +36,14 @@ class ProfileScreenBody extends StatelessWidget {
             verticalSpace(30.h),
 
             // Language
-            const ChangeLanguage(),
+            const CustomFadeInRight(
+              duration: 400,
+              child: ChangeLanguage(),
+            ),
+            verticalSpace(20),
 
+            // Dark Mode,
+            const CustomFadeInRight(duration: 400, child: ChangeDarkMode())
           ],
         ),
       ),
