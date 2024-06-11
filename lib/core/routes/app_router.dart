@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_app/core/app/upload_image/upload_image_cubit/cubit/upload_image_cubit.dart';
+import 'package:store_app/core/common/widgets/custom_web_view.dart';
 import 'package:store_app/core/di/dependancy_injection.dart';
 import 'package:store_app/core/routes/base_routes.dart';
 import 'package:store_app/core/routes/routes.dart';
@@ -14,6 +15,7 @@ import '../../features/admin/home_admin/presentations/home_admin.dart';
 
 class AppRouter {
   Route? onGenerateRoute(RouteSettings settings) {
+    final args = settings.arguments;
     switch (settings.name) {
       case Routes.loginScreen:
         return BaseRoute(
@@ -41,6 +43,11 @@ class AppRouter {
             page: BlocProvider(
           create: (context) => MainCubit(),
           child: const MainScreen(),
+        ));
+      case Routes.webView:
+        return BaseRoute(
+            page:  CustomWebView(
+          url:args as String,
         ));
       default:
         return BaseRoute(

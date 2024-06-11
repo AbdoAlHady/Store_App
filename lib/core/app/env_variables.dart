@@ -8,6 +8,7 @@ class EnvVariables {
   String _envType = '';
   String _notificationBaseUrl = '';
   String _serverKey = '';
+  String _buildDeveloper = '';
 
   Future<void> init({required EnvTypeEnum type}) async {
     switch (type) {
@@ -20,9 +21,11 @@ class EnvVariables {
     _envType = dotenv.get('ENV_TYPE');
     _notificationBaseUrl = dotenv.get('NOTIFICATION_BASEURL');
     _serverKey = dotenv.get('SERVER_KEY');
+    _buildDeveloper = dotenv.get('BUILD_DEVELOPER');
   }
 
   bool get depugMode => _envType == 'dev';
   String get notificationBaseUrl => _notificationBaseUrl;
   String get serverKey => _serverKey;
+  String get buildDeveloper => _buildDeveloper;
 }

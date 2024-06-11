@@ -10,6 +10,8 @@ import 'package:store_app/features/customer/profile/presentation/widgets/change_
 import 'package:store_app/features/customer/profile/presentation/widgets/change_language.dart';
 import 'package:store_app/features/customer/profile/presentation/widgets/user_profile_info.dart';
 
+import '../widgets/build_developer.dart';
+
 class ProfileScreenBody extends StatelessWidget {
   const ProfileScreenBody({super.key});
 
@@ -36,14 +38,15 @@ class ProfileScreenBody extends StatelessWidget {
             verticalSpace(30.h),
 
             // Language
-            const CustomFadeInRight(
-              duration: 400,
-              child: ChangeLanguage(),
-            ),
+            const CustomFadeInRight(duration: 400, child: ChangeLanguage()),
             verticalSpace(20),
 
-            // Dark Mode,
-            const CustomFadeInRight(duration: 400, child: ChangeDarkMode())
+            // Dark Mode
+            const CustomFadeInRight(duration: 400, child: ChangeDarkMode()),
+            verticalSpace(20),
+
+            // Developer information
+            const CustomFadeInRight(duration: 400, child: BuildDeveloper()),
           ],
         ),
       ),
