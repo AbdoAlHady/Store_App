@@ -11,6 +11,7 @@ import 'package:store_app/features/customer/profile/presentation/widgets/change_
 import 'package:store_app/features/customer/profile/presentation/widgets/user_profile_info.dart';
 
 import '../widgets/build_developer.dart';
+import '../widgets/profile_notification.dart';
 
 class ProfileScreenBody extends StatelessWidget {
   const ProfileScreenBody({super.key});
@@ -47,6 +48,11 @@ class ProfileScreenBody extends StatelessWidget {
 
             // Developer information
             const CustomFadeInRight(duration: 400, child: BuildDeveloper()),
+            verticalSpace(20),
+
+            // Notification,
+            const CustomFadeInRight(duration: 400, child: ProfileNotificationChange()),
+          
           ],
         ),
       ),

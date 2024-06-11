@@ -1,8 +1,10 @@
 import 'package:dio/dio.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:store_app/core/app/env_variables.dart';
+import 'package:store_app/core/extensions/context_extension.dart';
+import 'package:store_app/core/helper/show_toast.dart';
+import 'package:store_app/core/language/lang_keys.dart';
 
 class FireBaseCloudMessaging {
   FireBaseCloudMessaging._();
@@ -11,11 +13,12 @@ class FireBaseCloudMessaging {
   static const String subscriptionKey = 'lucky-market';
   final _firebaseMessaging = FirebaseMessaging.instance;
   bool isPremissionNotification = false;
-  ValueNotifier<bool> isNotivicationSubscribe = ValueNotifier(true);
+  ValueNotifier<bool> isNotivicationSubscribe = ValueNotifier(false);
 
-  Future<void>init()async{
+  Future<void> init() async {
     await _permissionForNotification();
   }
+
   /// Permission To Notification
   Future<void> _permissionForNotification() async {
     NotificationSettings settings = await _firebaseMessaging.requestPermission(
@@ -25,6 +28,7 @@ class FireBaseCloudMessaging {
     if (settings.authorizationStatus == AuthorizationStatus.authorized) {
       await _subscribeNotification();
       isPremissionNotification = true;
+      isNotivicationSubscribe.value = true;
       debugPrint('=== 🔔 User Accept The Notification Permission  🔔 ===');
     } else {
       // if user denied permission
@@ -35,14 +39,24 @@ class FireBaseCloudMessaging {
   }
 
   /// Controller fo the Notification if subscribe or not
-  Future<void> controllerForUserSubscribe() async {
+  Future<void> controllerForUserSubscribe(BuildContext context) async {
     if (isPremissionNotification == false) {
       await _permissionForNotification();
     } else {
       if (isNotivicationSubscribe.value == false) {
         await _subscribeNotification();
-      }else{
+        if (!context.mounted) return;
+        ShowToast.showToastSuccess(
+            context: context,
+            message: context.translator(
+              LangKeys.subscribeToNotification,
+            ));
+      } else {
         await _unSubscribeNotification();
+        if (!context.mounted) return;
+        ShowToast.showToastSuccess(
+            context: context,
+            message: context.translator(LangKeys.unSubscribeToNotification));
       }
     }
   }

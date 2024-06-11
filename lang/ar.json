@@ -32,5 +32,9 @@
     "yes": "نعم",
     "no": "لا",
     "dark_mode": "Dark Mode",
-    "lang_code": "العربية"
+    "lang_code": "العربية",
+    "notifications": "الإشعارات",
+    "subscribed_to_notifications": "تم الاشتراك فى الإشعارات",
+    "unsubscribed_to_notifications": "تم إلغاء الاشتراك فى الإشعارات"
+
 }
