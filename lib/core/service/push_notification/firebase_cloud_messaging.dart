@@ -13,7 +13,7 @@ class FireBaseCloudMessaging {
   static const String subscriptionKey = 'lucky-market';
   final _firebaseMessaging = FirebaseMessaging.instance;
   bool isPremissionNotification = false;
-  ValueNotifier<bool> isNotivicationSubscribe = ValueNotifier(false);
+  ValueNotifier<bool> isNotivicationSubscribe = ValueNotifier(true);
 
   Future<void> init() async {
     await _permissionForNotification();

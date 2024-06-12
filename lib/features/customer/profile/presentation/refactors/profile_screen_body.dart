@@ -6,6 +6,7 @@ import 'package:store_app/core/extensions/context_extension.dart';
 import 'package:store_app/core/helper/spacing.dart';
 import 'package:store_app/core/language/lang_keys.dart';
 import 'package:store_app/core/styles/fonts/font_wight_helper.dart';
+import 'package:store_app/features/customer/profile/presentation/widgets/build_version.dart';
 import 'package:store_app/features/customer/profile/presentation/widgets/change_dark_mode.dart';
 import 'package:store_app/features/customer/profile/presentation/widgets/change_language.dart';
 import 'package:store_app/features/customer/profile/presentation/widgets/user_profile_info.dart';
@@ -51,8 +52,18 @@ class ProfileScreenBody extends StatelessWidget {
             verticalSpace(20),
 
             // Notification,
-            const CustomFadeInRight(duration: 400, child: ProfileNotificationChange()),
-          
+            const CustomFadeInRight(
+                duration: 400, child: ProfileNotificationChange()),
+            verticalSpace(20),
+
+            // App Version
+            const CustomFadeInRight(duration: 400, child: BuildVersion()),
+            verticalSpace(20),
+
+            // Logout
+
+
+
           ],
         ),
       ),
