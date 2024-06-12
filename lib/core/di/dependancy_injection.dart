@@ -23,6 +23,9 @@ import 'package:store_app/features/admin/users/data/data_source/users_data_sourc
 import 'package:store_app/features/admin/users/data/repo/users_repo.dart';
 import 'package:store_app/features/admin/users/presentations/delete_user/bloc/delete_user_bloc.dart';
 import 'package:store_app/features/admin/users/presentations/delete_user/get_all_users/get_all_users_bloc.dart';
+import 'package:store_app/features/customer/home/data/data_source/home_data_source.dart';
+import 'package:store_app/features/customer/home/data/repos/home_repo.dart';
+import 'package:store_app/features/customer/home/presentation/bloc/banners/banners_bloc.dart';
 import 'package:store_app/features/customer/profile/data/data_source/profile_data_source.dart';
 import 'package:store_app/features/customer/profile/data/repos/profile_repos.dart';
 import 'package:store_app/features/customer/profile/presentation/bloc/profile/profile_bloc.dart';
@@ -49,6 +52,7 @@ Future<void> setupDependancyInjection() async {
   await _initUsers();
   await _initAdminNotifications();
   await _initProfile();
+  await _initHome();
 }
 
 Future<void> _initCore() async {
@@ -149,4 +153,13 @@ Future<void> _initProfile() async {
   getIt.registerLazySingleton(() => ProfileRepos(getIt()));
   // Profile Bloc
   getIt.registerFactory(() => ProfileBloc(getIt()));
+}
+
+Future<void> _initHome() async {
+  // Home Data Source
+  getIt.registerLazySingleton(() => HomeDataSource(getIt()));
+  // Home Repo
+  getIt.registerLazySingleton(() => HomeRepo(getIt()));
+  // Banners Bloc
+  getIt.registerFactory(() => BannersBloc(getIt()));
 }

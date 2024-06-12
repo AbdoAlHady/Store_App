@@ -11,7 +11,7 @@ class BannersResponse {
       _$BannersResponseFromJson(json);
 
   // get banner list
-  List<String> get banners {
+  List<String> get bannersList {
     final list = data.banners
         .where((e) => e.title!.contains(AppString.searchBannerKeyWord))
         .toList();
