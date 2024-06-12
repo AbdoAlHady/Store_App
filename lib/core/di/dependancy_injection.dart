@@ -23,6 +23,9 @@ import 'package:store_app/features/admin/users/data/data_source/users_data_sourc
 import 'package:store_app/features/admin/users/data/repo/users_repo.dart';
 import 'package:store_app/features/admin/users/presentations/delete_user/bloc/delete_user_bloc.dart';
 import 'package:store_app/features/admin/users/presentations/delete_user/get_all_users/get_all_users_bloc.dart';
+import 'package:store_app/features/customer/profile/data/data_source/profile_data_source.dart';
+import 'package:store_app/features/customer/profile/data/repos/profile_repos.dart';
+import 'package:store_app/features/customer/profile/presentation/bloc/profile/profile_bloc.dart';
 
 import '../../features/admin/add_categories/presentations/bloc/update_category_bloc/update_category_bloc.dart';
 import '../../features/admin/add_products/presentations/bloc/create_product_bloc/create_product_bloc.dart';
@@ -45,6 +48,7 @@ Future<void> setupDependancyInjection() async {
   await _initAdminProducts();
   await _initUsers();
   await _initAdminNotifications();
+  await _initProfile();
 }
 
 Future<void> _initCore() async {
@@ -118,7 +122,6 @@ Future<void> _initAdminProducts() async {
   getIt.registerFactory(() => UpdateProductBloc(getIt()));
 }
 
-
 Future<void> _initUsers() async {
   // Users Data Source
   getIt.registerLazySingleton(() => UsersDataSource(getIt()));
@@ -128,8 +131,8 @@ Future<void> _initUsers() async {
   getIt.registerFactory(() => GetAllUsersBloc(getIt()));
   // Delete User Bloc
   getIt.registerFactory(() => DeleteUserBloc(getIt()));
-  
 }
+
 Future<void> _initAdminNotifications() async {
   // Admin Notification Data Source
   getIt.registerLazySingleton(() => AddNotificationDataSource());
@@ -137,6 +140,13 @@ Future<void> _initAdminNotifications() async {
   getIt.registerLazySingleton(() => AddNotificationRepo(getIt()));
   // Admin Notification Bloc
   getIt.registerFactory(() => SendNotificationBloc(getIt()));
- 
-  
+}
+
+Future<void> _initProfile() async {
+  // Profile Data Source
+  getIt.registerLazySingleton(() => ProfileDataSource(getIt()));
+  // Profile Repo
+  getIt.registerLazySingleton(() => ProfileRepos(getIt()));
+  // Profile Bloc
+  getIt.registerFactory(() => ProfileBloc(getIt()));
 }

@@ -12,7 +12,7 @@ import 'package:store_app/features/auth/data/models/sign_up_response.dart';
 
 import '../../features/admin/add_products/data/models/get_all_products_response.dart';
 import '../../features/admin/dashboard/data/models/user_number_response.dart';
-import '../../features/auth/data/models/user_role.dart';
+import '../../features/auth/data/models/user_model.dart';
 import '../app/upload_image/models/upload_image_response.dart';
 
 part 'api_service.g.dart';
@@ -25,7 +25,7 @@ abstract class ApiService {
   Future<LoginResponse> login(@Body() Map<String, dynamic> mutation);
 
   @GET('/api/v1/auth/profile')
-  Future<UserRole> getUserRole();
+  Future<UserModel> getUserInfo();
 
   @POST('/api/v1/files/upload')
   Future<UploadImageResponse> uploadImage(@Body() FormData file);
