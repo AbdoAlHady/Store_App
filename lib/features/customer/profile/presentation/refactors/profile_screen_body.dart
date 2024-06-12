@@ -9,6 +9,7 @@ import 'package:store_app/core/styles/fonts/font_wight_helper.dart';
 import 'package:store_app/features/customer/profile/presentation/widgets/build_version.dart';
 import 'package:store_app/features/customer/profile/presentation/widgets/change_dark_mode.dart';
 import 'package:store_app/features/customer/profile/presentation/widgets/change_language.dart';
+import 'package:store_app/features/customer/profile/presentation/widgets/logout_widget.dart';
 import 'package:store_app/features/customer/profile/presentation/widgets/user_profile_info.dart';
 
 import '../widgets/build_developer.dart';
@@ -60,7 +61,8 @@ class ProfileScreenBody extends StatelessWidget {
             const CustomFadeInRight(duration: 400, child: BuildVersion()),
             verticalSpace(20),
 
-            // Logout
+            // Logout,
+            const CustomFadeInRight(duration: 400, child: LogoutWidget()),
 
 
 
