@@ -29,7 +29,7 @@ class CategoriesListViewItem extends StatelessWidget {
               placeholder: (context, url) => ShimmerEffect(
                 width: 71.w,
                 height: 71.h,
-                borderRaduis: 8,
+                borderRaduis: 20,
               ),
               errorWidget: (context, url, error) => const Icon(
                 Icons.error,

@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:store_app/core/common/widgets/empty_screen.dart';
 import 'package:store_app/core/helper/spacing.dart';
+import 'package:store_app/features/customer/home/presentation/bloc/home_catgories/home_categories_bloc.dart';
+import 'package:store_app/features/customer/home/presentation/bloc/home_catgories/home_categories_state.dart';
+import 'package:store_app/features/customer/home/presentation/widgets/categories/categories_list_loading_shimmer_effet.dart';
 
 import 'categories_list_view_item.dart';
 
@@ -9,20 +14,32 @@ class CategoriesListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(left: 15.w, right: 15.w, top: 20.h),
-      child: SizedBox(
-        height: 125.h,
-        child: ListView.separated(
-            scrollDirection: Axis.horizontal,
-            itemBuilder: (context, index) => const CategoriesListViewItem(
-                  image:
-                      'https://images.unsplash.com/photo-1718573577441-61fb326c1517?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-                  title: 'Apple',
-                ),
-            separatorBuilder: (context, index) => horizontalSpace(15),
-            itemCount: 5),
-      ),
+    return BlocBuilder<HomeCategoriesBloc, HomeCategoriesState>(
+      builder: (context, state) {
+        return state.when(
+          loading: () {
+            return const CategoriesListLoadingShimmerEffet();
+          },
+          success: (categories) {
+            return Padding(
+              padding: EdgeInsets.only(left: 15.w, right: 15.w, top: 20.h),
+              child: SizedBox(
+                height: 125.h,
+                child: ListView.separated(
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) => CategoriesListViewItem(
+                          image: categories.categoryList[index].image!,
+                          title: categories.categoryList[index].name!,
+                        ),
+                    separatorBuilder: (context, index) => horizontalSpace(15),
+                    itemCount: 5),
+              ),
+            );
+          },
+          empty: () => const EmptyScreen(),
+          failure:Text.new,
+        );
+      },
     );
   }
 }

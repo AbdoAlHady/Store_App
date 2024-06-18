@@ -14,6 +14,7 @@ class HomeCategoriesBloc
   }
 
   FutureOr<void> _getAllCategories(event, emit) async {
+    emit(const HomeCategoriesState.loading());
     final result = await homeRepo.getAllCategories();
     result.when(success: (response) {
       if (response.categoryList.isEmpty) {
