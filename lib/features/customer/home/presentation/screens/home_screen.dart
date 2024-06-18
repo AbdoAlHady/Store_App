@@ -5,6 +5,8 @@ import 'package:store_app/core/common/animation/animate_do.dart';
 import 'package:store_app/core/di/dependancy_injection.dart';
 import 'package:store_app/core/extensions/context_extension.dart';
 import 'package:store_app/features/customer/home/presentation/bloc/banners/banners_event.dart';
+import 'package:store_app/features/customer/home/presentation/bloc/home_catgories/home_categories_bloc.dart';
+import 'package:store_app/features/customer/home/presentation/bloc/home_catgories/home_categories_event.dart';
 
 import '../bloc/banners/banners_bloc.dart';
 import '../refactors/home_body.dart';
@@ -40,6 +42,13 @@ class _HomeScreenState extends State<HomeScreen> {
         BlocProvider(
             create: (context) =>
                 getIt<BannersBloc>()..add(const BannersEvent.getAllBanners())),
+        // Home Categories Bloc,
+        BlocProvider(
+          create: (context) => getIt<HomeCategoriesBloc>()
+            ..add(
+              const HomeCategoriesEvent.getAllCategories(),
+            ),
+        ),
       ],
       child: Stack(
         children: [

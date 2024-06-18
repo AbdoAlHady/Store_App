@@ -36,6 +36,7 @@ import '../../features/admin/dashboard/presentations/bloc/categories_number/cate
 import '../../features/auth/data/datasource/auth_data_source.dart';
 import '../../features/auth/data/repos/auth_repo.dart';
 import '../../features/auth/presentaions/bloc/auth_bloc.dart';
+import '../../features/customer/home/presentation/bloc/home_catgories/home_categories_bloc.dart';
 import '../app/app_cubit/app_cubit.dart';
 import '../app/upload_image/date_source/upload_image_date_source.dart';
 import '../app/upload_image/upload_image_cubit/cubit/upload_image_cubit.dart';
@@ -162,4 +163,6 @@ Future<void> _initHome() async {
   getIt.registerLazySingleton(() => HomeRepo(getIt()));
   // Banners Bloc
   getIt.registerFactory(() => BannersBloc(getIt()));
+  // HomeCategories Bloc
+  getIt.registerFactory(() => HomeCategoriesBloc(getIt()));
 }
