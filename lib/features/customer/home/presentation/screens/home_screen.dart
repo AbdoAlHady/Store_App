@@ -7,6 +7,8 @@ import 'package:store_app/core/extensions/context_extension.dart';
 import 'package:store_app/features/customer/home/presentation/bloc/banners/banners_event.dart';
 import 'package:store_app/features/customer/home/presentation/bloc/home_catgories/home_categories_bloc.dart';
 import 'package:store_app/features/customer/home/presentation/bloc/home_catgories/home_categories_event.dart';
+import 'package:store_app/features/customer/home/presentation/bloc/home_products/home_products_bloc.dart';
+import 'package:store_app/features/customer/home/presentation/bloc/home_products/home_products_event.dart';
 
 import '../bloc/banners/banners_bloc.dart';
 import '../refactors/home_body.dart';
@@ -47,6 +49,13 @@ class _HomeScreenState extends State<HomeScreen> {
           create: (context) => getIt<HomeCategoriesBloc>()
             ..add(
               const HomeCategoriesEvent.getAllCategories(),
+            ),
+        ),
+        // Home Products Bloc,
+         BlocProvider(
+          create: (context) => getIt<HomeProductsBloc>()
+            ..add(
+              const HomeProductsEvent.getAllProducts(),
             ),
         ),
       ],

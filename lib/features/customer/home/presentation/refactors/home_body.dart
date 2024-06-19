@@ -37,7 +37,7 @@ class HomeBody extends StatelessWidget {
           // Categories
           const SliverToBoxAdapter(child: CategoriesListView()),
 
-          // Products
+          // Products,
           const SliverToBoxAdapter(child: ProductsListView()),
           SliverToBoxAdapter(child: verticalSpace(20)),
 
@@ -50,11 +50,11 @@ class HomeBody extends StatelessWidget {
               }, 
               lastRadius: 10,
               threeRadius: 10,
-              backgroundColor: context.color.bluePinkDark,
+              backgroundColor: context.color.bluePinkLight,
               text: context.translator(LangKeys.viewAll), width: MediaQuery.sizeOf(context).width, height: 50.h),
             ),
           ),
-          SliverToBoxAdapter(child: verticalSpace(60)),
+          SliverToBoxAdapter(child: verticalSpace(65)),
           
         ],
       ),

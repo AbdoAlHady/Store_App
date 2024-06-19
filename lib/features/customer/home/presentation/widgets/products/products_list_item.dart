@@ -2,15 +2,15 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_app/core/common/widgets/custom_conatiner_gradient_customer.dart';
-import 'package:store_app/core/common/widgets/shimmer_effect.dart';
 import 'package:store_app/core/common/widgets/text_app.dart';
 import 'package:store_app/core/extensions/context_extension.dart';
 import 'package:store_app/core/extensions/string_extension.dart';
 import 'package:store_app/core/helper/spacing.dart';
+
 import 'package:store_app/core/styles/fonts/font_wight_helper.dart';
 
-class ProductsListViewItem extends StatelessWidget {
-  const ProductsListViewItem(
+class ProductsListItem extends StatelessWidget {
+  const ProductsListItem(
       {super.key,
       required this.imageUrl,
       required this.title,
@@ -24,6 +24,7 @@ class ProductsListViewItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      onTap: () {},
       child: CustomConatinerGradientCustomer(
         height: 250.h,
         width: 165.w,
@@ -34,7 +35,7 @@ class ProductsListViewItem extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                // Share Button
+                //Share Button
                 IconButton(
                   onPressed: () {},
                   padding: EdgeInsets.zero,
@@ -43,13 +44,12 @@ class ProductsListViewItem extends StatelessWidget {
                     color: context.color.textColor,
                   ),
                 ),
-
-                // Favourite Button
+                //Favorite Button
                 IconButton(
                   onPressed: () {},
                   padding: EdgeInsets.zero,
                   icon: Icon(
-                    Icons.favorite_outlined,
+                    Icons.favorite_outline,
                     color: context.color.textColor,
                   ),
                 ),
@@ -61,11 +61,6 @@ class ProductsListViewItem extends StatelessWidget {
                 child: CachedNetworkImage(
                   height: 200.h,
                   width: 120.w,
-                  fit: BoxFit.contain,
-                  placeholder: (context, url) => ShimmerEffect(
-                    width: 120.w,
-                    height: 200.h,
-                  ),
                   imageUrl: imageUrl.imageProductFormat(),
                   errorWidget: (context, url, error) => const Icon(
                     Icons.error,
@@ -76,6 +71,7 @@ class ProductsListViewItem extends StatelessWidget {
               ),
             ),
             verticalSpace(10),
+
             // title
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 10.w),
@@ -101,8 +97,7 @@ class ProductsListViewItem extends StatelessWidget {
                 maxLines: 1,
               ),
             ),
-            verticalSpace(5),
-            // Price
+            verticalSpace(5), // Price
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 10.w),
               child: TextApp(
@@ -113,7 +108,7 @@ class ProductsListViewItem extends StatelessWidget {
                 ),
               ),
             ),
-            verticalSpace(10)
+            verticalSpace(10),
           ],
         ),
       ),
