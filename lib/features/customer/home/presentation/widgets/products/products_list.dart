@@ -6,7 +6,7 @@ import 'package:store_app/core/extensions/string_extension.dart';
 import 'package:store_app/features/customer/home/presentation/bloc/home_products/home_products_bloc.dart';
 import 'package:store_app/features/customer/home/presentation/bloc/home_products/home_products_state.dart';
 
-import 'products_list_item.dart';
+import '../../../../../../core/common/widgets/products_list_item.dart';
 import 'products_list_loading_shimmer.dart';
 
 class ProductsList extends StatelessWidget {
@@ -39,7 +39,9 @@ class ProductsList extends StatelessWidget {
                       price: products[index].price ?? 0.0,
                       categoryName: products[index].category!.name ?? '',
                       title: products[index].title ?? '',
-                      imageUrl: products[index].images!.first.imageProductFormat(),
+                      imageUrl:
+                          products[index].images!.first.imageProductFormat(),
+                      productId: int.parse(products[index].id!),
                     );
                   },
                 ),

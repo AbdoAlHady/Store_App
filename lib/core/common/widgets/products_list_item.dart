@@ -6,6 +6,7 @@ import 'package:store_app/core/common/widgets/text_app.dart';
 import 'package:store_app/core/extensions/context_extension.dart';
 import 'package:store_app/core/extensions/string_extension.dart';
 import 'package:store_app/core/helper/spacing.dart';
+import 'package:store_app/core/routes/routes.dart';
 
 import 'package:store_app/core/styles/fonts/font_wight_helper.dart';
 
@@ -15,16 +16,20 @@ class ProductsListItem extends StatelessWidget {
       required this.imageUrl,
       required this.title,
       required this.categoryName,
-      required this.price});
+      required this.price,
+      required this.productId});
   final String imageUrl;
   final String title;
   final String categoryName;
   final num price;
+  final int productId;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        context.pushNamed(Routes.productDetail, argumnets: productId);
+      },
       child: CustomConatinerGradientCustomer(
         height: 250.h,
         width: 165.w,
