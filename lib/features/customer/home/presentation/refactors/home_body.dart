@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:store_app/core/common/widgets/custom_buttom.dart';
-import 'package:store_app/core/extensions/context_extension.dart';
 import 'package:store_app/core/helper/spacing.dart';
-import 'package:store_app/core/language/lang_keys.dart';
 import 'package:store_app/features/customer/home/presentation/bloc/banners/banners_bloc.dart';
 import 'package:store_app/features/customer/home/presentation/bloc/banners/banners_event.dart';
 import 'package:store_app/features/customer/home/presentation/bloc/home_catgories/home_categories_bloc.dart';
 import 'package:store_app/features/customer/home/presentation/bloc/home_catgories/home_categories_event.dart';
+import 'package:store_app/features/customer/home/presentation/bloc/home_products/home_products_event.dart';
 import 'package:store_app/features/customer/home/presentation/widgets/categories/categories_list_view.dart';
-
+import 'package:store_app/features/customer/home/presentation/widgets/products/view_all_button.dart';
+import '../bloc/home_products/home_products_bloc.dart';
 import '../widgets/banners/banner_slider.dart';
-import '../widgets/products/products_list_view.dart';
+import '../widgets/products/products_list.dart';
 
 class HomeBody extends StatelessWidget {
   const HomeBody({super.key, required this.scrollController});
@@ -26,6 +24,8 @@ class HomeBody extends StatelessWidget {
         context.read<BannersBloc>().add(const BannersEvent.getAllBanners());
         // Home Categories Bloc
         context.read<HomeCategoriesBloc>().add(const HomeCategoriesEvent.getAllCategories());
+        // Home Products Bloc
+        context.read<HomeProductsBloc>().add( const HomeProductsEvent.getAllProducts());
       },
       child: CustomScrollView(
         controller: scrollController,
@@ -38,21 +38,12 @@ class HomeBody extends StatelessWidget {
           const SliverToBoxAdapter(child: CategoriesListView()),
 
           // Products,
-          const SliverToBoxAdapter(child: ProductsListView()),
+          const SliverToBoxAdapter(child: ProductsList()),
           SliverToBoxAdapter(child: verticalSpace(20)),
 
           // All Product Button
-          SliverToBoxAdapter(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15),
-              child: CustomButton(onPressed: () {
-                
-              }, 
-              lastRadius: 10,
-              threeRadius: 10,
-              backgroundColor: context.color.bluePinkLight,
-              text: context.translator(LangKeys.viewAll), width: MediaQuery.sizeOf(context).width, height: 50.h),
-            ),
+          const SliverToBoxAdapter(
+            child: ViewAllButton(),
           ),
           SliverToBoxAdapter(child: verticalSpace(65)),
           

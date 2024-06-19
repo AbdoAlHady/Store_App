@@ -10,6 +10,7 @@ class HomeProductsBloc extends Bloc<HomeProductsEvent, HomeProductsState> {
   HomeProductsBloc(this._repo) : super(const HomeProductsState.loading()) {
     on<GetAllProductsEvent>(_getAllProducts);
   }
+  bool isProductListLessThan10 = false;
 
   FutureOr<void> _getAllProducts(event, emit) async {
     emit(const HomeProductsState.loading());
@@ -17,8 +18,10 @@ class HomeProductsBloc extends Bloc<HomeProductsEvent, HomeProductsState> {
     result.when(
       success: (productsResponse) {
         if (productsResponse.products.isEmpty) {
+          isProductListLessThan10=false;
           emit(const HomeProductsState.empty());
         } else {
+          isProductListLessThan10 = productsResponse.products.length >= 10;
           emit(HomeProductsState.success(productsResponse.products));
         }
       },

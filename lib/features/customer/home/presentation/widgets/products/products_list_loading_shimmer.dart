@@ -1,11 +1,9 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:store_app/core/common/widgets/shimmer_effect.dart';
 
-import 'products_list_item.dart';
-
-class ProductsListView extends StatelessWidget {
-  const ProductsListView({super.key});
+class ProductsListLoadingShimmer extends StatelessWidget {
+  const ProductsListLoadingShimmer({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,12 +21,7 @@ class ProductsListView extends StatelessWidget {
           childAspectRatio: 165 / 250,
         ),
         itemBuilder: (context, index) {
-          return const ProductsListItem(
-            price:20,
-            categoryName:"Apple",
-            title:' Title',
-            imageUrl:'https://plus.unsplash.com/premium_photo-1718204436526-277f9f34607c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8',
-          );
+          return ShimmerEffect(width: 165.w, height: 250.h,borderRaduis: 20);
         },
       ),
     );

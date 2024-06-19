@@ -19,7 +19,7 @@ class ProductsListItem extends StatelessWidget {
   final String imageUrl;
   final String title;
   final String categoryName;
-  final double price;
+  final num price;
 
   @override
   Widget build(BuildContext context) {
