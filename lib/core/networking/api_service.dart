@@ -13,6 +13,7 @@ import 'package:store_app/features/auth/data/models/sign_up_response.dart';
 import '../../features/admin/add_products/data/models/get_all_products_response.dart';
 import '../../features/admin/dashboard/data/models/user_number_response.dart';
 import '../../features/auth/data/models/user_model.dart';
+import '../../features/customer/home/data/models/banner_response.dart';
 import '../app/upload_image/models/upload_image_response.dart';
 
 part 'api_service.g.dart';
@@ -76,4 +77,7 @@ abstract class ApiService {
 
   @POST(ApiConstants.graphql)
   Future<void> deleteUser(@Body() Map<String, dynamic> mutation);
+
+   @POST(ApiConstants.graphql)
+  Future<BannersResponse> getAllBanners(@Body() Map<String, dynamic> query);
 }

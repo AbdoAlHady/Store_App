@@ -12,14 +12,14 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.6
+  cupertino_icons: ^1.0.8
   # Firebase
-  firebase_core: ^2.30.0
+  firebase_core: ^3.1.0
 
  
   connectivity_plus: ^5.0.2
   flutter_dotenv: ^5.1.0
-  flutter_screenutil: ^5.9.0
+  flutter_screenutil: ^5.9.3
   flutter_native_splash: ^2.4.0
   flutter_localizations:
     sdk: flutter
@@ -57,7 +57,7 @@ dependencies:
   retrofit: ^4.1.0
   retrofit_generator: ^8.1.0
   # A Plugin for selecting images from the Android and iOS
-  image_picker: ^1.1.1
+  image_picker: ^1.1.2
   # This plugin provides a cross-platform (iOS, Android) API to request and check permissions.
   permission_handler: ^11.3.1
   cached_network_image: ^3.3.1
@@ -65,8 +65,8 @@ dependencies:
   delightful_toast: ^1.1.0
 
   # Notifcation
-  firebase_messaging: ^14.9.3
-  googleapis: ^13.1.0
+  firebase_messaging: ^15.0.1
+  googleapis: ^13.2.0
   googleapis_auth: ^1.6.0
   # Local Database
   hive: ^2.2.3
@@ -76,6 +76,7 @@ dependencies:
   flutter_animate: ^4.5.0
   webview_flutter: ^4.8.0
   package_info_plus: ^8.0.0
+  carousel_slider: ^4.2.1
   
  
 
@@ -83,7 +84,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  flutter_lints: ^3.0.0
+  flutter_lints: ^3.0.2
   # Extension for Hive. Automatically generates TypeAdapters to store any class.
   hive_generator: ^2.0.1
   

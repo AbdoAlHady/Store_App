@@ -23,6 +23,9 @@ import 'package:store_app/features/admin/users/data/data_source/users_data_sourc
 import 'package:store_app/features/admin/users/data/repo/users_repo.dart';
 import 'package:store_app/features/admin/users/presentations/delete_user/bloc/delete_user_bloc.dart';
 import 'package:store_app/features/admin/users/presentations/delete_user/get_all_users/get_all_users_bloc.dart';
+import 'package:store_app/features/customer/home/data/data_source/home_data_source.dart';
+import 'package:store_app/features/customer/home/data/repos/home_repo.dart';
+import 'package:store_app/features/customer/home/presentation/bloc/banners/banners_bloc.dart';
 import 'package:store_app/features/customer/profile/data/data_source/profile_data_source.dart';
 import 'package:store_app/features/customer/profile/data/repos/profile_repos.dart';
 import 'package:store_app/features/customer/profile/presentation/bloc/profile/profile_bloc.dart';
@@ -33,6 +36,8 @@ import '../../features/admin/dashboard/presentations/bloc/categories_number/cate
 import '../../features/auth/data/datasource/auth_data_source.dart';
 import '../../features/auth/data/repos/auth_repo.dart';
 import '../../features/auth/presentaions/bloc/auth_bloc.dart';
+import '../../features/customer/home/presentation/bloc/home_catgories/home_categories_bloc.dart';
+import '../../features/customer/home/presentation/bloc/home_products/home_products_bloc.dart';
 import '../app/app_cubit/app_cubit.dart';
 import '../app/upload_image/date_source/upload_image_date_source.dart';
 import '../app/upload_image/upload_image_cubit/cubit/upload_image_cubit.dart';
@@ -49,6 +54,7 @@ Future<void> setupDependancyInjection() async {
   await _initUsers();
   await _initAdminNotifications();
   await _initProfile();
+  await _initHome();
 }
 
 Future<void> _initCore() async {
@@ -149,4 +155,17 @@ Future<void> _initProfile() async {
   getIt.registerLazySingleton(() => ProfileRepos(getIt()));
   // Profile Bloc
   getIt.registerFactory(() => ProfileBloc(getIt()));
+}
+
+Future<void> _initHome() async {
+  // Home Data Source
+  getIt.registerLazySingleton(() => HomeDataSource(getIt()));
+  // Home Repo
+  getIt.registerLazySingleton(() => HomeRepo(getIt()));
+  // Banners Bloc
+  getIt.registerFactory(() => BannersBloc(getIt()));
+  // HomeCategories Bloc
+  getIt.registerFactory(() => HomeCategoriesBloc(getIt()));
+  // Home Products Bloc
+  getIt.registerFactory(() => HomeProductsBloc(getIt()));
 }
