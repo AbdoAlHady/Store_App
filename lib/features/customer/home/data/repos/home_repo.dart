@@ -31,4 +31,14 @@ class HomeRepo {
       return const ApiResult.failure(AppString.errorMessage);
     }
   }
+  // Get all products
+  Future<ApiResult> getAllProducts()async {
+    try {
+      final result = await _dataSource.getAllProducts();
+      return ApiResult.success(result);
+    } catch (e) {
+      debugPrint("===[Home Repo Products Customer Error: $e]===");
+      return const ApiResult.failure(AppString.errorMessage);
+    }
+  }
 }
