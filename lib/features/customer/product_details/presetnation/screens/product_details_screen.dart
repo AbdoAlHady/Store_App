@@ -4,6 +4,7 @@ import 'package:store_app/features/customer/product_details/presetnation/refacto
 
 import '../../../../../core/common/widgets/customer_app_bar.dart';
 import '../refactors/add_to_cart_button.dart';
+import '../refactors/product_deatils_body.dart';
 
 class ProductDetailsScreen extends StatelessWidget {
   const ProductDetailsScreen({super.key, required this.productId});
@@ -28,7 +29,8 @@ class ProductDetailsScreen extends StatelessWidget {
                 end: Alignment.bottomCenter,
               ),
             ),
-          )
+          ),
+          const ProductDeatilsBody(),
         ],
       ),
       bottomNavigationBar: const AddToCartButton(
