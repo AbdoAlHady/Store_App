@@ -29,7 +29,7 @@ class CategoriesListView extends StatelessWidget {
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) => CategoriesListViewItem(
                           image: categories.categoryList[index].image!,
-                          title: categories.categoryList[index].name!,
+                          title: categories.categoryList[index].name!, id: int.parse(categories.categoryList[index].id!),
                         ),
                     separatorBuilder: (context, index) => horizontalSpace(15),
                     itemCount: 5),

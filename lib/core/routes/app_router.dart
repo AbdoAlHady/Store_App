@@ -8,6 +8,7 @@ import 'package:store_app/core/routes/routes.dart';
 import 'package:store_app/features/auth/presentaions/bloc/auth_bloc.dart';
 import 'package:store_app/features/auth/presentaions/screens/login_screen.dart';
 import 'package:store_app/features/auth/presentaions/screens/sign_up_screen.dart';
+import 'package:store_app/features/customer/category_products/presentation/screens/catgeory_products_screen.dart';
 import 'package:store_app/features/customer/main/presentation/cubit/main_cubit.dart';
 import 'package:store_app/features/customer/main/presentation/screens/main_screen.dart';
 import 'package:store_app/features/customer/product_details/presetnation/screens/product_details_screen.dart';
@@ -54,6 +55,11 @@ class AppRouter {
         return BaseRoute(
             page: ProductDetailsScreen(
           productId: args as int,
+        ));
+        case Routes.categoryProductsScreen:
+        return BaseRoute(
+            page: CategoryProductsScreen(
+          categoryInfo: args as ({int categoryId, String categoryName}) ,
         ));
       default:
         return BaseRoute(
