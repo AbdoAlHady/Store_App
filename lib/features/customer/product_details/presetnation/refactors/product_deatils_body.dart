@@ -20,7 +20,7 @@ class ProductDeatilsBody extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Share and favorite buttons ,
+            // Share and favorite buttons 
             const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
