@@ -6,11 +6,13 @@ import 'package:store_app/core/common/widgets/text_app.dart';
 import 'package:store_app/core/extensions/context_extension.dart';
 import 'package:store_app/core/helper/spacing.dart';
 import 'package:store_app/core/styles/fonts/font_wight_helper.dart';
+import 'package:store_app/features/customer/product_details/data/models/product_details_response.dart';
 
 import '../widgets/product_image_slider.dart';
 
 class ProductDeatilsBody extends StatelessWidget {
-  const ProductDeatilsBody({super.key});
+  const ProductDeatilsBody({super.key, required this.productModel});
+  final ProductDetailsModel productModel;
 
   @override
   Widget build(BuildContext context) {
@@ -32,12 +34,12 @@ class ProductDeatilsBody extends StatelessWidget {
             ),
             verticalSpace(10),
             // Product Images
-            const ProductImageSlider(),
+             ProductImageSlider(imagesUrl: productModel.images),
             verticalSpace(30),
       
             // Product Title
             TextApp(
-              text: 'Product Title',
+              text: productModel.title!,
               style: context.textStyle.copyWith(
                 fontSize: 16.sp,
                 fontWeight: FontWeightHelper.bold,
@@ -47,7 +49,7 @@ class ProductDeatilsBody extends StatelessWidget {
             // Description
             TextApp(
               text:
-                  'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+                  productModel.description!,
               style: context.textStyle.copyWith(
                   fontSize: 16.sp,
                   fontWeight: FontWeightHelper.regular,

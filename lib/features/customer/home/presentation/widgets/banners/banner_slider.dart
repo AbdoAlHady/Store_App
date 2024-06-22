@@ -64,7 +64,7 @@ class _BannerSliderState extends State<BannerSlider> {
                         height: 4.h,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
-                          color:activeIndex==e.key.floor()? context.color.bluePinkLight: Colors.grey,
+                          color:activeIndex==e.key.round()? context.color.bluePinkLight: Colors.grey,
                         ),
                       );
                     }).toList(),

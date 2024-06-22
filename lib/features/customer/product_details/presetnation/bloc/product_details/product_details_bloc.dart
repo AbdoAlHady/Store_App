@@ -8,7 +8,7 @@ import 'product_details_state.dart';
 class ProductDetailsBloc
     extends Bloc<ProductDetailsEvent, ProductDetailsState> {
   final ProductDetailsRepo _repo;
-  ProductDetailsBloc(this._repo) : super(const ProductDetailsState.initial()) {
+  ProductDetailsBloc(this._repo) : super(const ProductDetailsState.loading()) {
     on<GetProductDetailsEvent>(_getProductDetails);
   }
 
@@ -16,8 +16,8 @@ class ProductDetailsBloc
     emit(const ProductDetailsState.loading());
     final result=await _repo.getProductDetails(event.productId);
     result.when(
-      success: (data){
-        emit(ProductDetailsState.sucess(data));
+      success: (productResponse){
+        emit(ProductDetailsState.sucess(productResponse.data.productModel));
       },
       failure: (message){
         emit(ProductDetailsState.failure(message));

@@ -7,18 +7,14 @@ class ProductDetailsQueries {
   Map<String, dynamic> productDetailsQuery(int productId) {
     return {
       'query': '''
-          	product(id: $productId) {
+           {
+          product(id: $productId) {
             title
             price
             images
-            description
+                description
           }
-        }
-      ''',
-      'variables': {
-        'id': productId,
-      }
+        },''',
     };
   }
-  
 }

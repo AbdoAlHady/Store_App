@@ -3,8 +3,7 @@ import 'package:store_app/features/customer/product_details/data/models/product_
 part 'product_details_state.freezed.dart';
 @Freezed()
 class ProductDetailsState with _$ProductDetailsState {
-  const factory ProductDetailsState.initial() = _Initial;
   const factory ProductDetailsState.loading() = LoadingState;
-  const factory ProductDetailsState.sucess(ProductDetailsResponse product) = SuccessState;
+  const factory ProductDetailsState.sucess(ProductDetailsModel product) = SuccessState;
   const factory ProductDetailsState.failure(String message) = FailureState;
 }

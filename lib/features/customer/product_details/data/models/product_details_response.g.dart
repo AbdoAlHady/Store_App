@@ -20,20 +20,20 @@ Map<String, dynamic> _$ProductDetailsResponseToJson(
 
 ProductDetailsData _$ProductDetailsDataFromJson(Map<String, dynamic> json) =>
     ProductDetailsData(
-      ProductDetailsModel.fromJson(json['products'] as Map<String, dynamic>),
+      ProductDetailsModel.fromJson(json['product'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$ProductDetailsDataToJson(ProductDetailsData instance) =>
     <String, dynamic>{
-      'products': instance.products,
+      'product': instance.productModel,
     };
 
 ProductDetailsModel _$ProductDetailsModelFromJson(Map<String, dynamic> json) =>
     ProductDetailsModel(
       json['title'] as String?,
-      json['price'] as num?,
+      (json['price'] as num?)?.toDouble(),
+      (json['images'] as List<dynamic>).map((e) => e as String).toList(),
       json['description'] as String?,
-      (json['images'] as List<dynamic>?)?.map((e) => e as String).toList(),
     );
 
 Map<String, dynamic> _$ProductDetailsModelToJson(
@@ -41,6 +41,6 @@ Map<String, dynamic> _$ProductDetailsModelToJson(
     <String, dynamic>{
       'title': instance.title,
       'price': instance.price,
-      'description': instance.description,
       'images': instance.images,
+      'description': instance.description,
     };

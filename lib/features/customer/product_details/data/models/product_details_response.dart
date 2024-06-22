@@ -12,21 +12,24 @@ class ProductDetailsResponse {
 
 @JsonSerializable()
 class ProductDetailsData {
-  final ProductDetailsModel products;
+  ProductDetailsData(this.productModel);
 
-  ProductDetailsData(this.products);
   factory ProductDetailsData.fromJson(Map<String, dynamic> json) =>
       _$ProductDetailsDataFromJson(json);
+
+  @JsonKey(name: 'product')
+  final ProductDetailsModel productModel;
 }
 
 @JsonSerializable()
 class ProductDetailsModel {
-  final String? title;
-  final num? price;
-  final String? description;
-  final List<String>? images;
+  ProductDetailsModel(this.title, this.price, this.images, this.description);
 
-  ProductDetailsModel(this.title, this.price, this.description, this.images);
   factory ProductDetailsModel.fromJson(Map<String, dynamic> json) =>
       _$ProductDetailsModelFromJson(json);
+
+  final String? title;
+  final double? price;
+  final List<String> images;
+  final String? description;
 }
