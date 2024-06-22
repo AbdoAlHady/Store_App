@@ -1,11 +1,14 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:store_app/core/common/widgets/app_share_button.dart';
 import 'package:store_app/core/common/widgets/custom_conatiner_gradient_customer.dart';
+import 'package:store_app/core/common/widgets/custom_favourite_button.dart';
 import 'package:store_app/core/common/widgets/text_app.dart';
 import 'package:store_app/core/extensions/context_extension.dart';
 import 'package:store_app/core/extensions/string_extension.dart';
 import 'package:store_app/core/helper/spacing.dart';
+import 'package:store_app/core/routes/routes.dart';
 
 import 'package:store_app/core/styles/fonts/font_wight_helper.dart';
 
@@ -15,16 +18,20 @@ class ProductsListItem extends StatelessWidget {
       required this.imageUrl,
       required this.title,
       required this.categoryName,
-      required this.price});
+      required this.price,
+      required this.productId});
   final String imageUrl;
   final String title;
   final String categoryName;
   final num price;
+  final int productId;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        context.pushNamed(Routes.productDetail, argumnets: productId);
+      },
       child: CustomConatinerGradientCustomer(
         height: 250.h,
         width: 165.w,
@@ -32,27 +39,14 @@ class ProductsListItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             //Buttons
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 //Share Button
-                IconButton(
-                  onPressed: () {},
-                  padding: EdgeInsets.zero,
-                  icon: Icon(
-                    Icons.share,
-                    color: context.color.textColor,
-                  ),
-                ),
-                //Favorite Button
-                IconButton(
-                  onPressed: () {},
-                  padding: EdgeInsets.zero,
-                  icon: Icon(
-                    Icons.favorite_outline,
-                    color: context.color.textColor,
-                  ),
-                ),
+                AppShareButton(size: 25),
+                //Favorite Button,
+                CustomFavouriteButton(size: 25,),
+               
               ],
             ),
             // Show Image
