@@ -23,15 +23,15 @@ import 'package:store_app/features/admin/users/data/data_source/users_data_sourc
 import 'package:store_app/features/admin/users/data/repo/users_repo.dart';
 import 'package:store_app/features/admin/users/presentations/delete_user/bloc/delete_user_bloc.dart';
 import 'package:store_app/features/admin/users/presentations/delete_user/get_all_users/get_all_users_bloc.dart';
-import 'package:store_app/features/customer/category_products/data/data_source/category_products_data_source.dart';
-import 'package:store_app/features/customer/category_products/data/repos/category_products_repo.dart';
-import 'package:store_app/features/customer/category_products/presentation/bloc/category_products/category_products_bloc.dart';
+import 'package:store_app/features/customer/categories/data/data_source/category_products_data_source.dart';
+import 'package:store_app/features/customer/categories/data/repos/category_products_repo.dart';
+import 'package:store_app/features/customer/categories/presentation/bloc/category_products/category_products_bloc.dart';
 import 'package:store_app/features/customer/home/data/data_source/home_data_source.dart';
 import 'package:store_app/features/customer/home/data/repos/home_repo.dart';
 import 'package:store_app/features/customer/home/presentation/bloc/banners/banners_bloc.dart';
-import 'package:store_app/features/customer/product_details/data/data_source/product_details_data_source.dart';
-import 'package:store_app/features/customer/product_details/data/repos/product_details_repo.dart';
-import 'package:store_app/features/customer/product_details/presetnation/bloc/product_details/product_details_bloc.dart';
+import 'package:store_app/features/customer/products/data/data_source/products_data_source.dart';
+import 'package:store_app/features/customer/products/data/repos/product_repo.dart';
+import 'package:store_app/features/customer/products/presetnation/bloc/product_details/product_details_bloc.dart';
 import 'package:store_app/features/customer/profile/data/data_source/profile_data_source.dart';
 import 'package:store_app/features/customer/profile/data/repos/profile_repos.dart';
 import 'package:store_app/features/customer/profile/presentation/bloc/profile/profile_bloc.dart';
@@ -179,9 +179,9 @@ Future<void> _initHome() async {
 
 Future<void> _initProductDetails() async {
   // Product Details Data Source
-  getIt.registerLazySingleton(() => ProductDetailsDataSource(getIt()));
+  getIt.registerLazySingleton(() => ProductsDataSource(getIt()));
   // Product Details Repo
-  getIt.registerLazySingleton(() => ProductDetailsRepo(getIt()));
+  getIt.registerLazySingleton(() => ProductRepo(getIt()));
   // Product Details Bloc
   getIt.registerFactory(() => ProductDetailsBloc(getIt()));
 }

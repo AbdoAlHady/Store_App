@@ -14,7 +14,7 @@ import '../../features/admin/add_products/data/models/get_all_products_response.
 import '../../features/admin/dashboard/data/models/user_number_response.dart';
 import '../../features/auth/data/models/user_model.dart';
 import '../../features/customer/home/data/models/banner_response.dart';
-import '../../features/customer/product_details/data/models/product_details_response.dart';
+import '../../features/customer/products/data/models/product_details_response.dart';
 import '../app/upload_image/models/upload_image_response.dart';
 
 part 'api_service.g.dart';
@@ -87,4 +87,7 @@ abstract class ApiService {
 
   @POST(ApiConstants.graphql)
   Future<GetAllProductsResponse>getCategoryProducts(@Body() Map<String, dynamic> query);
+
+  @POST(ApiConstants.graphql)
+  Future<GetAllProductsResponse>viewAllProducts(@Body() Map<String, dynamic> query);
 }

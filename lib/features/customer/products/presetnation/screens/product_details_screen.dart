@@ -3,10 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_app/core/di/dependancy_injection.dart';
 import 'package:store_app/core/extensions/context_extension.dart';
 import 'package:store_app/core/extensions/string_extension.dart';
-import 'package:store_app/features/customer/product_details/presetnation/bloc/product_details/product_details_bloc.dart';
-import 'package:store_app/features/customer/product_details/presetnation/bloc/product_details/product_details_event.dart';
-import 'package:store_app/features/customer/product_details/presetnation/bloc/product_details/product_details_state.dart';
-import 'package:store_app/features/customer/product_details/presetnation/refactors/product_details_custom_painter.dart';
+import 'package:store_app/features/customer/products/presetnation/bloc/product_details/product_details_bloc.dart';
+import 'package:store_app/features/customer/products/presetnation/bloc/product_details/product_details_event.dart';
+import 'package:store_app/features/customer/products/presetnation/bloc/product_details/product_details_state.dart';
+import 'package:store_app/features/customer/products/presetnation/refactors/product_details_custom_painter.dart';
 
 import '../../../../../core/common/widgets/customer_app_bar.dart';
 import '../refactors/add_to_cart_button.dart';

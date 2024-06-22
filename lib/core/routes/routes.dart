@@ -6,4 +6,5 @@ class Routes {
   static const String webView = '/webView';
   static const String productDetail = '/productDetail';
   static const String categoryProductsScreen = '/categoryProductsScreen';
+  static const String viewAllProductsScreen='/viewAllProductsScreen';
 }

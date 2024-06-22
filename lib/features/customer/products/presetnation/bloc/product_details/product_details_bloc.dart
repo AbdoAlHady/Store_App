@@ -1,13 +1,13 @@
 import 'dart:async';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../data/repos/product_details_repo.dart';
+import '../../../data/repos/product_repo.dart';
 import 'product_details_event.dart';
 import 'product_details_state.dart';
 
 class ProductDetailsBloc
     extends Bloc<ProductDetailsEvent, ProductDetailsState> {
-  final ProductDetailsRepo _repo;
+  final ProductRepo _repo;
   ProductDetailsBloc(this._repo) : super(const ProductDetailsState.loading()) {
     on<GetProductDetailsEvent>(_getProductDetails);
   }

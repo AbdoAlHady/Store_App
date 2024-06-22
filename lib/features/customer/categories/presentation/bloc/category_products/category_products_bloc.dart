@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store_app/features/customer/category_products/presentation/bloc/category_products/category_products_event.dart';
-import 'package:store_app/features/customer/category_products/presentation/bloc/category_products/category_products_state.dart';
+import 'package:store_app/features/customer/categories/presentation/bloc/category_products/category_products_event.dart';
+import 'package:store_app/features/customer/categories/presentation/bloc/category_products/category_products_state.dart';
 
 import '../../../data/repos/category_products_repo.dart';
 

@@ -4,9 +4,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_app/core/common/widgets/empty_screen.dart';
 import 'package:store_app/core/extensions/string_extension.dart';
-import 'package:store_app/features/customer/category_products/presentation/bloc/category_products/category_products_bloc.dart';
-import 'package:store_app/features/customer/category_products/presentation/bloc/category_products/category_products_event.dart';
-import 'package:store_app/features/customer/category_products/presentation/bloc/category_products/category_products_state.dart';
+import 'package:store_app/features/customer/categories/presentation/bloc/category_products/category_products_bloc.dart';
+import 'package:store_app/features/customer/categories/presentation/bloc/category_products/category_products_event.dart';
+import 'package:store_app/features/customer/categories/presentation/bloc/category_products/category_products_state.dart';
 
 import '../../../../../core/common/shimmer/products_list_loading_shimmer.dart';
 import '../../../../../core/common/widgets/products_list_item.dart';
