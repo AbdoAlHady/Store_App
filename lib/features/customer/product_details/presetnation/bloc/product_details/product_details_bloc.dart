@@ -12,7 +12,7 @@ class ProductDetailsBloc
     on<GetProductDetailsEvent>(_getProductDetails);
   }
 
-  FutureOr<void> _getProductDetails(event, emit) async{
+  FutureOr<void> _getProductDetails(GetProductDetailsEvent event, emit) async{
     emit(const ProductDetailsState.loading());
     final result=await _repo.getProductDetails(event.productId);
     result.when(

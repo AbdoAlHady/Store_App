@@ -28,7 +28,7 @@ import 'package:store_app/features/customer/home/data/repos/home_repo.dart';
 import 'package:store_app/features/customer/home/presentation/bloc/banners/banners_bloc.dart';
 import 'package:store_app/features/customer/product_details/data/data_source/product_details_data_source.dart';
 import 'package:store_app/features/customer/product_details/data/repos/product_details_repo.dart';
-import 'package:store_app/features/customer/product_details/presetnation/bloc/bloc/product_details_bloc.dart';
+import 'package:store_app/features/customer/product_details/presetnation/bloc/product_details/product_details_bloc.dart';
 import 'package:store_app/features/customer/profile/data/data_source/profile_data_source.dart';
 import 'package:store_app/features/customer/profile/data/repos/profile_repos.dart';
 import 'package:store_app/features/customer/profile/presentation/bloc/profile/profile_bloc.dart';
