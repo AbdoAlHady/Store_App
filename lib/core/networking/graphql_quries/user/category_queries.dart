@@ -8,8 +8,9 @@ class CategoryQueries {
       'query': '''
         {
           products(categoryId: $id) {
-            title
-            price
+              id
+              title
+              price
               images
               description
               price

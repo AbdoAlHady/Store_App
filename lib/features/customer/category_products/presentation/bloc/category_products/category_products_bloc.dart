@@ -21,7 +21,7 @@ class CategoryProductsBloc
       if (data.products.isEmpty) {
         emit(const CategoryProductsState.empty());
       } else {
-        emit(CategoryProductsState.sussess(productLis: data.products));
+        emit(CategoryProductsState.success(productLis: data.products));
       }
     }, failure: (error) {
       emit(CategoryProductsState.failure(error: error));

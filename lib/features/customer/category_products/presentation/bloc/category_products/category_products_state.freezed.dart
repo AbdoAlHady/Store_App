@@ -19,7 +19,7 @@ mixin _$CategoryProductsState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<GetAllProductsModel> productLis) sussess,
+    required TResult Function(List<GetAllProductsModel> productLis) success,
     required TResult Function() empty,
     required TResult Function(String error) failure,
   }) =>
@@ -27,7 +27,7 @@ mixin _$CategoryProductsState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(List<GetAllProductsModel> productLis)? sussess,
+    TResult? Function(List<GetAllProductsModel> productLis)? success,
     TResult? Function()? empty,
     TResult? Function(String error)? failure,
   }) =>
@@ -35,7 +35,7 @@ mixin _$CategoryProductsState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<GetAllProductsModel> productLis)? sussess,
+    TResult Function(List<GetAllProductsModel> productLis)? success,
     TResult Function()? empty,
     TResult Function(String error)? failure,
     required TResult orElse(),
@@ -44,7 +44,7 @@ mixin _$CategoryProductsState {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(LaodingState value) loading,
-    required TResult Function(SuccessState value) sussess,
+    required TResult Function(SuccessState value) success,
     required TResult Function(EmptyState value) empty,
     required TResult Function(FailureState value) failure,
   }) =>
@@ -52,7 +52,7 @@ mixin _$CategoryProductsState {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LaodingState value)? loading,
-    TResult? Function(SuccessState value)? sussess,
+    TResult? Function(SuccessState value)? success,
     TResult? Function(EmptyState value)? empty,
     TResult? Function(FailureState value)? failure,
   }) =>
@@ -60,7 +60,7 @@ mixin _$CategoryProductsState {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LaodingState value)? loading,
-    TResult Function(SuccessState value)? sussess,
+    TResult Function(SuccessState value)? success,
     TResult Function(EmptyState value)? empty,
     TResult Function(FailureState value)? failure,
     required TResult orElse(),
@@ -126,7 +126,7 @@ class _$LaodingStateImpl implements LaodingState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<GetAllProductsModel> productLis) sussess,
+    required TResult Function(List<GetAllProductsModel> productLis) success,
     required TResult Function() empty,
     required TResult Function(String error) failure,
   }) {
@@ -137,7 +137,7 @@ class _$LaodingStateImpl implements LaodingState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(List<GetAllProductsModel> productLis)? sussess,
+    TResult? Function(List<GetAllProductsModel> productLis)? success,
     TResult? Function()? empty,
     TResult? Function(String error)? failure,
   }) {
@@ -148,7 +148,7 @@ class _$LaodingStateImpl implements LaodingState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<GetAllProductsModel> productLis)? sussess,
+    TResult Function(List<GetAllProductsModel> productLis)? success,
     TResult Function()? empty,
     TResult Function(String error)? failure,
     required TResult orElse(),
@@ -163,7 +163,7 @@ class _$LaodingStateImpl implements LaodingState {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(LaodingState value) loading,
-    required TResult Function(SuccessState value) sussess,
+    required TResult Function(SuccessState value) success,
     required TResult Function(EmptyState value) empty,
     required TResult Function(FailureState value) failure,
   }) {
@@ -174,7 +174,7 @@ class _$LaodingStateImpl implements LaodingState {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LaodingState value)? loading,
-    TResult? Function(SuccessState value)? sussess,
+    TResult? Function(SuccessState value)? success,
     TResult? Function(EmptyState value)? empty,
     TResult? Function(FailureState value)? failure,
   }) {
@@ -185,7 +185,7 @@ class _$LaodingStateImpl implements LaodingState {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LaodingState value)? loading,
-    TResult Function(SuccessState value)? sussess,
+    TResult Function(SuccessState value)? success,
     TResult Function(EmptyState value)? empty,
     TResult Function(FailureState value)? failure,
     required TResult orElse(),
@@ -249,7 +249,7 @@ class _$SuccessStateImpl implements SuccessState {
 
   @override
   String toString() {
-    return 'CategoryProductsState.sussess(productLis: $productLis)';
+    return 'CategoryProductsState.success(productLis: $productLis)';
   }
 
   @override
@@ -275,35 +275,35 @@ class _$SuccessStateImpl implements SuccessState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<GetAllProductsModel> productLis) sussess,
+    required TResult Function(List<GetAllProductsModel> productLis) success,
     required TResult Function() empty,
     required TResult Function(String error) failure,
   }) {
-    return sussess(productLis);
+    return success(productLis);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(List<GetAllProductsModel> productLis)? sussess,
+    TResult? Function(List<GetAllProductsModel> productLis)? success,
     TResult? Function()? empty,
     TResult? Function(String error)? failure,
   }) {
-    return sussess?.call(productLis);
+    return success?.call(productLis);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<GetAllProductsModel> productLis)? sussess,
+    TResult Function(List<GetAllProductsModel> productLis)? success,
     TResult Function()? empty,
     TResult Function(String error)? failure,
     required TResult orElse(),
   }) {
-    if (sussess != null) {
-      return sussess(productLis);
+    if (success != null) {
+      return success(productLis);
     }
     return orElse();
   }
@@ -312,35 +312,35 @@ class _$SuccessStateImpl implements SuccessState {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(LaodingState value) loading,
-    required TResult Function(SuccessState value) sussess,
+    required TResult Function(SuccessState value) success,
     required TResult Function(EmptyState value) empty,
     required TResult Function(FailureState value) failure,
   }) {
-    return sussess(this);
+    return success(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LaodingState value)? loading,
-    TResult? Function(SuccessState value)? sussess,
+    TResult? Function(SuccessState value)? success,
     TResult? Function(EmptyState value)? empty,
     TResult? Function(FailureState value)? failure,
   }) {
-    return sussess?.call(this);
+    return success?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LaodingState value)? loading,
-    TResult Function(SuccessState value)? sussess,
+    TResult Function(SuccessState value)? success,
     TResult Function(EmptyState value)? empty,
     TResult Function(FailureState value)? failure,
     required TResult orElse(),
   }) {
-    if (sussess != null) {
-      return sussess(this);
+    if (success != null) {
+      return success(this);
     }
     return orElse();
   }
@@ -396,7 +396,7 @@ class _$EmptyStateImpl implements EmptyState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<GetAllProductsModel> productLis) sussess,
+    required TResult Function(List<GetAllProductsModel> productLis) success,
     required TResult Function() empty,
     required TResult Function(String error) failure,
   }) {
@@ -407,7 +407,7 @@ class _$EmptyStateImpl implements EmptyState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(List<GetAllProductsModel> productLis)? sussess,
+    TResult? Function(List<GetAllProductsModel> productLis)? success,
     TResult? Function()? empty,
     TResult? Function(String error)? failure,
   }) {
@@ -418,7 +418,7 @@ class _$EmptyStateImpl implements EmptyState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<GetAllProductsModel> productLis)? sussess,
+    TResult Function(List<GetAllProductsModel> productLis)? success,
     TResult Function()? empty,
     TResult Function(String error)? failure,
     required TResult orElse(),
@@ -433,7 +433,7 @@ class _$EmptyStateImpl implements EmptyState {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(LaodingState value) loading,
-    required TResult Function(SuccessState value) sussess,
+    required TResult Function(SuccessState value) success,
     required TResult Function(EmptyState value) empty,
     required TResult Function(FailureState value) failure,
   }) {
@@ -444,7 +444,7 @@ class _$EmptyStateImpl implements EmptyState {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LaodingState value)? loading,
-    TResult? Function(SuccessState value)? sussess,
+    TResult? Function(SuccessState value)? success,
     TResult? Function(EmptyState value)? empty,
     TResult? Function(FailureState value)? failure,
   }) {
@@ -455,7 +455,7 @@ class _$EmptyStateImpl implements EmptyState {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LaodingState value)? loading,
-    TResult Function(SuccessState value)? sussess,
+    TResult Function(SuccessState value)? success,
     TResult Function(EmptyState value)? empty,
     TResult Function(FailureState value)? failure,
     required TResult orElse(),
@@ -536,7 +536,7 @@ class _$FailureStateImpl implements FailureState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<GetAllProductsModel> productLis) sussess,
+    required TResult Function(List<GetAllProductsModel> productLis) success,
     required TResult Function() empty,
     required TResult Function(String error) failure,
   }) {
@@ -547,7 +547,7 @@ class _$FailureStateImpl implements FailureState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(List<GetAllProductsModel> productLis)? sussess,
+    TResult? Function(List<GetAllProductsModel> productLis)? success,
     TResult? Function()? empty,
     TResult? Function(String error)? failure,
   }) {
@@ -558,7 +558,7 @@ class _$FailureStateImpl implements FailureState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<GetAllProductsModel> productLis)? sussess,
+    TResult Function(List<GetAllProductsModel> productLis)? success,
     TResult Function()? empty,
     TResult Function(String error)? failure,
     required TResult orElse(),
@@ -573,7 +573,7 @@ class _$FailureStateImpl implements FailureState {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(LaodingState value) loading,
-    required TResult Function(SuccessState value) sussess,
+    required TResult Function(SuccessState value) success,
     required TResult Function(EmptyState value) empty,
     required TResult Function(FailureState value) failure,
   }) {
@@ -584,7 +584,7 @@ class _$FailureStateImpl implements FailureState {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LaodingState value)? loading,
-    TResult? Function(SuccessState value)? sussess,
+    TResult? Function(SuccessState value)? success,
     TResult? Function(EmptyState value)? empty,
     TResult? Function(FailureState value)? failure,
   }) {
@@ -595,7 +595,7 @@ class _$FailureStateImpl implements FailureState {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LaodingState value)? loading,
-    TResult Function(SuccessState value)? sussess,
+    TResult Function(SuccessState value)? success,
     TResult Function(EmptyState value)? empty,
     TResult Function(FailureState value)? failure,
     required TResult orElse(),
