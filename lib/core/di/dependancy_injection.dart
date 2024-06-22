@@ -26,6 +26,9 @@ import 'package:store_app/features/admin/users/presentations/delete_user/get_all
 import 'package:store_app/features/customer/home/data/data_source/home_data_source.dart';
 import 'package:store_app/features/customer/home/data/repos/home_repo.dart';
 import 'package:store_app/features/customer/home/presentation/bloc/banners/banners_bloc.dart';
+import 'package:store_app/features/customer/product_details/data/data_source/product_details_data_source.dart';
+import 'package:store_app/features/customer/product_details/data/repos/product_details_repo.dart';
+import 'package:store_app/features/customer/product_details/presetnation/bloc/bloc/product_details_bloc.dart';
 import 'package:store_app/features/customer/profile/data/data_source/profile_data_source.dart';
 import 'package:store_app/features/customer/profile/data/repos/profile_repos.dart';
 import 'package:store_app/features/customer/profile/presentation/bloc/profile/profile_bloc.dart';
@@ -55,6 +58,7 @@ Future<void> setupDependancyInjection() async {
   await _initAdminNotifications();
   await _initProfile();
   await _initHome();
+  await _initProductDetails();
 }
 
 Future<void> _initCore() async {
@@ -168,4 +172,14 @@ Future<void> _initHome() async {
   getIt.registerFactory(() => HomeCategoriesBloc(getIt()));
   // Home Products Bloc
   getIt.registerFactory(() => HomeProductsBloc(getIt()));
+}
+
+Future<void> _initProductDetails() async {
+  // Product Details Data Source
+  getIt.registerLazySingleton(() => ProductDetailsDataSource(getIt()));
+  // Product Details Repo
+  getIt.registerLazySingleton(() => ProductDetailsRepo(getIt()));
+
+  // Product Details Bloc
+  getIt.registerFactory(() => ProductDetailsBloc(getIt()));
 }

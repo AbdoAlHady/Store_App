@@ -11,7 +11,7 @@ class ProductDetailsRepo {
 
   // Get Ptoduct Details
 
-  Future<ApiResult<ProductDetailsResponse>> getProuductDetails(
+  Future<ApiResult<ProductDetailsResponse>> getProductDetails(
       int productId) async {
     try {
       final result = await _dataSource.getProuductDetails(productId);
