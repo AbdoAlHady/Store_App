@@ -7,4 +7,5 @@ class Routes {
   static const String productDetail = '/productDetail';
   static const String categoryProductsScreen = '/categoryProductsScreen';
   static const String viewAllProductsScreen='/viewAllProductsScreen';
+  static const searchScreen = '/searchScreen';
 }
