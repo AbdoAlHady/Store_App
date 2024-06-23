@@ -43,6 +43,7 @@ import '../../features/auth/data/repos/auth_repo.dart';
 import '../../features/auth/presentaions/bloc/auth_bloc.dart';
 import '../../features/customer/home/presentation/bloc/home_catgories/home_categories_bloc.dart';
 import '../../features/customer/home/presentation/bloc/home_products/home_products_bloc.dart';
+import '../../features/customer/products/presetnation/bloc/view_all_products/view_all_products_bloc.dart';
 import '../app/app_cubit/app_cubit.dart';
 import '../app/upload_image/date_source/upload_image_date_source.dart';
 import '../app/upload_image/upload_image_cubit/cubit/upload_image_cubit.dart';
@@ -60,7 +61,7 @@ Future<void> setupDependancyInjection() async {
   await _initAdminNotifications();
   await _initProfile();
   await _initHome();
-  await _initProductDetails();
+  await _initProducts();
   await _initCategoryProducts();
 }
 
@@ -177,13 +178,15 @@ Future<void> _initHome() async {
   getIt.registerFactory(() => HomeProductsBloc(getIt()));
 }
 
-Future<void> _initProductDetails() async {
-  // Product Details Data Source
+Future<void> _initProducts() async {
+  // Product  Data Source
   getIt.registerLazySingleton(() => ProductsDataSource(getIt()));
-  // Product Details Repo
-  getIt.registerLazySingleton(() => ProductRepo(getIt()));
+  // Product  Repo
+  getIt.registerLazySingleton(() => ProductsRepo(getIt()));
   // Product Details Bloc
   getIt.registerFactory(() => ProductDetailsBloc(getIt()));
+  // View All Products Bloc
+  getIt.registerFactory(() => ViewAllProductsBloc(getIt()));
 }
 
 Future<void> _initCategoryProducts() async {

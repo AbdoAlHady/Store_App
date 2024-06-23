@@ -7,7 +7,7 @@ import 'product_details_state.dart';
 
 class ProductDetailsBloc
     extends Bloc<ProductDetailsEvent, ProductDetailsState> {
-  final ProductRepo _repo;
+  final ProductsRepo _repo;
   ProductDetailsBloc(this._repo) : super(const ProductDetailsState.loading()) {
     on<GetProductDetailsEvent>(_getProductDetails);
   }

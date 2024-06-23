@@ -5,10 +5,10 @@ import 'package:store_app/features/admin/add_products/data/models/get_all_produc
 import 'package:store_app/features/customer/products/data/data_source/products_data_source.dart';
 import 'package:store_app/features/customer/products/data/models/product_details_response.dart';
 
-class ProductRepo {
+class ProductsRepo {
   final ProductsDataSource _dataSource;
 
-  ProductRepo(this._dataSource);
+  ProductsRepo(this._dataSource);
 
   // Get Ptoduct Details
   Future<ApiResult<ProductDetailsResponse>> getProductDetails(
