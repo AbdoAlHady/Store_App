@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:store_app/features/customer/search/presentation/widgets/search_for_data.dart';
 import '../widgets/filter_buttons.dart';
 
 class SearchBody extends StatelessWidget {
