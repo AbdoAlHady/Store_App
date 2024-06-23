@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_app/core/common/widgets/custom_buttom.dart';
 import 'package:store_app/core/extensions/context_extension.dart';
 import 'package:store_app/core/language/lang_keys.dart';
+import 'package:store_app/core/routes/routes.dart';
 import 'package:store_app/features/customer/home/presentation/bloc/home_products/home_products_bloc.dart';
 import 'package:store_app/features/customer/home/presentation/bloc/home_products/home_products_state.dart';
 
@@ -20,7 +21,9 @@ class ViewAllButton extends StatelessWidget {
           return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15),
             child: CustomButton(
-                onPressed: () {},
+                onPressed: () {
+                  context.pushNamed(Routes.viewAllProductsScreen);
+                },
                 lastRadius: 10,
                 threeRadius: 10,
                 backgroundColor: context.color.bluePinkLight,

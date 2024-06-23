@@ -6,7 +6,7 @@ import 'package:store_app/core/common/widgets/text_app.dart';
 import 'package:store_app/core/extensions/context_extension.dart';
 import 'package:store_app/core/helper/spacing.dart';
 import 'package:store_app/core/styles/fonts/font_wight_helper.dart';
-import 'package:store_app/features/customer/product_details/data/models/product_details_response.dart';
+import 'package:store_app/features/customer/products/data/models/product_details_response.dart';
 
 import '../widgets/product_image_slider.dart';
 

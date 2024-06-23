@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_app/core/common/animation/animate_do.dart';
 import 'package:store_app/core/extensions/context_extension.dart';
 import 'package:store_app/core/helper/spacing.dart';
-import 'package:store_app/features/customer/product_details/presetnation/widgets/product_image_slider_item.dart';
+import 'package:store_app/features/customer/products/presetnation/widgets/product_image_slider_item.dart';
 
 class ProductImageSlider extends StatefulWidget {
   const ProductImageSlider({super.key, required this.imagesUrl});

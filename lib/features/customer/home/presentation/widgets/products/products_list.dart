@@ -7,7 +7,7 @@ import 'package:store_app/features/customer/home/presentation/bloc/home_products
 import 'package:store_app/features/customer/home/presentation/bloc/home_products/home_products_state.dart';
 
 import '../../../../../../core/common/widgets/products_list_item.dart';
-import 'products_list_loading_shimmer.dart';
+import '../../../../../../core/common/shimmer/products_list_loading_shimmer.dart';
 
 class ProductsList extends StatelessWidget {
   const ProductsList({super.key});

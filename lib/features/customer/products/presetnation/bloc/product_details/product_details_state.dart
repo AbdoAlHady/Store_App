@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:store_app/features/customer/product_details/data/models/product_details_response.dart';
+import 'package:store_app/features/customer/products/data/models/product_details_response.dart';
 part 'product_details_state.freezed.dart';
 @Freezed()
 class ProductDetailsState with _$ProductDetailsState {
