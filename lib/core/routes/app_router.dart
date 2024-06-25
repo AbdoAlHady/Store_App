@@ -13,6 +13,7 @@ import 'package:store_app/features/customer/main/presentation/cubit/main_cubit.d
 import 'package:store_app/features/customer/main/presentation/screens/main_screen.dart';
 import 'package:store_app/features/customer/products/presetnation/screens/product_details_screen.dart';
 import 'package:store_app/features/customer/products/presetnation/screens/view_all_products_screen.dart';
+import 'package:store_app/features/customer/search/presentation/screens/search_screen.dart';
 
 import '../../features/admin/home_admin/presentations/home_admin.dart';
 
@@ -65,6 +66,10 @@ class AppRouter {
       case Routes.viewAllProductsScreen:
         return BaseRoute(
           page: const ViewAllProductsScreen(),
+        );
+      case Routes.searchScreen:
+        return BaseRoute(
+          page: const SearchScreen(),
         );
 
       default:
