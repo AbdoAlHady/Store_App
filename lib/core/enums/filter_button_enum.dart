@@ -1,2 +1,2 @@
-enum FilterButtonEnum{name,price,none}
+enum FilterButtonEnum{name,price,none,saved}
   

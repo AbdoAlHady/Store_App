@@ -10,7 +10,7 @@ class  SearchRepo {
 
   SearchRepo(this._searchDataSource);
 
-  Future<ApiResult<GetAllProductsResponse>> searchCustomer(SearchRequestBody bodu) async {
+  Future<ApiResult<GetAllProductsResponse>> searchForProduct(SearchRequestBody bodu) async {
     try {
       final result = await _searchDataSource.searchForProduct(bodu);
       return ApiResult.success(result);

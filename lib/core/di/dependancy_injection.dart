@@ -35,6 +35,9 @@ import 'package:store_app/features/customer/products/presetnation/bloc/product_d
 import 'package:store_app/features/customer/profile/data/data_source/profile_data_source.dart';
 import 'package:store_app/features/customer/profile/data/repos/profile_repos.dart';
 import 'package:store_app/features/customer/profile/presentation/bloc/profile/profile_bloc.dart';
+import 'package:store_app/features/customer/search/data/data_source/search_data_source.dart';
+import 'package:store_app/features/customer/search/data/repos/search_repo.dart';
+import 'package:store_app/features/customer/search/presentation/bloc/search/search_bloc.dart';
 import '../../features/admin/add_categories/presentations/bloc/update_category_bloc/update_category_bloc.dart';
 import '../../features/admin/add_products/presentations/bloc/create_product_bloc/create_product_bloc.dart';
 import '../../features/admin/dashboard/presentations/bloc/categories_number/categories_number_bloc.dart';
@@ -63,6 +66,7 @@ Future<void> setupDependancyInjection() async {
   await _initHome();
   await _initProducts();
   await _initCategoryProducts();
+  await _initSearch();
 }
 
 Future<void> _initCore() async {
@@ -196,4 +200,13 @@ Future<void> _initCategoryProducts() async {
   getIt.registerLazySingleton(() => CategoryProductsRepo(getIt()));
   // Category Products Bloc
   getIt.registerFactory(() => CategoryProductsBloc(getIt()));
+}
+
+Future<void> _initSearch() async {
+  // Search Data Source
+  getIt.registerLazySingleton(() => SearchDataSource(getIt()));
+  // Search Repo
+  getIt.registerLazySingleton(() => SearchRepo(getIt()));
+  // Search Bloc
+  getIt.registerFactory(() => SearchBloc(getIt()));
 }

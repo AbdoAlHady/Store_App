@@ -3,12 +3,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_app/core/common/widgets/shimmer_effect.dart';
 
 class ProductsListLoadingShimmer extends StatelessWidget {
-  const ProductsListLoadingShimmer({super.key});
-
+  const ProductsListLoadingShimmer({super.key, this.isPaddeing = true});
+  final bool isPaddeing;
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 15.w),
+      padding:
+          isPaddeing ? EdgeInsets.symmetric(horizontal: 15.w) : EdgeInsets.zero,
       child: GridView.builder(
         shrinkWrap: true,
         padding: EdgeInsets.zero,
@@ -21,7 +22,7 @@ class ProductsListLoadingShimmer extends StatelessWidget {
           childAspectRatio: 165 / 250,
         ),
         itemBuilder: (context, index) {
-          return ShimmerEffect(width: 165.w, height: 250.h,borderRaduis: 20);
+          return ShimmerEffect(width: 165.w, height: 250.h, borderRaduis: 20);
         },
       ),
     );
