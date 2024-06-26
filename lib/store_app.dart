@@ -12,6 +12,7 @@ import 'package:store_app/core/routes/app_router.dart';
 import 'package:store_app/core/routes/routes.dart';
 import 'package:store_app/core/theme/app_theme.dart';
 import 'package:store_app/core/common/screens/no_network_screen.dart';
+import 'package:store_app/features/customer/favourites/presentation/cubit/favourites/favourites_cubit.dart';
 
 import 'core/helper/shared_prefrences_keys.dart';
 
@@ -24,12 +25,19 @@ class StoreApp extends StatelessWidget {
       valueListenable: ConnectivityController.instance.isConnected,
       builder: (context, value, child) {
         if (value) {
-          return BlocProvider(
-            create: (context) => getIt<AppCubit>()
+          return MultiBlocProvider(
+            providers:[
+              BlocProvider(
+                create: (context) =>getIt<AppCubit>()
               ..changeAppThemeMode(
                   sharedMode:
                       CacheHelper().getData(key: SharedPrefKeys.themeMode))
               ..getSavedLanguage(),
+
+            
+              ),
+              BlocProvider(create: (context) => getIt<FavouritesCubit>(),)
+            ], 
             child: ScreenUtilInit(
               designSize: const Size(375, 812),
               minTextAdapt: true,
