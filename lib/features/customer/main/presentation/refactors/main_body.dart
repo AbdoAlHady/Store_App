@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store_app/features/customer/favourites/favourites_screen.dart';
+import 'package:store_app/features/customer/favourites/presentation/screens/favourites_screen.dart';
 import 'package:store_app/features/customer/home/presentation/screens/home_screen.dart';
 import 'package:store_app/features/customer/main/presentation/cubit/main_cubit.dart';
 import 'package:store_app/features/customer/main/presentation/cubit/main_state.dart';

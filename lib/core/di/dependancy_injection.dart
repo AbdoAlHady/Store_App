@@ -26,6 +26,7 @@ import 'package:store_app/features/admin/users/presentations/delete_user/get_all
 import 'package:store_app/features/customer/categories/data/data_source/category_products_data_source.dart';
 import 'package:store_app/features/customer/categories/data/repos/category_products_repo.dart';
 import 'package:store_app/features/customer/categories/presentation/bloc/category_products/category_products_bloc.dart';
+import 'package:store_app/features/customer/favourites/presentation/cubit/favourites/favourites_cubit.dart';
 import 'package:store_app/features/customer/home/data/data_source/home_data_source.dart';
 import 'package:store_app/features/customer/home/data/repos/home_repo.dart';
 import 'package:store_app/features/customer/home/presentation/bloc/banners/banners_bloc.dart';
@@ -67,6 +68,7 @@ Future<void> setupDependancyInjection() async {
   await _initProducts();
   await _initCategoryProducts();
   await _initSearch();
+  await _initFavourites();
 }
 
 Future<void> _initCore() async {
@@ -209,4 +211,10 @@ Future<void> _initSearch() async {
   getIt.registerLazySingleton(() => SearchRepo(getIt()));
   // Search Bloc
   getIt.registerFactory(() => SearchBloc(getIt()));
+}
+
+Future<void> _initFavourites() async {
+
+  // Favourites Cubit
+  getIt.registerFactory(() => FavouritesCubit());
 }
