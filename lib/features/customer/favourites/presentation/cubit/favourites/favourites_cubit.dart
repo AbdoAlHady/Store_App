@@ -20,7 +20,7 @@ class FavouritesCubit extends Cubit<FavouritesState> {
         .toList()
         .indexWhere((element) => element.id == id);
     if (existIndex >= 0) {
-      await HiveDatabase().favouritesBox!.delete(existIndex);
+      await HiveDatabase().favouritesBox!.deleteAt(existIndex);
       getFavourites();
     } else {
       await HiveDatabase()

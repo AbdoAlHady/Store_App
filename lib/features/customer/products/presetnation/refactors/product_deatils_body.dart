@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store_app/core/common/widgets/app_share_button.dart';
 import 'package:store_app/core/common/widgets/custom_favourite_button.dart';
 import 'package:store_app/core/common/widgets/text_app.dart';
 import 'package:store_app/core/extensions/context_extension.dart';
+import 'package:store_app/core/extensions/string_extension.dart';
 import 'package:store_app/core/helper/spacing.dart';
 import 'package:store_app/core/styles/fonts/font_wight_helper.dart';
+import 'package:store_app/features/customer/favourites/presentation/cubit/favourites/favourites_cubit.dart';
+import 'package:store_app/features/customer/favourites/presentation/cubit/favourites/favourites_state.dart';
 import 'package:store_app/features/customer/products/data/models/product_details_response.dart';
 
 import '../widgets/product_image_slider.dart';
@@ -23,13 +27,31 @@ class ProductDeatilsBody extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // Share and favorite buttons 
-            const Row(
+             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 // Share Button
-                AppShareButton(size: 30),
+                const AppShareButton(size: 30),
                 // Favorite Button,
-                CustomFavouriteButton(size: 30),
+                BlocBuilder<FavouritesCubit, FavouritesState>(
+                  builder: (context, state) {
+                    return CustomFavouriteButton(
+                      size: 25,
+                      isFavourites: context
+                          .read<FavouritesCubit>()
+                          .isFavourites(productModel.id.toString()),
+                      onPressed: () async{
+                        await context.read<FavouritesCubit>().manageFavourites(
+                              id: productModel.id.toString(),
+                              name: productModel.title??'',
+                              image: productModel.images.first.imageProductFormat(),
+                              price: productModel.price.toString(),
+                              categoryName: productModel.category!.name??'',
+                            );
+                      },
+                    );
+                  },
+                ),
               ],
             ),
             verticalSpace(10),

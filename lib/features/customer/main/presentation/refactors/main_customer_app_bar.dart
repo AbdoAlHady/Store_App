@@ -20,44 +20,58 @@ class MainCustomerAppBar extends StatelessWidget
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<MainCubit, MainState>(
-      builder: (context, state) {
-        var cubit = context.read<MainCubit>();
-        return AppBar(
-          automaticallyImplyLeading: false,
-          backgroundColor: context.color.mainColor,
-          elevation: 0,
-          title: cubit.currentNavBarEnum != NavBarEnums.profile
-              ? Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    CustomFadeInRight(
-                      duration: 800,
-                      child: TextApp(
-                        text: context.translator(LangKeys.chooseProducts),
-                        style: context.textStyle.copyWith(
-                          fontSize: 20.sp,
-                          fontWeight: FontWeightHelper.bold,
-                          color: context.color.textColor,
-                        ),
-                      ),
+    return AppBar(
+        automaticallyImplyLeading: false,
+        backgroundColor: context.color.mainColor,
+        elevation: 0,
+        title: BlocBuilder<MainCubit, MainState>(builder: (context, state) {
+          var cubit = context.read<MainCubit>();
+          if (cubit.currentNavBarEnum == NavBarEnums.home) {
+            return Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                CustomFadeInRight(
+                  duration: 800,
+                  child: TextApp(
+                    text: context.translator(LangKeys.chooseProducts),
+                    style: context.textStyle.copyWith(
+                      fontSize: 20.sp,
+                      fontWeight: FontWeightHelper.bold,
+                      color: context.color.textColor,
                     ),
-                    CustomFadeInLeft(
-                      duration: 800,
-                      child: CustomGradientButton(
-                          child: Center(
-                            child: SvgPicture.asset(AppImages.search),
-                          ),
-                          onPressed: () {
-                            context.pushNamed(Routes.searchScreen);
-                          }),
-                    )
-                  ],
+                  ),
+                ),
+                CustomFadeInLeft(
+                  duration: 800,
+                  child: CustomGradientButton(
+                      child: Center(
+                        child: SvgPicture.asset(AppImages.search),
+                      ),
+                      onPressed: () {
+                        context.pushNamed(Routes.searchScreen);
+                      }),
                 )
-              : const SizedBox.shrink(),
-        );
-      },
-    );
+              ],
+            );
+          } else if (cubit.currentNavBarEnum == NavBarEnums.favourites) {
+            return CustomFadeInRight(
+              duration: 800,
+              child: Center(
+                child: TextApp(
+                  textAlign: TextAlign.center,
+                  text: 'Your Favourites',
+                  style: context.textStyle.copyWith(
+                    fontSize: 20.sp,
+                    fontWeight: FontWeightHelper.bold,
+                    color: context.color.textColor,
+                  ),
+                ),
+              ),
+            );
+          } else {
+            return const SizedBox.shrink();
+          }
+        }));
   }
 
   @override
