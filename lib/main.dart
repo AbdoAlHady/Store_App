@@ -13,6 +13,8 @@ import 'core/service/dynamic_link/dynamic_link.dart';
 import 'core/service/push_notification/firebase_cloud_messaging.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 
+import 'core/service/push_notification/local_notification_service.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -21,6 +23,7 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   // Initialize Notification
+  await LocalNotificationService().init();
   if (!kIsWeb) {
     await FireBaseCloudMessaging().init();
   }
