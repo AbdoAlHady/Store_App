@@ -2,6 +2,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:store_app/core/app/share_cubit/share_cubit.dart';
+import 'package:store_app/core/app/share_cubit/share_state.dart';
 import 'package:store_app/core/common/widgets/app_share_button.dart';
 import 'package:store_app/core/common/widgets/custom_conatiner_gradient_customer.dart';
 import 'package:store_app/core/common/widgets/custom_favourite_button.dart';
@@ -16,7 +18,7 @@ import 'package:store_app/features/customer/favourites/presentation/cubit/favour
 import 'package:store_app/features/customer/favourites/presentation/cubit/favourites/favourites_state.dart';
 
 class ProductsListItem extends StatelessWidget {
-  const ProductsListItem( 
+  const ProductsListItem(
       {super.key,
       required this.imageUrl,
       required this.title,
@@ -46,7 +48,51 @@ class ProductsListItem extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 //Share Button
-                const AppShareButton(size: 25),
+                BlocBuilder<ShareCubit, ShareState>(
+                  builder: (context, state) {
+                    return state.when(
+                      initial: () => AppShareButton(
+                        size: 25,
+                        onPressed: () {
+                          context.read<ShareCubit>().sendDynamicLinkProduct(
+                                productId: productId,
+                                title: title,
+                                imageUrl: imageUrl,
+                              );
+                        },
+                      ),
+                      loading: (id) {
+                        if (id == productId) {
+                          return Padding(
+                            padding:  EdgeInsets.only(left: 10.w),
+                            child:  SizedBox(
+                              height: 25.h,
+                              width: 25.w,
+                              child: CircularProgressIndicator(
+                                color: context.color.bluePinkLight,
+                              ),
+                            ),
+                          );
+                        } else {
+                          return AppShareButton(
+                            size: 25,
+                            onPressed: () {},
+                          );
+                        }
+                      },
+                      success: () => AppShareButton(
+                        size: 25,
+                        onPressed: () {
+                          context.read<ShareCubit>().sendDynamicLinkProduct(
+                                productId: productId,
+                                title: title,
+                                imageUrl: imageUrl,
+                              );
+                        },
+                      ),
+                    );
+                  },
+                ),
                 //Favorite Button,
                 BlocBuilder<FavouritesCubit, FavouritesState>(
                   builder: (context, state) {
@@ -55,7 +101,7 @@ class ProductsListItem extends StatelessWidget {
                       isFavourites: context
                           .read<FavouritesCubit>()
                           .isFavourites(productId.toString()),
-                      onPressed: () async{
+                      onPressed: () async {
                         await context.read<FavouritesCubit>().manageFavourites(
                               id: productId.toString(),
                               name: title,
