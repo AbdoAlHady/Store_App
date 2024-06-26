@@ -9,6 +9,7 @@ import 'package:store_app/core/service/hive/hive_database.dart';
 import 'package:store_app/firebase_options.dart';
 import 'package:store_app/store_app.dart';
 import 'core/di/dependancy_injection.dart';
+import 'core/service/dynamic_link/dynamic_link.dart';
 import 'core/service/push_notification/firebase_cloud_messaging.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 
@@ -29,6 +30,9 @@ void main() async {
 
   // Initialize Dependency Injection
   await setupDependancyInjection();
+
+  // Initialize Dynamic Link
+  await DynamicLink().initDynamicLink();
 
   // Setup Bloc Observer
   Bloc.observer = AppBlocObserver();
