@@ -5,6 +5,7 @@ import 'package:store_app/core/app/app_cubit/app_cubit.dart';
 import 'package:store_app/core/app/app_cubit/app_state.dart';
 import 'package:store_app/core/app/connectivity_controller.dart';
 import 'package:store_app/core/app/env_variables.dart';
+import 'package:store_app/core/app/share_cubit/share_cubit.dart';
 import 'package:store_app/core/di/dependancy_injection.dart';
 import 'package:store_app/core/helper/cahec_helper.dart';
 import 'package:store_app/core/language/app_localizations_setup.dart';
@@ -26,18 +27,19 @@ class StoreApp extends StatelessWidget {
       builder: (context, value, child) {
         if (value) {
           return MultiBlocProvider(
-            providers:[
+            providers: [
               BlocProvider(
-                create: (context) =>getIt<AppCubit>()
-              ..changeAppThemeMode(
-                  sharedMode:
-                      CacheHelper().getData(key: SharedPrefKeys.themeMode))
-              ..getSavedLanguage(),
-
-            
+                create: (context) => getIt<AppCubit>()
+                  ..changeAppThemeMode(
+                      sharedMode:
+                          CacheHelper().getData(key: SharedPrefKeys.themeMode))
+                  ..getSavedLanguage(),
               ),
-              BlocProvider(create: (context) => getIt<FavouritesCubit>(),)
-            ], 
+              BlocProvider(create: (context) => getIt<FavouritesCubit>()),
+              BlocProvider(
+                create: (context) => ShareCubit(),
+              )
+            ],
             child: ScreenUtilInit(
               designSize: const Size(375, 812),
               minTextAdapt: true,
