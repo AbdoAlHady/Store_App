@@ -1,29 +1,54 @@
 import 'package:flutter/material.dart';
 import 'package:store_app/core/extensions/context_extension.dart';
+import 'package:store_app/core/routes/routes.dart';
+import 'package:store_app/core/service/push_notification/local_notification_service.dart';
 import '../refactors/main_body.dart';
 import '../refactors/main_bottom_nav_bar.dart';
 import '../refactors/main_customer_app_bar.dart';
 
-class MainScreen extends StatelessWidget {
+class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
 
   @override
+  State<MainScreen> createState() => _MainScreenState();
+}
+
+class _MainScreenState extends State<MainScreen> {
+  @override
+  void initState() {
+    listenToNotification();
+    super.initState();
+  }
+
+  void listenToNotification() {
+    LocalNotificationService.streamController.stream.listen((event) {
+      if (int.parse(event.payload.toString()) != -1) {
+        context.pushNamed(Routes.productDetail,
+            argumnets: int.parse(event.payload.toString()));
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    LocalNotificationService.streamController.close();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       appBar: const MainCustomerAppBar(),
       body: Container(
-        constraints:const BoxConstraints.expand() ,
+        constraints: const BoxConstraints.expand(),
         decoration: BoxDecoration(
-         image: DecorationImage(
-           image: AssetImage(context.image.homeBg!),
-           fit: BoxFit.cover,
-         ),
+          image: DecorationImage(
+            image: AssetImage(context.image.homeBg!),
+            fit: BoxFit.cover,
+          ),
         ),
         child: const Column(
-          children: [
-            Expanded(child: MainBody()),
-            MainBottomNavBar()
-          ],
+          children: [Expanded(child: MainBody()), MainBottomNavBar()],
         ),
       ),
     );

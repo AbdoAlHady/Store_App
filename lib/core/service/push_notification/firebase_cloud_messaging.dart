@@ -5,6 +5,7 @@ import 'package:store_app/core/app/env_variables.dart';
 import 'package:store_app/core/extensions/context_extension.dart';
 import 'package:store_app/core/helper/show_toast.dart';
 import 'package:store_app/core/language/lang_keys.dart';
+import 'package:store_app/core/service/push_notification/fire_base_messaging_navigator.dart';
 
 class FireBaseCloudMessaging {
   FireBaseCloudMessaging._();
@@ -17,6 +18,15 @@ class FireBaseCloudMessaging {
 
   Future<void> init() async {
     await _permissionForNotification();
+
+    // Foreground Notification
+    FirebaseMessaging.onMessage.listen(FireBaseMessagingNavigator.forgroundHandler);
+
+    // Terminated Notification
+    await FirebaseMessaging.instance.getInitialMessage().then(FireBaseMessagingNavigator.termnatedHandler);
+
+    // Background Notification
+    FirebaseMessaging.onMessageOpenedApp.listen(FireBaseMessagingNavigator.backgroundHandler);
   }
 
   /// Permission To Notification
