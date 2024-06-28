@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 class LocalNotificationService {
@@ -22,11 +24,17 @@ class LocalNotificationService {
         onDidReceiveNotificationResponse: onTap);
   }
 
+  static StreamController<NotificationResponse> streamController =
+      StreamController();
   static void onTap(NotificationResponse response) {
     // Navigator
+    streamController.add(response);
   }
 
-  static Future<void> showSimpleNotification() async {
+  static Future<void> showSimpleNotification(
+      {required String title,
+      required String body,
+      required String payload}) async {
     const notificationDetails = NotificationDetails(
       android: AndroidNotificationDetails(
         'store-id',
@@ -40,11 +48,7 @@ class LocalNotificationService {
         presentSound: true,
       ),
     );
-    _flutterLocalNotificationsPlugin.show(
-      0,
-      'title',
-      'body',
-      notificationDetails,
-    );
+    _flutterLocalNotificationsPlugin.show(0, title, body, notificationDetails,
+        payload: payload);
   }
 }
