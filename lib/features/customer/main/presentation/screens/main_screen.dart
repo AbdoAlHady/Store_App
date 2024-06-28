@@ -16,13 +16,23 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   @override
   void initState() {
+    listenToNotification();
     super.initState();
   }
 
-  void listenToNotification() async {
+  void listenToNotification() {
     LocalNotificationService.streamController.stream.listen((event) {
-      context.pushNamed(Routes.productDetail, argumnets:int.parse(event.payload.toString()) );
+      if (int.parse(event.payload.toString()) != -1) {
+        context.pushNamed(Routes.productDetail,
+            argumnets: int.parse(event.payload.toString()));
+      }
     });
+  }
+
+  @override
+  void dispose() {
+    LocalNotificationService.streamController.close();
+    super.dispose();
   }
 
   @override

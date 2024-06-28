@@ -26,6 +26,7 @@ class LocalNotificationService {
 
   static StreamController<NotificationResponse> streamController =
       StreamController();
+      
   static void onTap(NotificationResponse response) {
     // Navigator
     streamController.add(response);

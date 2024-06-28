@@ -13,31 +13,33 @@ class FireBaseMessagingNavigator {
 
   // Forground Notification
   static Future<void> forgroundHandler(RemoteMessage? message) async {
-    if(message!=null){
+    if (message != null) {
       await LocalNotificationService.showSimpleNotification(
-        title: message.notification!.title!,
-        body: message.notification!.body!,
-        payload: message.data['productId'].toString());
+          title: message.notification!.title!,
+          body: message.notification!.body!,
+          payload: message.data['productId'].toString());
     }
   }
 
   // Background Notification
-  static Future<void> backgroundHandler(RemoteMessage? message) async {
+  static void backgroundHandler(RemoteMessage? message) async {
     if (message != null) {
       _navigate(message);
     }
   }
 
   static void _navigate(RemoteMessage? message) {
-    getIt<GlobalKey<NavigatorState>>().currentState!.context.pushNamed(
-          Routes.productDetail,
-          argumnets: int.parse(message!.data['productId'].toString()),
-        );
+    if (message!.data['productId'] != -1) {
+      getIt<GlobalKey<NavigatorState>>().currentState!.context.pushNamed(
+            Routes.productDetail,
+            argumnets: int.parse(message.data['productId'].toString()),
+          );
+    }
   }
 
   // Terminated Notification
-  static Future<void> termnatedHandler(RemoteMessage? message) async {
-     if (message != null) {
+  static void termnatedHandler(RemoteMessage? message) async {
+    if (message != null) {
       _navigate(message);
     }
   }

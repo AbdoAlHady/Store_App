@@ -11,7 +11,7 @@ import 'package:store_app/store_app.dart';
 import 'core/di/dependancy_injection.dart';
 import 'core/service/dynamic_link/dynamic_link.dart';
 import 'core/service/push_notification/firebase_cloud_messaging.dart';
-import 'package:flutter/foundation.dart' show kIsWeb;
+// import 'package:flutter/foundation.dart' show kIsWeb;
 
 import 'core/service/push_notification/local_notification_service.dart';
 
@@ -21,12 +21,11 @@ void main() async {
   await EnvVariables.instance.init(type: EnvTypeEnum.prod);
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
-  );
-  // Initialize Notification
-  await LocalNotificationService().init();
-  if (!kIsWeb) {
-    await FireBaseCloudMessaging().init();
-  }
+  ).whenComplete(() async {
+      await FireBaseCloudMessaging().init();
+      await LocalNotificationService().init();
+    
+  });
 
   // Initialize Shared Preferences
   await CacheHelper().init();
