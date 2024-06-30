@@ -1,7 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:store_app/core/networking/api_service.dart';
 import 'package:store_app/core/networking/graphql_quries/auth/auth_queries.dart';
+import 'package:store_app/core/utils/app_string.dart';
 import 'package:store_app/features/auth/data/models/login_request_body.dart';
 import 'package:store_app/features/auth/data/models/login_response.dart';
 import 'package:store_app/features/auth/data/models/sign_up_request_body.dart';
@@ -36,5 +38,13 @@ class AuthDataSource {
         await _apiService.signUp(AuthQueries().signUpMapQuery(body));
 
     return response;
+  }
+
+  // Add User Id To Firestore
+  Future<void>addUserIdToFirebase({required String userId})async{
+    final db= FirebaseFirestore.instance;
+    await db.collection(AppString.usersCollection).doc(userId).set({
+    });
+
   }
 }

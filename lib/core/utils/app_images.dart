@@ -5,8 +5,7 @@ class AppImages {
   static const pageUnderBuild = 'assets/images/core/page_under_build.jpg';
   static const emptyScreen = 'assets/images/core/empty_screen.png';
 
-
-    // Customer
+  // Customer
   static const userAvatar = 'assets/images/customer/user.png';
   static const bigIconNavBarDark =
       'assets/images/customer/big_nav_bar_dark.png';
@@ -28,6 +27,8 @@ class AppImages {
   static const profileTab = 'assets/svg/profile_tab_icon.svg';
   static const favouritesTab = 'assets/svg/favourite_tab_icon.svg';
   static const categoriesTab = 'assets/svg/categories_tap_icon.svg';
+  static const notificationsTab = 'assets/svg/notification_icon.svg';
+
   static const darkMode = 'assets/svg/dark_mode.svg';
   static const language = 'assets/svg/language.svg';
   static const buildVersion = 'assets/svg/build_version.svg';

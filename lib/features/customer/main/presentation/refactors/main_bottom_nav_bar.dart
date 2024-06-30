@@ -10,6 +10,7 @@ import 'package:store_app/features/customer/main/presentation/cubit/main_state.d
 import 'package:store_app/features/customer/main/presentation/widgets/icon_nav_bar.dart';
 
 import '../../../../../core/enums/nav_bar_enums.dart';
+import '../widgets/notification_bar_icon.dart';
 
 class MainBottomNavBar extends StatelessWidget {
   const MainBottomNavBar({super.key});
@@ -55,14 +56,16 @@ class MainBottomNavBar extends StatelessWidget {
                                     icon: AppImages.homeTab,
                                     isSelected: cubit.currentNavBarEnum == NavBarEnums.home,
                                   ),
-                                  // Categories Screen
-                                  IconNavBar(
+                                  // Notifications Screen,
+                                  GestureDetector(
                                     onTap: () {
-                                      cubit.changeNavBarIcon(NavBarEnums.categories);
+                                      cubit.changeNavBarIcon(NavBarEnums.notifications);
                                     },
-                                    icon: AppImages.categoriesTab,
-                                    isSelected: cubit.currentNavBarEnum == NavBarEnums.categories,
+                                    child: NotificationBarIcon(
+                                      isSelected: cubit.currentNavBarEnum == NavBarEnums.notifications,
+                                    ),
                                   ),
+                                 
                                   // Favourites Screen
                                   IconNavBar(
                                     onTap: () {
