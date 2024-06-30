@@ -49,6 +49,10 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             .saveData(key: SharedPrefKeys.userId, value: user.id ?? 0);
         await CacheHelper()
             .saveData(key: SharedPrefKeys.userRole, value: user.role ?? '');
+
+        if (user.role == 'customer') {
+          await _authRepo.addUserIdToFirebase(userId: user.id.toString());
+        }
         emit(AuthState.success(userRole: user.role ?? ''));
       },
       failure: (error) {

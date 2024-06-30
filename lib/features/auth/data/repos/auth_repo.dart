@@ -42,4 +42,9 @@ class AuthRepo {
       return const ApiResult.failure(AppString.errorMessage);
     }
   }
+
+  // Add User Id To Firestore
+  Future<void> addUserIdToFirebase({required String userId}) async {
+    await _authDataSource.addUserIdToFirebase(userId: userId);
+  }
 }

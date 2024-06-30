@@ -18,6 +18,8 @@ class SendNotificationBloc
     final result = await addNotificationRepo.sendNotification(
         title: event.title, body: event.body, productId: event.productId);
     result.when(success: (data) {
+      addNotificationRepo.addNotificationsToAllUsers(
+          body: event.body, title: event.title, productId: event.productId);
       emit(const SendNotificationState.success());
     }, failure: (message) {
       emit(SendNotificationState.failure(message: message));

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:store_app/core/common/widgets/empty_screen.dart';
 import 'package:store_app/core/extensions/string_extension.dart';
 import 'package:store_app/features/customer/home/presentation/bloc/home_products/home_products_bloc.dart';
 import 'package:store_app/features/customer/home/presentation/bloc/home_products/home_products_state.dart';
@@ -27,7 +28,7 @@ class ProductsList extends StatelessWidget {
                   shrinkWrap: true,
                   padding: EdgeInsets.zero,
                   physics: const NeverScrollableScrollPhysics(),
-                  itemCount: 10,
+                  itemCount:products.length< 10?products.length:10 ,
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2, //Number of cloums
                     crossAxisSpacing: 8, // Spacing between colums
@@ -47,7 +48,7 @@ class ProductsList extends StatelessWidget {
                 ),
               );
             },
-            empty: () => const SizedBox.shrink(),
+            empty: () => const EmptyScreen(),
             failure: Text.new);
       },
     );
