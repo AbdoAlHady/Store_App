@@ -22,6 +22,7 @@ class MainCustomerAppBar extends StatelessWidget
   Widget build(BuildContext context) {
     return AppBar(
         automaticallyImplyLeading: false,
+        surfaceTintColor: Colors.transparent,
         backgroundColor: context.color.mainColor,
         elevation: 0,
         title: BlocBuilder<MainCubit, MainState>(builder: (context, state) {
@@ -60,6 +61,21 @@ class MainCustomerAppBar extends StatelessWidget
                 child: TextApp(
                   textAlign: TextAlign.center,
                   text: 'Your Favourites',
+                  style: context.textStyle.copyWith(
+                    fontSize: 20.sp,
+                    fontWeight: FontWeightHelper.bold,
+                    color: context.color.textColor,
+                  ),
+                ),
+              ),
+            );
+          } else if (cubit.currentNavBarEnum == NavBarEnums.notifications) {
+            return CustomFadeInRight(
+              duration: 800,
+              child: Center(
+                child: TextApp(
+                  textAlign: TextAlign.center,
+                  text: 'Notifications',
                   style: context.textStyle.copyWith(
                     fontSize: 20.sp,
                     fontWeight: FontWeightHelper.bold,
